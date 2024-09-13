@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <title>curriculum vitae</title>
+    </head>
+    <body>       
+        <!-- SECCION INICIO -->
+        <section class="inicio" id="inicio">
+            <div class="contenido-seccion">
+                <header>
+                    <div class="nav-bar" onclick="showHideMenu()">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <nav id="nav" class="nav">
+                        <a href="#inicio" data-section="menu" data-value="home">Inicio</a>
+                        <a href="#sobremi" data-section="menu" data-value="aboutme">Sobre mi</a>
+                        <a href="#habilidades" data-section="menu" data-value="skills">Habilidades</a>
+                        <a href="#resumen" data-section="menu" data-value="resumen">Resumen</a>
+                        <a href="#contacto" data-section="menu" data-value="contact">Contacto</a>
+                    </nav>
+                    <div class="logo">
+                        D<span class="color">C</span>
+                    </div>
+                    <!-- CAMBIO IDIOMA -->
+                    <div id="flags" class="flags">
+                        <div class="flags__item" data-language="es">
+                            <img src="img/es.svg" alt=""/>
+                        </div>
+                        <div class="flags__item" data-language="en">
+                            <img src="img/gb.svg" alt=""/>
+                        </div>
+                    </div>
+                </header>
+                <div class="info">
+                    <h1>DANIEL CARRIÓN</h1>
+                    <h2 data-section="header" data-value="rol">INGENIERO, PROGRAMADOR, PROFESIONAL</h2>
+                    <div class="redes">
+                        <a href="https://www.youtube.com/@danrodcar"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/in/dani-rodriguez-carri%C3%B3n-a55973121/"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://github.com/DaniCampusIoT"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="foto">
+                    <img src="img/foto.jpeg" alt="">
+                </div>
+            </div>
+        </section>
+        
+        <!-- SECCION SOBRE MI -->
+        <section class="sobremi" id="sobremi">
+            <div class="contenido-seccion">
+                <h2 class="titulo-seccion" data-section="aboutme" data-value="aboutme-first-title">Sobre Mi</h2>
+                <h3 data-section="aboutme" data-value="aboutme-second-title">Detalles personales</h3>
+                <p class="especial" data-section="aboutme" data-value="aboutme-third-title">Me dedico a innovar y producir ideas creativas y originales</p>
+                <p data-section="aboutme" data-value="aboutme-first-paragraph">Ingeniero electrónico, robótico y mecatrónico con amplia experiencia en varios entornos de programación y 
+                simulación así como con herramientas de diseño CAD. Soy un apasionado de la programación en SoC y webs, edición e
+                impresión 3D y todo lo relacionado con el mundo del IoT.</p>
+                <div class="fila">
+                    <div class="col">
+                        <i class="fa-solid fa-user"></i>
+                        <span class="titulo-detalle" data-section="aboutme" data-value="aboutme-profile">Perfil</span>
+                        <p data-section="aboutme" data-value="aboutme-profile-text">Me considero una persona responsable, dinámica y creativa, con facilidad de adaptación y capacidad de trabajar en equipo,
+                            en condiciones de alta presión, con iniciativa para resolver problemas eficientemente y lograr las metas y objetivos trazados por la empresa.
+                        </p>
+                    </div>
+                    <div class="col">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span class="titulo-detalle" data-section="aboutme" data-value="aboutme-location">Ubicacion</span>
+                        <p>C/Candilas, San Cristóbal de La Laguna</p>
+                        <p>Santa Cruz de Tenerife</p>
+                        <p data-section="aboutme" data-value="aboutme-location-text">España</p>
+                    </div>
+                    <div class="col">
+                        <i class="fa-solid fa-flag"></i>
+                        <span class="titulo-detalle" data-section="aboutme" data-value="aboutme-interest">Intereses</span>
+                        <p data-section="aboutme" data-value="aboutme-interest-text">
+                            Programación<br>Diseño PCB<br>Cocinar<br>Trekking<br>Diseño 3D
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCION HABILIDADES -->
+        <section class="habilidades" id="habilidades">
+            <div class="contenido-seccion">
+                <h2 class="titulo-seccion" data-section="skills" data-value="skills-first-title">Mis habilidades</h2>
+                <h3 data-section="skills" data-value="skills-second-title">Me especializo en</h3>
+
+                <div class="fila">
+                    <div class="col">
+                        <span data-section="skills" data-value="first-skill">Electrónica y diseño PCB</span>
+                        <div class="cont-barra">
+                            <div class="barra" id="electronica">
+                                <!-- mediante js luego generaremos 17 barritas con clase e -->
+                                
+                            </div>
+                            <span>80%</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <span>C/C++</span>
+                        <div class="cont-barra">
+                            <div class="barra" id="cpp">
+                                <!-- mediante js luego generaremos 17 barritas con clase e -->
+                                
+                            </div>
+                            <span>88%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fila">
+                    <div class="col">
+                        <span data-section="skills" data-value="second-skill">Robótica y Control</span>
+                        <div class="cont-barra">
+                            <div class="barra" id="robotica">
+                                <!-- mediante js luego generaremos 17 barritas con clase e -->
+                                
+                            </div>
+                            <span>75%</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <span>CATIA V5</span>
+                        <div class="cont-barra">
+                            <div class="barra" id="catia">
+                                <!-- mediante js luego generaremos 17 barritas con clase e -->
+                                
+                            </div>
+                            <span>80%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fila">
+                    <div class="col">
+                        <span>IoT</span>
+                        <div class="cont-barra">
+                            <div class="barra" id="iot">
+                                <!-- mediante js luego generaremos 17 barritas con clase e -->
+                                
+                            </div>
+                            <span>80%</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <span data-section="skills" data-value="third-skill">IMPRESIÓN 3D</span>
+                        <div class="cont-barra">
+                            <div class="barra" id="impresion3d">
+                                <!-- mediante js luego generaremos 17 barritas con clase e -->
+                                
+                            </div>
+                            <span>95%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCION RESUMEN -->
+        <section class="resumen" id="resumen">
+            <div class="contenido-seccion">
+                <h2 class="titulo-seccion" data-section="resumen" data-value="resumen-first-title">Resumen</h2>
+                <h3 data-section="resumen" data-value="resumen-second-title">Mi preparación y experiencia</h3>
+                <div class="info">
+                    <div class="col">
+                        <span class="titulo" data-section="education" data-value="main-title">Educación</span>
+                        <table>
+                            <tr>
+                                <td class="datos">
+                                    <h3 data-section="education" data-value="first-education-dates">SEPT 2015 - SEPT 2021</h3>
+                                </td>
+                                <td rowspan="2" class="descripcion" data-section="education" data-value="first-education-description">
+                                    Con mención en Robótica y Automatización y matrícula de honor en Informática industrial. 2º Premio  BIZINTEK 22/23 al Proyecto Fin de Grado.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 data-section="education" data-value="first-education-title">Grad. Ingeniería electrónica, robótica y mecatrónica</h4>
+                                    <p data-section="education" data-value="first-education-place">Universidad de Sevilla-Malaga</p>
+                                    <!-- <span class="promedio">6,57</span> -->                                   
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td class="datos">
+                                    <h3 data-section="education" data-value="second-education-dates">MAR 2019 - OCT 2020</h3>
+                                </td>
+                                <td rowspan="2" class="descripcion" class="descripcion" data-section="education" data-value="second-education-description">
+                                    Curso de programación full-stack en el que aprendí a programar en HTML (V5), y utilizar los lenguajes más usados para la edición y
+                                    administración web actuales, como son PHP, JavaScript, MySQL y CSS.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 class="descripcion" data-section="education" data-value="second-education-title">Programador en PHP, JAVASCRIPT y MySQL</h4>
+                                    <p class="descripcion" data-section="education" data-value="second-education-place">DEUSTO FORMACIÓN</p>
+                                    <span class="promedio" data-section="education" data-value="second-education-notes">9.6</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td class="datos">
+                                    <h3 data-section="education" data-value="third-education-dates">ENE 2019 - AGO 2019</h3>
+                                </td>
+                                <td rowspan="2" class="descripcion" data-section="education" data-value="third-education-description">
+                                    Curso en el que aprendí legislatura, manejo y procedimientos como piloto de RPAS de aeronaves multirrotor o "drones" y 
+                                    radiofonista operativo para vuelos en CTR con RPAS.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 data-section="education" data-value="third-education-title">Piloto RPAS y radiofonista</h4>
+                                    <p data-section="education" data-value="third-education-place">Aerocamaras</p>
+                                    <span class="promedio" data-section="education" data-value="third-education-notes"> Habilitación A1/A3, A2 y STS</span>
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td class="datos">
+                                    <h3 data-section="education" data-value="fourth-education-dates">OCT 2022 - SEPT 2023</h3>
+                                </td>
+                                <td rowspan="2" class="descripcion" data-section="education" data-value="fourth-education-description">
+                                    Máster que profundiza en en las metodologías y tecnologías que permitirá la creación de productos avanzados y sistemas de ingeniería que están 
+                                    vinculados por la combinación sinérgica de tecnologías mecánica, electrónica, eléctrica, control e informática. 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 data-section="education" data-value="fourth-education-title">Máster en Ingeniería mecatrónica</h4>
+                                    <p data-section="education" data-value="fourth-education-place">Universidad de Malaga</p>
+                                    <!-- <span class="promedio">7,86</span>-->                                    
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td class="datos">
+                                    <h3 data-section="education" data-value="fifth-education-dates">ABR 2022 - MAY 2023</h3>
+                                </td>
+                                <td rowspan="2" class="descripcion" data-section="education" data-value="fifth-education-description">
+                                    Máster en energía solar, centrada en sistemas fotovoltaicos, 
+                                    tratando varios de sus aspectos como el aprovechamiento del sol, 
+                                    las características de las células fotovoltaica, su legislación, 
+                                    aplicaciones, riesgos laborales e impacto ambiental. 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 data-section="education" data-value="fifth-education-title">Master en Gestión de Proyectos de Instalaciones Solares Fotovoltaicas: Solar Project Management</h4>
+                                    <p data-section="education" data-value="fifth-education-place">EUROINNOVA BUSINESS SCHOOL</p>
+                                    <span class="promedio" data-section="education" data-value="fifth-education-notes">Sobresaliente</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col">
+                        <span class="titulo" data-section="experience" data-value="main-title">Experiencia laboral</span>
+                        <table>
+                            <tr>
+                                <td class="datos">
+                                    <h3 data-section="experience" data-value="first-experience-dates">ABR 2019 - ENE 2020</h3>
+                                </td>
+                                <td rowspan="2" class="descripcion" data-section="experience" data-value="first-experience-description">
+                                    Empleado en SITER 2000 donde aprendí a editar y revisar 
+                                    documentación de proyectos como As-built de empresas
+                                    relacionadas con la instalación de APs en colegios y espacios públicos.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 data-section="experience" data-value="first-experience-title">Auxiliar aministrativo</h4>
+                                    <p data-section="experience" data-value="first-experience-place">SITER 2000</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td class="datos">
+                                    <h3 data-section="experience" data-value="second-experience-dates">FEB 2022 - NOV 2022</h3>
+                                </td>
+                                <td rowspan="2" class="descripcion" data-section="experience" data-value="second-experience-description">
+                                    Trabajo como personal técnico en el proyecto HORTSOST II del plan propio de SMART-CAMPUS de la Universidad de Málaga
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 data-section="experience" data-value="second-experience-title">Personal técnico</h4>
+                                    <p data-section="experience" data-value="second-experience-place">DPTO. ARQUITECTURA COMPUTADORES, UMA</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <td class="datos">
+                                    <h3 data-section="experience" data-value="third-experience-dates">MAR 2023 - SEPT 2024</h3>
+                                </td>
+                                <td rowspan="2" class="descripcion" data-section="experience" data-value="third-experience-description">
+                                    Trabajo como investigador en temas relacionados con computación de altas prestaciones (RISC-V) y dispositivos sensores enfocados en IoT (radares, topologías de redes)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h4 data-section="experience" data-value="third-experience-title">Titulado superior Investigación</h4>
+                                    <p data-section="experience" data-value="third-experience-place">DPTO. ARQUITECTURA COMPUTADORES, UMA</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCION CONTACTO -->
+        <section class="contacto" id="contacto">
+            <div class="contenido-seccion">
+                <h2 class="titulo-seccion" data-section="contact" data-value="main-title">Contacto</h2>
+                <h3 data-section="contact" data-value="first-title">Ponte en contacto ahora mismo</h3>
+                <div class="fila">
+                    <div class="col">
+                        <h2 data-section="contact" data-value="phone-title">
+                            <i class="fa-solid fa-phone"></i> Teléfono
+                        </h2>
+                        <span class="info-contacto">(+34) 722678959</span>
+                    </div>
+                    <div class="col">
+                        <h2 data-section="contact" data-value="mail-title">
+                            <i class="fa-solid fa-envelope"></i> Correo
+                        </h2>
+                        <span class="info-contacto">carrion024@hotmail.com</span>
+                    </div>
+                    <div class="col">
+                        <h2 data-section="contact" data-value="webpage-title">
+                            <i class="fa-solid fa-globe"></i> Página web
+                        </h2>
+                        <span class="info-contacto">carrion024@hotmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="js/app.js"></script>
+    </body>
+</html>
+

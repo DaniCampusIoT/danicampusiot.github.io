@@ -1,0 +1,86 @@
+{
+    "menu":{
+        "home":"Home",
+        "aboutme":"About me",
+        "skills":"Skills",
+        "resumen":"Overview",
+        "contact":"Contact"
+    },
+    "header":{
+        "rol": "ENGINEER, PROGRAMMER, PROFESSIONAL"
+    },
+    "aboutme":{
+        "aboutme-first-title":"About Me",
+        "aboutme-second-title":"PERSONAL DETAILS",
+        "aboutme-third-title": "I am dedicated to innovate and produce creative and original ideas",
+        "aboutme-first-paragraph": "Electronics, robotics and mechatronics engineer with extensive experience in various programming and simulation environments as well as with CAD design tools. I am passionate about SoC and web programming, 3D design and everything related to the IoT world.",
+        "aboutme-profile": "Profile",
+        "aboutme-location": "Location",
+        "aboutme-interest": "Interests",
+        "aboutme-profile-text": "I consider myself a responsible, dynamic and creative person, with ease of adaptation and ability to work in a team, under high pressure conditions, with initiative to solve problems efficiently and achieve the goals and objectives set by the company.",
+        "aboutme-location-text": "Spain",
+        "aboutme-interest-text": "Programming<br>PCB Design<br>Cooking<br>Trekking<br>3D Design"
+    },
+    "skills":{
+        "skills-first-title": "MySkills",
+        "skills-second-title": "I SPECIALIZE IN",
+        "first-skill": "Electronics and PCB design",
+        "second-skill": "Robotics and Control",
+        "third-skill" : "3D-Printing"
+    },
+    "resumen":{
+        "resumen-first-title":"Overview",
+        "resumen-second-title":"My preparation and experience"
+    },
+    "education":{
+        "main-title":"Education",
+        "first-education-title": "Grad. Electronic engineering, robotics and mechatronics",
+        "first-education-place": "University of Seville-Malaga",
+        "first-education-notes":"",
+        "first-education-dates":"SEPT 2015 - SEPT 2021",
+        "first-education-description": "With mention in Robotics and Automation and honors in Industrial Informatics. 2nd Prize BIZINTEK 22/23 to the End of Degree Project.",
+        "second-education-title": "Programmer in PHP, JAVASCRIPT and MySQL",
+        "second-education-place": "DEUSTO FORMACIÓN",
+        "second-education-notes": "9.6",
+        "second-education-dates":"MAR 2019 - OCT 2020",
+        "second-education-description": "Full-stack programming course in which I learned to program in HTML (V5), and to use the most used languages for current web editing and administration, such as PHP, JavaScript, MySQL and CSS. ",
+        "third-education-title": "RPAS pilot and radio broadcaster",
+        "third-education-place": "Aerocameras",
+        "third-education-notes": "A1/A3, A2 and STS ratings",
+        "third-education-dates": "JAN 2019-AUG 2019",
+        "third-education-description": "Course in which I learned legislature, handling and procedures as a RPAS pilot of multi-rotor aircraft and operational radio operator for flights in CTR with RPAS. ",
+        "fourth-education-title": "Master in Mechatronics Engineering",
+        "fourth-education-place": "University of Malaga",
+        "fourth-education-notes":"",
+        "fourth-education-dates":"OCT 2022 - SEPT 2023",
+        "fourth-education-description": "Master's degree that delves into the methodologies and technologies that will enable the creation of advanced products and engineering systems that are linked by the synergistic combination of mechanical, electronic, electrical, control and computer technologies. ",
+        "fifth-education-title": "Master in Project Management of Solar Photovoltaic Installations: Solar Project Management",
+        "fifth-education-place": "EUROINNOVA BUSINESS SCHOOL",
+        "fifth-education-notes": "Outstanding",
+        "fifth-education-dates":"APR 2022 - MAY 2023",
+        "fifth-education-description": "Master in solar energy, focused on photovoltaic systems, dealing with several of its aspects such as the use of the sun, the characteristics of photovoltaic cells, its legislation, applications, occupational hazards and environmental impact. "
+    },
+    "experience":{
+        "main-title":"Work experience",
+        "first-experience-title": "Administrative Assistant",
+        "first-experience-place": "SITER 2000",
+        "first-experience-dates": "APR 2019 - JAN 2020",
+        "first-experience-description": "Employed at SITER 2000 where I learned to edit and review project documentation as As-built from companies related to the installation of PAs in schools and public spaces. ",
+        "second-experience-title": "Technical staff",
+        "second-experience-place": "COMPUTERS ARCHITECTURE DEPT., UMA",
+        "second-experience-dates": "FEB 2022 - NOV 2022",
+        "second-experience-description": "I work as technical staff in the HORTSOST II project of the SMART-CAMPUS own plan of the University of Malaga ",
+        "third-experience-title": "Researcher",
+        "third-experience-place": "COMPUTERS ARCHITECTURE DEPT., UMA",
+        "third-experience-dates": "MAR 2023 - SEPT 2024",
+        "third-experience-description": "I work as a researcher on topics related to high performance computing (RISC-V) and IoT focused sensor devices (radars, network topologies)."
+    },
+    "contact":{
+        "main-title": "Contact",
+        "first-title": "GET IN TOUCH NOW",
+        "phone-title": "Phone",
+        "mail-title": "Mail",
+        "webpage-title": "Website"
+    }
+}
+

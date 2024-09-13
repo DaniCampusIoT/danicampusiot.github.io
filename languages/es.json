@@ -1,0 +1,86 @@
+{
+    "menu":{
+        "home":"Inicio",
+        "aboutme":"Sobre mi",
+        "skills":"Habilidades",
+        "resumen":"Resumen",
+        "contact":"Contacto"
+    },
+    "header":{
+        "rol": "INGENIERO, PROGRAMADOR, PROFESIONAL"
+    },
+    "aboutme":{
+        "aboutme-first-title": "Sobre Mi",
+        "aboutme-second-title": "DETALLES PERSONALES",
+        "aboutme-third-title": "Me dedico a innovar y producir ideas creativas y originales",
+        "aboutme-first-paragraph": "Ingeniero electrónico, robótico y mecatrónico con amplia experiencia en varios entornos de programación y simulación así como con herramientas de diseño CAD. Soy un apasionado de la programación en SoC y webs, edición e impresión 3D y todo lo relacionado con el mundo del IoT.",
+        "aboutme-profile": "Perfil",
+        "aboutme-profile-text": "Me considero una persona responsable, dinámica y creativa, con facilidad de adaptación y capacidad de trabajar en equipo, en condiciones de alta presión, con iniciativa para resolver problemas eficientemente y lograr las metas y objetivos trazados por la empresa. ",
+        "aboutme-location": "Ubicacion",
+        "aboutme-location-text": "España",
+        "aboutme-interest": "Intereses",
+        "aboutme-interest-text": "Programación<br>Diseño PCB<br>Cocinar<br>Trekking<br>Diseño 3D"
+    },
+    "skills":{
+        "skills-first-title": "Mis Habilidades",
+        "skills-second-title": "ME ESPECIALIZO EN",
+        "first-skill": "Electrónica y diseño PCB",
+        "second-skill": "Robótica y Control",
+        "third-skill" : "Impresión 3D"
+    },
+    "resumen":{
+        "resumen-first-title":"Resumen",
+        "resumen-second-title":"Mi preparación y experiencia"
+    },
+    
+    "education":{
+        "main-title":"Educación",
+        "first-education-title":"Grad. Ingeniería electrónica, robótica y mecatrónica",
+        "first-education-place":"Universidad de Sevilla-Malaga",
+        "first-education-notes":"",
+        "first-education-dates":"SEPT 2015 - SEPT 2021",
+        "first-education-description":"Con mención en Robótica y Automatización y matrícula de honor en Informática industrial. 2º Premio BIZINTEK 22/23 al Proyecto Fin de Grado.",
+        "second-education-title":"Programador en PHP, JAVASCRIPT y MySQL",
+        "second-education-place":"DEUSTO FORMACIÓN",
+        "second-education-notes":"9.6",
+        "second-education-dates":"MAR 2019 - OCT 2020",
+        "second-education-description":"Curso de programación full-stack en el que aprendí a programar en HTML (V5), y utilizar los lenguajes más usados para la edición y administración web actuales, como son PHP, JavaScript, MySQL y CSS. ",
+        "third-education-title":"Piloto RPAS y radiofonista",
+        "third-education-place":"Aerocamaras",
+        "third-education-notes":"Habilitación A1/A3, A2 y STS",
+        "third-education-dates":"ENE 2019-AGO 2019",
+        "third-education-description":"Curso en el que aprendí legislatura, manejo y procedimientos como piloto de RPAS de aeronaves multirrotor y radiofonista operativo para vuelos en CTR con RPAS. ",
+        "fourth-education-title":"Máster en Ingeniería mecatrónica",
+        "fourth-education-place":"Universidad de Malaga",
+        "fourth-education-notes":"",
+        "fourth-education-dates":"OCT 2022 - SEPT 2023",
+        "fourth-education-description":"Máster que profundiza en en las metodologías y tecnologías que permitirá la creación de productos avanzados y sistemas de ingeniería que están vinculados por la combinación sinérgica de tecnologías mecánica, electrónica, eléctrica, control e informática. ",
+        "fifth-education-title":"Master en Gestión de Proyectos de Instalaciones Solares Fotovoltaicas: Solar Project Management",
+        "fifth-education-place":"EUROINNOVA BUSINESS SCHOOL",
+        "fifth-education-notes":"Sobresaliente",
+        "fifth-education-dates":"ABR 2022 - MAY 2023",
+        "fifth-education-description":"Máster en energía solar, centrada en sistemas fotovoltaicos, tratando varios de sus aspectos como el aprovechamiento del sol, las características de las células fotovoltaica, su legislación, aplicaciones, riesgos laborales e impacto ambiental. "
+    },
+    "experience":{
+        "main-title":"Experiencia laboral",
+        "first-experience-title":"Auxiliar aministrativo",
+        "first-experience-place":"SITER 2000",
+        "first-experience-dates":"ABR 2019 - ENE 2020",
+        "first-experience-description":"Empleado en SITER 2000 donde aprendí a editar y revisar documentación de proyectos como As-built de empresas relacionadas con la instalación de APs en colegios y espacios públicos. ",
+        "second-experience-title":"Personal técnico",
+        "second-experience-place":"DPTO. ARQUITECTURA COMPUTADORES, UMA",
+        "second-experience-dates":"FEB 2022 - NOV 2022",
+        "second-experience-description":"Trabajo como personal técnico en el proyecto HORTSOST II del plan propio de SMART-CAMPUS de la Universidad de Málaga ",
+        "third-experience-title":"Investigador",
+        "third-experience-place":"DPTO. ARQUITECTURA COMPUTADORES, UMA",
+        "third-experience-dates":"MAR 2023 - SEPT 2024",
+        "third-experience-description":"Trabajo como investigador en temas relacionados con computación de altas prestaciones (RISC-V) y dispositivos sensores enfocados en IoT (radares, topologías de redes)"
+    },
+    "contact":{
+        "main-title": "Contacto",
+        "first-title": "PONTE EN CONTACTO AHORA MISMO",
+        "phone-title": "Teléfono",
+        "mail-title": "Correo",
+        "webpage-title": "Página web"
+    }
+}
