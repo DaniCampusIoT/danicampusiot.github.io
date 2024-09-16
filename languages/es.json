@@ -71,11 +71,15 @@
         "second-experience-place":"DPTO. ARQUITECTURA COMPUTADORES, UMA",
         "second-experience-dates":"FEB 2022 - NOV 2022",
         "second-experience-description":"Trabajo como personal técnico en el proyecto HORTSOST II del plan propio de SMART-CAMPUS de la Universidad de Málaga ",
-        "third-experience-title":"Investigador",
+        "third-experience-title":"Titulado superior Investigación (Investigador)",
         "third-experience-place":"DPTO. ARQUITECTURA COMPUTADORES, UMA",
-        "third-experience-dates":"MAR 2023 - SEPT 2024",
-        "third-experience-description":"Trabajo como investigador en temas relacionados con computación de altas prestaciones (RISC-V) y dispositivos sensores enfocados en IoT (radares, topologías de redes)"
-    },
+        "third-experience-dates":"MAR 2023 - FEB 2024",
+        "third-experience-description":"Trabajo como investigador en temas relacionados con computación de altas prestaciones (RISC-V) y dispositivos sensores enfocados en IoT (radares, topologías de redes)",    
+        "fourth-experience-title":"Personal investigador formación en prácticas (Investigador)",
+        "fourth-experience-place":"DPTO. ARQUITECTURA COMPUTADORES, UMA",
+        "fourth-experience-dates":"MAR 2024 - SEPT 2024",
+        "fourth-experience-description":"Continua mi trabajo como investigador en temas relacionados con computación de altas prestaciones (RISC-V) y dispositivos sensores enfocados en IoT (radares, topologías de redes)"
+        },
     "contact":{
         "main-title": "Contacto",
         "first-title": "PONTE EN CONTACTO AHORA MISMO",

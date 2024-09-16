@@ -70,10 +70,15 @@
         "second-experience-place": "COMPUTERS ARCHITECTURE DEPT., UMA",
         "second-experience-dates": "FEB 2022 - NOV 2022",
         "second-experience-description": "I work as technical staff in the HORTSOST II project of the SMART-CAMPUS own plan of the University of Malaga ",
-        "third-experience-title": "Researcher",
+        "third-experience-title": "Senior Research Graduate (Researcher)",
         "third-experience-place": "COMPUTERS ARCHITECTURE DEPT., UMA",
-        "third-experience-dates": "MAR 2023 - SEPT 2024",
-        "third-experience-description": "I work as a researcher on topics related to high performance computing (RISC-V) and IoT focused sensor devices (radars, network topologies)."
+        "third-experience-dates": "MAR 2023 - FEB 2024",
+        "third-experience-description": "I work as a researcher on topics related to high performance computing (RISC-V) and IoT focused sensor devices (radars, network topologies).",
+        "fourth-experience-title":"Research personnel training in internships (Researcher)",
+        "fourth-experience-place":"COMPUTERS ARCHITECTURE DEPT., UMA",
+        "fourth-experience-dates":"MAR 2024 - SEPT 2024",
+        "fourth-experience-description":"I continue my work as a researcher on topics related to high performance computing (RISC-V) and IoT focused sensor devices (radars, network topologies)."
+        
     },
     "contact":{
         "main-title": "Contact",
