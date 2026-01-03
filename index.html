@@ -2,25 +2,26 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Daniel Carrión — Portfolio</title>
   <meta name="description" content="Portfolio/CV de Daniel Carrión: ingeniería, programación, IoT y experiencia profesional." />
   <meta name="theme-color" content="#7c1d7e" />
 
-  <!-- Font Awesome (sin integrity para evitar bloqueos por SRI) -->
+  <!-- Font Awesome -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
-  <a class="skip-link" href="#inicio">Saltar al contenido</a>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
 
   <header class="site-header" id="top">
     <div class="container header-inner">
@@ -28,12 +29,14 @@
         <span class="brand-mark">D<span class="brand-accent">C</span></span>
       </a>
 
-      <button class="icon-btn burger"
-              id="burger"
-              type="button"
-              aria-label="Abrir menú"
-              aria-expanded="false"
-              aria-controls="primary-nav">
+      <button
+        class="icon-btn burger"
+        id="burger"
+        type="button"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+      >
         <i class="fa-solid fa-bars" aria-hidden="true"></i>
       </button>
 
@@ -65,7 +68,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main" tabindex="-1">
     <!-- HERO -->
     <section class="section hero" id="inicio">
       <div class="container hero-grid">
@@ -79,22 +82,40 @@
 
           <div class="cta-row">
             <a id="downloadCv" href="drc_cv_es.pdf" class="btn primary" download>
-            <i class="fa-solid fa-file-arrow-down"></i>
-            <span data-section="header" data-value="download-cv">Descargar CV</span>
+              <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+              <span data-section="header" data-value="download-cv">Descargar CV</span>
             </a>
             <a href="#contacto" class="btn">
-            <span data-section="header" data-value="contact-cta">Contacto</span>
+              <span data-section="header" data-value="contact-cta">Contacto</span>
             </a>
-         </div>
+          </div>
 
           <div class="social" aria-label="Redes y enlaces">
-            <a class="social-link" href="https://www.youtube.com/@danrodcari" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <a
+              class="social-link"
+              href="https://www.youtube.com/@danrodcari"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
               <i class="fa-brands fa-youtube" aria-hidden="true"></i>
             </a>
-            <a class="social-link" href="https://www.linkedin.com/in/dani-rodriguez-carri%C3%B3n-a55973121/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a
+              class="social-link"
+              href="https://www.linkedin.com/in/dani-rodriguez-carri%C3%B3n-a55973121/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
               <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
             </a>
-            <a class="social-link" href="https://github.com/DaniCampusIoT" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a
+              class="social-link"
+              href="https://github.com/DaniCampusIoT"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
               <i class="fa-brands fa-github" aria-hidden="true"></i>
             </a>
           </div>
@@ -145,28 +166,31 @@
           </div>
 
           <div class="card">
-  <h3 class="card-title">
-    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-    <span data-section="aboutme" data-value="aboutme-location">Ubicacion</span>
-  </h3>
+            <h3 class="card-title">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              <span data-section="aboutme" data-value="aboutme-location">Ubicacion</span>
+            </h3>
 
-  <p class="muted" data-section="aboutme" data-value="aboutme-location-text">Málaga, España</p>
+            <p class="muted" data-section="aboutme" data-value="aboutme-location-text">Málaga, España</p>
 
-  <div class="map-embed" aria-label="Mapa de Málaga">
-    <iframe
-      title="Mapa: Málaga"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      src="https://www.openstreetmap.org/export/embed.html?bbox=-4.4500%2C36.7100%2C-4.3900%2C36.7400&amp;layer=mapnik&amp;marker=36.7213%2C-4.4214">
-    </iframe>
-  </div>
+            <div class="map-embed" aria-label="Mapa de Málaga">
+              <iframe
+                title="Mapa: Málaga"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-4.4500%2C36.7100%2C-4.3900%2C36.7400&amp;layer=mapnik&amp;marker=36.7213%2C-4.4214"
+              ></iframe>
+            </div>
 
-  <a class="link" href="https://www.openstreetmap.org/?mlat=36.7213&amp;mlon=-4.4214#map=13/36.7213/-4.4214"
-     target="_blank" rel="noopener noreferrer">
-    Abrir mapa
-  </a>
+            <a
+              class="link"
+              href="https://www.openstreetmap.org/?mlat=36.7213&amp;mlon=-4.4214#map=13/36.7213/-4.4214"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Abrir mapa
+            </a>
           </div>
-
 
           <div class="card">
             <h3 class="card-title">
@@ -174,7 +198,7 @@
               <span data-section="aboutme" data-value="aboutme-interest">Intereses</span>
             </h3>
             <p class="muted" data-section="aboutme" data-value="aboutme-interest-text">
-              Programación<br>Diseño PCB<br>Cocinar<br>Trekking<br>Diseño 3D
+              Programación<br />Diseño PCB<br />Cocinar<br />Trekking<br />Diseño 3D
             </p>
           </div>
         </div>
@@ -187,56 +211,55 @@
         <h2 class="section-title" data-section="skills" data-value="skills-first-title">Mis habilidades</h2>
         <p class="section-subtitle" data-section="skills" data-value="skills-second-title">ME ESPECIALIZO EN</p>
 
-       <div class="skills">
-  <div class="skill" style="--level:90">
-    <div class="skill-top">
-      <span class="skill-name" data-section="skills" data-value="first-skill">Seguridad embebida</span>
-      <span class="skill-pct">90%</span>
-    </div>
-    <div class="skill-bar"><div class="skill-fill"></div></div>
-  </div>
+        <div class="skills">
+          <div class="skill" style="--level: 90">
+            <div class="skill-top">
+              <span class="skill-name" data-section="skills" data-value="first-skill">Seguridad embebida</span>
+              <span class="skill-pct">90%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill"></div></div>
+          </div>
 
-  <div class="skill" style="--level:85">
-    <div class="skill-top">
-      <span class="skill-name" data-section="skills" data-value="second-skill">Firmware / SoC</span>
-      <span class="skill-pct">85%</span>
-    </div>
-    <div class="skill-bar"><div class="skill-fill"></div></div>
-  </div>
+          <div class="skill" style="--level: 85">
+            <div class="skill-top">
+              <span class="skill-name" data-section="skills" data-value="second-skill">Firmware / SoC</span>
+              <span class="skill-pct">85%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill"></div></div>
+          </div>
 
-  <div class="skill" style="--level:88">
-    <div class="skill-top">
-      <span class="skill-name" data-section="skills" data-value="third-skill">Automatización (Python/C/C++)</span>
-      <span class="skill-pct">88%</span>
-    </div>
-    <div class="skill-bar"><div class="skill-fill"></div></div>
-  </div>
+          <div class="skill" style="--level: 88">
+            <div class="skill-top">
+              <span class="skill-name" data-section="skills" data-value="third-skill">Automatización (Python/C/C++)</span>
+              <span class="skill-pct">88%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill"></div></div>
+          </div>
 
-  <div class="skill" style="--level:80">
-    <div class="skill-top">
-      <span class="skill-name" data-section="skills" data-value="fourth-skill">Diseño e impresión 3D</span>
-      <span class="skill-pct">80%</span>
-    </div>
-    <div class="skill-bar"><div class="skill-fill"></div></div>
-  </div>
+          <div class="skill" style="--level: 80">
+            <div class="skill-top">
+              <span class="skill-name" data-section="skills" data-value="fourth-skill">Diseño e impresión 3D</span>
+              <span class="skill-pct">80%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill"></div></div>
+          </div>
 
-  <div class="skill" style="--level:82">
-    <div class="skill-top">
-      <span class="skill-name" data-section="skills" data-value="fifth-skill">IoT, BLE/Ethernet & redes</span>
-      <span class="skill-pct">82%</span>
-    </div>
-    <div class="skill-bar"><div class="skill-fill"></div></div>
-  </div>
+          <div class="skill" style="--level: 82">
+            <div class="skill-top">
+              <span class="skill-name" data-section="skills" data-value="fifth-skill">IoT, BLE/Ethernet &amp; redes</span>
+              <span class="skill-pct">82%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill"></div></div>
+          </div>
 
-  <div class="skill" style="--level:78">
-    <div class="skill-top">
-      <span class="skill-name" data-section="skills" data-value="sixth-skill">Linux, tooling & depuración</span>
-      <span class="skill-pct">78%</span>
-    </div>
-    <div class="skill-bar"><div class="skill-fill"></div></div>
-  </div>
-</div>
-
+          <div class="skill" style="--level: 78">
+            <div class="skill-top">
+              <span class="skill-name" data-section="skills" data-value="sixth-skill">Linux, tooling &amp; depuración</span>
+              <span class="skill-pct">78%</span>
+            </div>
+            <div class="skill-bar"><div class="skill-fill"></div></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -251,104 +274,99 @@
             <h3 class="card-title" data-section="education" data-value="main-title">Educación</h3>
 
             <ol class="timeline">
-  <li class="timeline-item">
-    <div class="timeline-date" data-section="education" data-value="edu1-dates"></div>
-    <div class="timeline-body">
-      <div class="timeline-title" data-section="education" data-value="edu1-title"></div>
-      <div class="timeline-place" data-section="education" data-value="edu1-place"></div>
-      <div class="timeline-desc" data-section="education" data-value="edu1-description"></div>
-      <div class="badge" data-section="education" data-value="edu1-notes"></div>
-    </div>
-  </li>
+              <li class="timeline-item">
+                <div class="timeline-date" data-section="education" data-value="edu1-dates"></div>
+                <div class="timeline-body">
+                  <div class="timeline-title" data-section="education" data-value="edu1-title"></div>
+                  <div class="timeline-place" data-section="education" data-value="edu1-place"></div>
+                  <div class="timeline-desc" data-section="education" data-value="edu1-description"></div>
+                  <div class="badge" data-section="education" data-value="edu1-notes"></div>
+                </div>
+              </li>
 
-  <li class="timeline-item">
-    <div class="timeline-date" data-section="education" data-value="edu2-dates"></div>
-    <div class="timeline-body">
-      <div class="timeline-title" data-section="education" data-value="edu2-title"></div>
-      <div class="timeline-place" data-section="education" data-value="edu2-place"></div>
-      <div class="timeline-desc" data-section="education" data-value="edu2-description"></div>
-      <div class="badge" data-section="education" data-value="edu2-notes"></div>
-    </div>
-  </li>
+              <li class="timeline-item">
+                <div class="timeline-date" data-section="education" data-value="edu2-dates"></div>
+                <div class="timeline-body">
+                  <div class="timeline-title" data-section="education" data-value="edu2-title"></div>
+                  <div class="timeline-place" data-section="education" data-value="edu2-place"></div>
+                  <div class="timeline-desc" data-section="education" data-value="edu2-description"></div>
+                  <div class="badge" data-section="education" data-value="edu2-notes"></div>
+                </div>
+              </li>
 
-  <li class="timeline-item">
-    <div class="timeline-date" data-section="education" data-value="edu3-dates"></div>
-    <div class="timeline-body">
-      <div class="timeline-title" data-section="education" data-value="edu3-title"></div>
-      <div class="timeline-place" data-section="education" data-value="edu3-place"></div>
-      <div class="timeline-desc" data-section="education" data-value="edu3-description"></div>
-      <div class="badge" data-section="education" data-value="edu3-notes"></div>
-    </div>
-  </li>
+              <li class="timeline-item">
+                <div class="timeline-date" data-section="education" data-value="edu3-dates"></div>
+                <div class="timeline-body">
+                  <div class="timeline-title" data-section="education" data-value="edu3-title"></div>
+                  <div class="timeline-place" data-section="education" data-value="edu3-place"></div>
+                  <div class="timeline-desc" data-section="education" data-value="edu3-description"></div>
+                  <div class="badge" data-section="education" data-value="edu3-notes"></div>
+                </div>
+              </li>
 
-  <li class="timeline-item">
-    <div class="timeline-date" data-section="education" data-value="edu4-dates"></div>
-    <div class="timeline-body">
-      <div class="timeline-title" data-section="education" data-value="edu4-title"></div>
-      <div class="timeline-place" data-section="education" data-value="edu4-place"></div>
-      <div class="timeline-desc" data-section="education" data-value="edu4-description"></div>
-      <div class="badge" data-section="education" data-value="edu4-notes"></div>
-    </div>
-  </li>
+              <li class="timeline-item">
+                <div class="timeline-date" data-section="education" data-value="edu4-dates"></div>
+                <div class="timeline-body">
+                  <div class="timeline-title" data-section="education" data-value="edu4-title"></div>
+                  <div class="timeline-place" data-section="education" data-value="edu4-place"></div>
+                  <div class="timeline-desc" data-section="education" data-value="edu4-description"></div>
+                  <div class="badge" data-section="education" data-value="edu4-notes"></div>
+                </div>
+              </li>
 
-  <li class="timeline-item">
-    <div class="timeline-date" data-section="education" data-value="edu5-dates"></div>
-    <div class="timeline-body">
-      <div class="timeline-title" data-section="education" data-value="edu5-title"></div>
-      <div class="timeline-place" data-section="education" data-value="edu5-place"></div>
-      <div class="timeline-desc" data-section="education" data-value="edu5-description"></div>
-      <div class="badge" data-section="education" data-value="edu5-notes"></div>
-    </div>
-  </li>
+              <li class="timeline-item">
+                <div class="timeline-date" data-section="education" data-value="edu5-dates"></div>
+                <div class="timeline-body">
+                  <div class="timeline-title" data-section="education" data-value="edu5-title"></div>
+                  <div class="timeline-place" data-section="education" data-value="edu5-place"></div>
+                  <div class="timeline-desc" data-section="education" data-value="edu5-description"></div>
+                  <div class="badge" data-section="education" data-value="edu5-notes"></div>
+                </div>
+              </li>
 
-  <li class="timeline-item">
-    <div class="timeline-date" data-section="education" data-value="edu6-dates"></div>
-    <div class="timeline-body">
-      <div class="timeline-title" data-section="education" data-value="edu6-title"></div>
-      <div class="timeline-place" data-section="education" data-value="edu6-place"></div>
-      <div class="timeline-desc" data-section="education" data-value="edu6-description"></div>
-      <div class="badge" data-section="education" data-value="edu6-notes"></div>
-    </div>
-  </li>
-</ol>
-
+              <li class="timeline-item">
+                <div class="timeline-date" data-section="education" data-value="edu6-dates"></div>
+                <div class="timeline-body">
+                  <div class="timeline-title" data-section="education" data-value="edu6-title"></div>
+                  <div class="timeline-place" data-section="education" data-value="edu6-place"></div>
+                  <div class="timeline-desc" data-section="education" data-value="edu6-description"></div>
+                  <div class="badge" data-section="education" data-value="edu6-notes"></div>
+                </div>
+              </li>
+            </ol>
           </div>
 
           <div class="card">
             <h3 class="card-title" data-section="experience" data-value="main-title">Experiencia laboral</h3>
 
             <ol class="timeline">
-            <!-- 1) DEKRA (más reciente) -->
-            <li class="timeline-item">
+              <li class="timeline-item">
                 <div class="timeline-date" data-section="experience" data-value="exp1-dates"></div>
                 <div class="timeline-body">
-                <div class="timeline-title" data-section="experience" data-value="exp1-title"></div>
-                <div class="timeline-place" data-section="experience" data-value="exp1-place"></div>
-                <div class="timeline-desc" data-section="experience" data-value="exp1-description"></div>
+                  <div class="timeline-title" data-section="experience" data-value="exp1-title"></div>
+                  <div class="timeline-place" data-section="experience" data-value="exp1-place"></div>
+                  <div class="timeline-desc" data-section="experience" data-value="exp1-description"></div>
                 </div>
-            </li>
+              </li>
 
-            <!-- 2) UMA -->
-            <li class="timeline-item">
+              <li class="timeline-item">
                 <div class="timeline-date" data-section="experience" data-value="exp2-dates"></div>
                 <div class="timeline-body">
-                <div class="timeline-title" data-section="experience" data-value="exp2-title"></div>
-                <div class="timeline-place" data-section="experience" data-value="exp2-place"></div>
-                <div class="timeline-desc" data-section="experience" data-value="exp2-description"></div>
+                  <div class="timeline-title" data-section="experience" data-value="exp2-title"></div>
+                  <div class="timeline-place" data-section="experience" data-value="exp2-place"></div>
+                  <div class="timeline-desc" data-section="experience" data-value="exp2-description"></div>
                 </div>
-            </li>
+              </li>
 
-            <!-- 3) SITER 2000 -->
-            <li class="timeline-item">
+              <li class="timeline-item">
                 <div class="timeline-date" data-section="experience" data-value="exp3-dates"></div>
                 <div class="timeline-body">
-                <div class="timeline-title" data-section="experience" data-value="exp3-title"></div>
-                <div class="timeline-place" data-section="experience" data-value="exp3-place"></div>
-                <div class="timeline-desc" data-section="experience" data-value="exp3-description"></div>
+                  <div class="timeline-title" data-section="experience" data-value="exp3-title"></div>
+                  <div class="timeline-place" data-section="experience" data-value="exp3-place"></div>
+                  <div class="timeline-desc" data-section="experience" data-value="exp3-description"></div>
                 </div>
-            </li>
+              </li>
             </ol>
-
           </div>
         </div>
       </div>
@@ -356,17 +374,12 @@
 
     <!-- PROJECTS -->
     <section class="section section-alt" id="proyectos">
-    <div class="container">
+      <div class="container">
         <h2 class="section-title" data-section="projects" data-value="title">Proyectos</h2>
-        <p class="section-subtitle" data-section="projects" data-value="subtitle">
-        Selección de repositorios
-        </p>
-
+        <p class="section-subtitle" data-section="projects" data-value="subtitle">Selección de repositorios</p>
         <div id="projectsGrid" class="projects-grid"></div>
-    </div>
+      </div>
     </section>
-
-
 
     <!-- CONTACT -->
     <section class="section section-dark" id="contacto">
@@ -391,7 +404,13 @@
             </div>
           </a>
 
-          <a class="contact-card" href="https://danicampusiot.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Abrir web">
+          <a
+            class="contact-card"
+            href="https://danicampusiot.github.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Abrir web"
+          >
             <i class="fa-solid fa-globe" aria-hidden="true"></i>
             <div>
               <div class="contact-title" data-section="contact" data-value="webpage-title">Página web</div>
