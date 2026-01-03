@@ -1,20 +1,20 @@
 {
-    "menu":{
-        "home":"Home",
-        "aboutme":"About me",
-        "skills":"Skills",
-        "resumen":"Overview",
+    "menu": {
+        "home": "Home",
+        "aboutme": "About me",
+        "skills": "Skills",
+        "resumen": "Overview",
         "projects": "Projects",
-        "contact":"Contact"
+        "contact": "Contact"
     },
-    "header":{
+    "header": {
         "rol": "ENGINEER, PROGRAMMER, PROFESSIONAL",
         "download-cv": "Download CV",
         "contact-cta": "Contact"
     },
-    "aboutme":{
-        "aboutme-first-title":"About Me",
-        "aboutme-second-title":"PERSONAL DETAILS",
+    "aboutme": {
+        "aboutme-first-title": "About Me",
+        "aboutme-second-title": "PERSONAL DETAILS",
         "aboutme-profile": "Profile",
         "aboutme-location": "Location",
         "aboutme-interest": "Interests",
@@ -25,117 +25,125 @@
         "aboutme-interest-text": "<span class='chip'>Embedded security</span><span class='chip'>Firmware & reverse engineering</span><span class='chip'>Applied cryptography</span><span class='chip'>Automation (Python/C/C++)</span><span class='chip'>IoT & networking</span><span class='chip'>Linux & scripting</span><span class='chip'>PCB design</span><span class='chip'>Hiking</span>"
     },
     "projects": {
-  "title": "Projects",
-  "subtitle": "Selected repositories",
-  "btnRepo": "View repository",
-  "btnDemo": "Demo",
-  "items": [
-    {
-      "name": "Face Recognition App",
-      "desc": "Python face recognition app using computer vision libraries.",
-      "repo": "https://github.com/DaniCampusIoT/Face_Recognition_App",
-      "demo": "",
-      "tags": ["python", "vision", "face", "ml"]
+        "title": "Projects",
+        "subtitle": "Selected repositories",
+        "btnRepo": "View repository",
+        "btnDemo": "Demo",
+        "items": [
+            {
+                "name": "Face Recognition App",
+                "desc": "Python face recognition app using computer vision libraries.",
+                "repo": "https://github.com/DaniCampusIoT/Face_Recognition_App",
+                "demo": "",
+                "tags": [
+                    "python",
+                    "vision",
+                    "face",
+                    "ml"
+                ]
+            },
+            {
+                "name": "SDK Difference Scanner",
+                "desc": "Python tool to scan and compare SDK differences (analysis and reporting).",
+                "repo": "https://github.com/DaniCampusIoT/SDK-Difference-Scanner",
+                "demo": "",
+                "tags": [
+                    "python",
+                    "scanner",
+                    "diff",
+                    "tooling"
+                ]
+            },
+            {
+                "name": "ESP-NOW Gateway (Master thesis)",
+                "desc": "ESP32 gateway with automatic connection based on ESP-NOW for IoT scenarios.",
+                "repo": "https://github.com/DaniCampusIoT/espnow_gateway",
+                "demo": "",
+                "tags": [
+                    "esp32",
+                    "espnow",
+                    "iot",
+                    "embedded"
+                ]
+            },
+            {
+                "name": "ESP-NOW Infrastructure (paper)",
+                "desc": "Gateway extension with a custom data infrastructure to share data at the edge.",
+                "repo": "https://github.com/DaniCampusIoT/infraestructura_espnow",
+                "demo": "",
+                "tags": [
+                    "esp32",
+                    "espnow",
+                    "edge",
+                    "data",
+                    "paper"
+                ]
+            }
+        ]
     },
-    {
-      "name": "SDK Difference Scanner",
-      "desc": "Python tool to scan and compare SDK differences (analysis and reporting).",
-      "repo": "https://github.com/DaniCampusIoT/SDK-Difference-Scanner",
-      "demo": "",
-      "tags": ["python", "scanner", "diff", "tooling"]
-    },
-    {
-      "name": "ESP-NOW Gateway (Master thesis)",
-      "desc": "ESP32 gateway with automatic connection based on ESP-NOW for IoT scenarios.",
-      "repo": "https://github.com/DaniCampusIoT/espnow_gateway",
-      "demo": "",
-      "tags": ["esp32", "espnow", "iot", "embedded"]
-    },
-    {
-      "name": "ESP-NOW Infrastructure (paper)",
-      "desc": "Gateway extension with a custom data infrastructure to share data at the edge.",
-      "repo": "https://github.com/DaniCampusIoT/infraestructura_espnow",
-      "demo": "",
-      "tags": ["esp32", "espnow", "edge", "data", "paper"]
-    }
-  ]
-},
     "skills": {
-  "skills-first-title": "Skills",
-  "skills-second-title": "CORE AREAS",
-
-  "first-skill": "Embedded security",
-  "second-skill": "Firmware / SoC",
-  "third-skill": "Automation (Python/C/C++)",
-
-"fourth-skill": "3D design & printing",
-  "fifth-skill": "IoT, BLE/Ethernet & networking",
-  "sixth-skill": "Linux, tooling & debugging"
-},
-
-    "resumen":{
-        "resumen-first-title":"Overview",
-        "resumen-second-title":"My preparation and experience"
+        "skills-first-title": "Skills",
+        "skills-second-title": "CORE AREAS",
+        "first-skill": "Embedded security",
+        "second-skill": "Firmware / SoC",
+        "third-skill": "Automation (Python/C/C++)",
+        "fourth-skill": "3D design & printing",
+        "fifth-skill": "IoT, BLE/Ethernet & networking",
+        "sixth-skill": "Linux, tooling & debugging"
     },
-"education": {
-  "main-title": "Education & certifications",
-
-  "edu1-dates": "2024",
-  "edu1-title": "CATIA V5 — Part Design (Associate)",
-  "edu1-place": "Dassault Systèmes",
-  "edu1-description": "Official certification focused on mechanical CAD and part modeling.",
-  "edu1-notes": "CERT.",
-
-  "edu2-dates": "2023",
-  "edu2-title": "M.Sc. in Mechatronics Engineering",
-  "edu2-place": "University of Málaga",
-  "edu2-description": "Advanced training in mechatronic systems: electronics, control, software and system design.",
-  "edu2-notes": "M.A.",
-
-  "edu3-dates": "2023",
-  "edu3-title": "Project Management for Solar PV Installations",
-  "edu3-place": "Euroinnova Business School",
-  "edu3-description": "PV project planning and management: regulations, risks, applications and impact.",
-  "edu3-notes": "M.A.",
-
-  "edu4-dates": "2021",
-  "edu4-title": "B.Eng. in Electronics Engineering, Robotics and Mechatronics",
-  "edu4-place": "University of Seville–Málaga",
-  "edu4-description": "Strong foundation in electronics, robotics and automation for embedded systems.",
-  "edu4-notes": "B.E.",
-
-  "edu5-dates": "2020",
-  "edu5-title": "PHP, JavaScript & MySQL Developer",
-  "edu5-place": "Deusto Formación",
-  "edu5-description": "Full‑stack web programming and core web development fundamentals.",
-  "edu5-notes": "CERT.",
-
-  "edu6-dates": "2019",
-  "edu6-title": "RPAS (Drone) Pilot & Radio Operator",
-  "edu6-place": "Aerocámaras",
-  "edu6-description": "Training and qualification for drone operations (RPAS) and radio communications.",
-  "edu6-notes": "CERT."
-},
+    "resumen": {
+        "resumen-first-title": "Overview",
+        "resumen-second-title": "My preparation and experience"
+    },
+    "education": {
+        "main-title": "Education & certifications",
+        "edu1-dates": "2024",
+        "edu1-title": "CATIA V5 — Part Design (Associate)",
+        "edu1-place": "Dassault Systèmes",
+        "edu1-description": "Official certification focused on mechanical CAD and part modeling.",
+        "edu1-notes": "CERT.",
+        "edu2-dates": "2023",
+        "edu2-title": "M.Sc. in Mechatronics Engineering",
+        "edu2-place": "University of Málaga",
+        "edu2-description": "Advanced training in mechatronic systems: electronics, control, software and system design.",
+        "edu2-notes": "M.A.",
+        "edu3-dates": "2023",
+        "edu3-title": "Project Management for Solar PV Installations",
+        "edu3-place": "Euroinnova Business School",
+        "edu3-description": "PV project planning and management: regulations, risks, applications and impact.",
+        "edu3-notes": "M.A.",
+        "edu4-dates": "2021",
+        "edu4-title": "B.Eng. in Electronics Engineering, Robotics and Mechatronics",
+        "edu4-place": "University of Seville–Málaga",
+        "edu4-description": "Strong foundation in electronics, robotics and automation for embedded systems.",
+        "edu4-notes": "B.E.",
+        "edu5-dates": "2020",
+        "edu5-title": "PHP, JavaScript & MySQL Developer",
+        "edu5-place": "Deusto Formación",
+        "edu5-description": "Full‑stack web programming and core web development fundamentals.",
+        "edu5-notes": "CERT.",
+        "edu6-dates": "2019",
+        "edu6-title": "RPAS (Drone) Pilot & Radio Operator",
+        "edu6-place": "Aerocámaras",
+        "edu6-description": "Training and qualification for drone operations (RPAS) and radio communications.",
+        "edu6-notes": "CERT."
+    },
     "experience": {
-    "main-title": "Work experience",
-
-    "exp1-dates": "JAN 2025 - Present",
-    "exp1-title": "Cybersecurity & R&D Engineer (IoT)",
-    "exp1-place": "DEKRA — IoT, Cybersecurity & Compliance",
-    "exp1-description": "• Security evaluation and certification (e.g., SESIP), including cryptographic analysis and design review.<br>• Validation of critical security functions: secure boot, secure storage, secure debug and firmware update flows.<br>• Testing IoT and networking technologies (BLE/LTE/Ethernet/MACsec), assessing pairing, encryption and key management.<br>• Test automation and evidence collection with Python and C/C++ scripts in Linux/VM environments.",
-
-    "exp2-dates": "FEB 2022 - SEPT 2024",
-    "exp2-title": "Technical staff & Researcher",
-    "exp2-place": "Computer Architecture Dept. — University of Málaga (UMA)",
-    "exp2-description": "• Built IoT infrastructure and self-configurable sensor networks (ESP32, FreeRTOS) for edge computing.<br>• Data integration and automation using MQTT and Node-RED on UNIX servers.<br>• Technical support, co-supervision of BSc projects, and research contributions (RISC-V / sensing systems).",
-
-    "exp3-dates": "JUN 2019 - JAN 2020",
-    "exp3-title": "Technical assistant (internship)",
-    "exp3-place": "SITER 2000",
-    "exp3-description": "• Consulting and network deployment studies (mobile networks and FTTH).<br>• Reviewed engineering documentation and as-built files for school/public-site installations."
+        "main-title": "Work experience",
+        "exp1-dates": "JAN 2025 - Present",
+        "exp1-title": "Cybersecurity & R&D Engineer (IoT)",
+        "exp1-place": "DEKRA — IoT, Cybersecurity & Compliance",
+        "exp1-description": "• Security evaluation and certification (e.g., SESIP), including cryptographic analysis and design review.<br>• Validation of critical security functions: secure boot, secure storage, secure debug and firmware update flows.<br>• Testing IoT and networking technologies (BLE/LTE/Ethernet/MACsec), assessing pairing, encryption and key management.<br>• Test automation and evidence collection with Python and C/C++ scripts in Linux/VM environments.",
+        "exp2-dates": "FEB 2022 - SEPT 2024",
+        "exp2-title": "Technical staff & Researcher",
+        "exp2-place": "Computer Architecture Dept. — University of Málaga (UMA)",
+        "exp2-description": "• Built IoT infrastructure and self-configurable sensor networks (ESP32, FreeRTOS) for edge computing.<br>• Data integration and automation using MQTT and Node-RED on UNIX servers.<br>• Technical support, co-supervision of BSc projects, and research contributions (RISC-V / sensing systems).",
+        "exp3-dates": "JUN 2019 - JAN 2020",
+        "exp3-title": "Technical assistant (internship)",
+        "exp3-place": "SITER 2000",
+        "exp3-description": "• Consulting and network deployment studies (mobile networks and FTTH).<br>• Reviewed engineering documentation and as-built files for school/public-site installations."
     },
-
-    "contact":{
+    "contact": {
         "main-title": "Contact",
         "first-title": "GET IN TOUCH NOW",
         "phone-title": "Phone",
@@ -143,4 +151,3 @@
         "webpage-title": "Website"
     }
 }
-

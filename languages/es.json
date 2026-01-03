@@ -26,116 +26,102 @@
 
     },
     "projects": {
-  "title": "Proyectos",
-  "subtitle": "Selección de repositorios",
-  "btnRepo": "Ver repositorio",
-  "btnDemo": "Demo",
-  "items": [
-    {
-      "name": "Face Recognition App",
-      "desc": "Aplicación en Python para reconocimiento facial con librerías de visión por computador.",
-      "repo": "https://github.com/DaniCampusIoT/Face_Recognition_App",
-      "demo": "",
-      "tags": ["python", "vision", "face", "ml"]
+        "title": "Proyectos",
+        "subtitle": "Selección de repositorios",
+        "btnRepo": "Ver repositorio",
+        "btnDemo": "Demo",
+        "items": [
+            {
+                "name": "Face Recognition App",
+                "desc": "Aplicación en Python para reconocimiento facial con librerías de visión por computador.",
+                "repo": "https://github.com/DaniCampusIoT/Face_Recognition_App",
+                "demo": "",
+                "tags": ["python", "vision", "face", "ml"]
+            },
+            {
+                "name": "SDK Difference Scanner",
+                "desc": "Herramienta en Python para escanear y comparar diferencias entre SDKs (análisis y reporting).",
+                "repo": "https://github.com/DaniCampusIoT/SDK-Difference-Scanner",
+                "demo": "",
+                "tags": ["python", "scanner", "diff", "tooling"]
+            },
+            {
+                "name": "ESP-NOW Gateway (TFM)",
+                "desc": "Pasarela en ESP32 con conexión automática basada en ESP-NOW para escenarios IoT.",
+                "repo": "https://github.com/DaniCampusIoT/espnow_gateway",
+                "demo": "",
+                "tags": ["esp32", "espnow", "iot", "embedded"]
+            },
+            {
+                "name": "Infraestructura ESP-NOW (paper)",
+                "desc": "Ampliación del gateway con infraestructura propia de datos para compartir en el borde (edge).",
+                "repo": "https://github.com/DaniCampusIoT/infraestructura_espnow",
+                "demo": "",
+                "tags": ["esp32", "espnow", "edge", "data", "paper"]
+            }
+        ]
     },
-    {
-      "name": "SDK Difference Scanner",
-      "desc": "Herramienta en Python para escanear y comparar diferencias entre SDKs (análisis y reporting).",
-      "repo": "https://github.com/DaniCampusIoT/SDK-Difference-Scanner",
-      "demo": "",
-      "tags": ["python", "scanner", "diff", "tooling"]
+    "skills": {
+        "skills-first-title": "Competencias",
+        "skills-second-title": "ÁREAS CLAVE",
+        "first-skill": "Seguridad embebida",
+        "second-skill": "Firmware / SoC",
+        "third-skill": "Automatización (Python/C/C++)",
+        "fourth-skill": "Diseño e impresión 3D",
+        "fifth-skill": "IoT, BLE/Ethernet & redes",
+        "sixth-skill": "Linux, tooling & depuración"
     },
-    {
-      "name": "ESP-NOW Gateway (TFM)",
-      "desc": "Pasarela en ESP32 con conexión automática basada en ESP-NOW para escenarios IoT.",
-      "repo": "https://github.com/DaniCampusIoT/espnow_gateway",
-      "demo": "",
-      "tags": ["esp32", "espnow", "iot", "embedded"]
+    "resumen": {
+        "resumen-first-title": "Resumen",
+        "resumen-second-title": "Mi preparación y experiencia"
     },
-    {
-      "name": "Infraestructura ESP-NOW (paper)",
-      "desc": "Ampliación del gateway con infraestructura propia de datos para compartir en el borde (edge).",
-      "repo": "https://github.com/DaniCampusIoT/infraestructura_espnow",
-      "demo": "",
-      "tags": ["esp32", "espnow", "edge", "data", "paper"]
-    }
-  ]
-},
-
-"skills": {
-  "skills-first-title": "Competencias",
-  "skills-second-title": "ÁREAS CLAVE",
-
-  "first-skill": "Seguridad embebida",
-  "second-skill": "Firmware / SoC",
-  "third-skill": "Automatización (Python/C/C++)",
-
-"fourth-skill": "Diseño e impresión 3D",
-  "fifth-skill": "IoT, BLE/Ethernet & redes",
-  "sixth-skill": "Linux, tooling & depuración"
-},
-    "resumen":{
-        "resumen-first-title":"Resumen",
-        "resumen-second-title":"Mi preparación y experiencia"
+    "education": {
+        "main-title": "Educación y certificaciones",
+        "edu1-dates": "2024",
+        "edu1-title": "CATIA V5 — Diseño de Piezas (Part Design Associate)",
+        "edu1-place": "Dassault Systèmes",
+        "edu1-description": "Certificación oficial orientada a modelado de piezas y diseño mecánico CAD.",
+        "edu1-notes": "CERT.",
+        "edu2-dates": "2023",
+        "edu2-title": "Máster en Ingeniería Mecatrónica",
+        "edu2-place": "Universidad de Málaga",
+        "edu2-description": "Formación avanzada en sistemas mecatrónicos: electrónica, control, software y diseño de sistemas.",
+        "edu2-notes": "M.A.",
+        "edu3-dates": "2023",
+        "edu3-title": "Gestión de Proyectos de Instalaciones Solares Fotovoltaicas",
+        "edu3-place": "Euroinnova Business School",
+        "edu3-description": "Planificación y gestión de proyectos FV: normativa, riesgos, aplicaciones e impacto.",
+        "edu3-notes": "M.A.",
+        "edu4-dates": "2021",
+        "edu4-title": "Grado en Ingeniería Electrónica, Robótica y Mecatrónica",
+        "edu4-place": "Universidad de Sevilla–Málaga",
+        "edu4-description": "Base sólida en electrónica, robótica y automatización aplicada a sistemas embebidos.",
+        "edu4-notes": "B.E.",
+        "edu5-dates": "2020",
+        "edu5-title": "Desarrollador PHP, JavaScript y MySQL",
+        "edu5-place": "Deusto Formación",
+        "edu5-description": "Programación web full‑stack y fundamentos de desarrollo y administración web.",
+        "edu5-notes": "CERT.",
+        "edu6-dates": "2019",
+        "edu6-title": "Piloto de RPAS y operador de radio",
+        "edu6-place": "Aerocámaras",
+        "edu6-description": "Formación y habilitación para operación de drones (RPAS) y comunicaciones.",
+        "edu6-notes": "CERT."
     },
-    
-"education": {
-  "main-title": "Educación y certificaciones",
-
-  "edu1-dates": "2024",
-  "edu1-title": "CATIA V5 — Diseño de Piezas (Part Design Associate)",
-  "edu1-place": "Dassault Systèmes",
-  "edu1-description": "Certificación oficial orientada a modelado de piezas y diseño mecánico CAD.",
-  "edu1-notes": "CERT.",
-
-  "edu2-dates": "2023",
-  "edu2-title": "Máster en Ingeniería Mecatrónica",
-  "edu2-place": "Universidad de Málaga",
-  "edu2-description": "Formación avanzada en sistemas mecatrónicos: electrónica, control, software y diseño de sistemas.",
-  "edu2-notes": "M.A.",
-
-  "edu3-dates": "2023",
-  "edu3-title": "Gestión de Proyectos de Instalaciones Solares Fotovoltaicas",
-  "edu3-place": "Euroinnova Business School",
-  "edu3-description": "Planificación y gestión de proyectos FV: normativa, riesgos, aplicaciones e impacto.",
-  "edu3-notes": "M.A.",
-
-  "edu4-dates": "2021",
-  "edu4-title": "Grado en Ingeniería Electrónica, Robótica y Mecatrónica",
-  "edu4-place": "Universidad de Sevilla–Málaga",
-  "edu4-description": "Base sólida en electrónica, robótica y automatización aplicada a sistemas embebidos.",
-  "edu4-notes": "B.E.",
-
-  "edu5-dates": "2020",
-  "edu5-title": "Desarrollador PHP, JavaScript y MySQL",
-  "edu5-place": "Deusto Formación",
-  "edu5-description": "Programación web full‑stack y fundamentos de desarrollo y administración web.",
-  "edu5-notes": "CERT.",
-
-  "edu6-dates": "2019",
-  "edu6-title": "Piloto de RPAS y operador de radio",
-  "edu6-place": "Aerocámaras",
-  "edu6-description": "Formación y habilitación para operación de drones (RPAS) y comunicaciones.",
-  "edu6-notes": "CERT."
-},
-
     "experience": {
-    "main-title": "Experiencia laboral",
-
-    "exp1-dates": "ENE 2025 - Presente",
-    "exp1-title": "Ingeniero de Ciberseguridad e I+D (IoT)",
-    "exp1-place": "DEKRA — IoT, Ciberseguridad y Cumplimiento",
-    "exp1-description": "• Evaluación y certificación de seguridad (p. ej., SESIP), incluyendo análisis criptográfico y revisión de diseño.<br>• Validación de funciones críticas: secure boot, secure storage, secure debug y actualizaciones/firmware upgrade.<br>• Ensayos sobre dispositivos IoT y redes (BLE/LTE/Ethernet/MACsec), analizando pairing, cifrado y gestión de claves.<br>• Automatización de pruebas y recolección de evidencias con scripts en Python y C/C++ en entornos Linux/VMs.",
-
-    "exp2-dates": "FEB 2022 - SEPT 2024",
-    "exp2-title": "Personal técnico e investigador",
-    "exp2-place": "Dpto. Arquitectura de Computadores — Universidad de Málaga (UMA)",
-    "exp2-description": "• Desarrollo de infraestructura IoT y redes de sensores (ESP32, FreeRTOS) orientadas a edge computing.<br>• Integración de datos y automatización con MQTT y Node-RED en servidores UNIX.<br>• Soporte técnico, co-tutoría de TFG y contribuciones en proyectos de investigación (RISC-V / sensores).",
-
-    "exp3-dates": "JUN 2019 - ENE 2020",
-    "exp3-title": "Personal técnico (prácticas)",
-    "exp3-place": "SITER 2000",
-    "exp3-description": "• Consultoría y estudios de despliegues de red (móvil y FTTH).<br>• Revisión de documentación técnica y as-builts para instalaciones en centros educativos."
+        "main-title": "Experiencia laboral",
+        "exp1-dates": "ENE 2025 - Presente",
+        "exp1-title": "Ingeniero de Ciberseguridad e I+D (IoT)",
+        "exp1-place": "DEKRA — IoT, Ciberseguridad y Cumplimiento",
+        "exp1-description": "• Evaluación y certificación de seguridad (p. ej., SESIP), incluyendo análisis criptográfico y revisión de diseño.<br>• Validación de funciones críticas: secure boot, secure storage, secure debug y actualizaciones/firmware upgrade.<br>• Ensayos sobre dispositivos IoT y redes (BLE/LTE/Ethernet/MACsec), analizando pairing, cifrado y gestión de claves.<br>• Automatización de pruebas y recolección de evidencias con scripts en Python y C/C++ en entornos Linux/VMs.",
+        "exp2-dates": "FEB 2022 - SEPT 2024",
+        "exp2-title": "Personal técnico e investigador",
+        "exp2-place": "Dpto. Arquitectura de Computadores — Universidad de Málaga (UMA)",
+        "exp2-description": "• Desarrollo de infraestructura IoT y redes de sensores (ESP32, FreeRTOS) orientadas a edge computing.<br>• Integración de datos y automatización con MQTT y Node-RED en servidores UNIX.<br>• Soporte técnico, co-tutoría de TFG y contribuciones en proyectos de investigación (RISC-V / sensores).",
+        "exp3-dates": "JUN 2019 - ENE 2020",
+        "exp3-title": "Personal técnico (prácticas)",
+        "exp3-place": "SITER 2000",
+        "exp3-description": "• Consultoría y estudios de despliegues de red (móvil y FTTH).<br>• Revisión de documentación técnica y as-builts para instalaciones en centros educativos."
     },
     "contact":{
         "main-title": "Contacto",
