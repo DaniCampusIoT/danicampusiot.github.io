@@ -1,371 +1,412 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
-        <title>curriculum vitae</title>
-    </head>
-    <body>       
-        <!-- SECCION INICIO -->
-        <section class="inicio" id="inicio">
-            <div class="contenido-seccion">
-                <header>
-                    <div class="nav-bar" onclick="showHideMenu()">
-                        <i class="fa-solid fa-bars"></i>
-                    </div>
-                    <nav id="nav" class="nav">
-                        <a href="#inicio" data-section="menu" data-value="home">Inicio</a>
-                        <a href="#sobremi" data-section="menu" data-value="aboutme">Sobre mi</a>
-                        <a href="#habilidades" data-section="menu" data-value="skills">Habilidades</a>
-                        <a href="#resumen" data-section="menu" data-value="resumen">Resumen</a>
-                        <a href="#contacto" data-section="menu" data-value="contact">Contacto</a>
-                    </nav>
-                    <div class="logo">
-                        D<span class="color">C</span>
-                    </div>
-                    <!-- CAMBIO IDIOMA -->
-                    <div id="flags" class="flags">
-                        <div class="flags__item" data-language="es">
-                            <img src="img/es.svg" alt=""/>
-                        </div>
-                        <div class="flags__item" data-language="en">
-                            <img src="img/gb.svg" alt=""/>
-                        </div>
-                    </div>
-                </header>
-                <div class="info">
-                    <h1>DANIEL CARRIÓN</h1>
-                    <h2 data-section="header" data-value="rol">INGENIERO, PROGRAMADOR, PROFESIONAL</h2>
-                    <div class="redes">
-                        <a href="https://www.youtube.com/@danrodcar"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="https://www.linkedin.com/in/dani-rodriguez-carri%C3%B3n-a55973121/"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="https://github.com/DaniCampusIoT"><i class="fa-brands fa-github"></i></a>
-                        <a href="drc_cv.pdf" ><i class="fa-solid fa-file-arrow-down"></i></a>
-                    </div>
-                </div>
-                <div class="foto">
-                    <img src="img/IMG_4543.jpg" alt="">
-                </div>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Daniel Carrión — Portfolio</title>
+  <meta name="description" content="Portfolio/CV de Daniel Carrión: ingeniería, programación, IoT y experiencia profesional." />
+  <meta name="theme-color" content="#7c1d7e" />
+
+  <!-- Font Awesome (sin integrity para evitar bloqueos por SRI) -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#inicio">Saltar al contenido</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <span class="brand-mark">D<span class="brand-accent">C</span></span>
+      </a>
+
+      <button class="icon-btn burger"
+              id="burger"
+              type="button"
+              aria-label="Abrir menú"
+              aria-expanded="false"
+              aria-controls="primary-nav">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <nav class="nav" id="primary-nav" aria-label="Navegación principal">
+        <a href="#inicio" data-section="menu" data-value="home">Inicio</a>
+        <a href="#sobremi" data-section="menu" data-value="aboutme">Sobre mi</a>
+        <a href="#habilidades" data-section="menu" data-value="skills">Habilidades</a>
+        <a href="#resumen" data-section="menu" data-value="resumen">Resumen</a>
+        <a href="#proyectos" data-section="menu" data-value="projects">Proyectos</a>
+        <a href="#contacto" data-section="menu" data-value="contact">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Idioma -->
+        <div class="lang-switch" id="flags" aria-label="Selector de idioma">
+          <button class="flag" type="button" data-language="es" aria-label="Español">
+            <img src="img/es.svg" alt="ES" width="24" height="24" />
+          </button>
+          <button class="flag" type="button" data-language="en" aria-label="English">
+            <img src="img/gb.svg" alt="EN" width="24" height="24" />
+          </button>
+        </div>
+
+        <!-- Tema -->
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambiar tema">
+          <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="section hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">Portfolio / CV</p>
+          <h1 class="hero-title">DANIEL CARRION</h1>
+
+          <p class="hero-subtitle" data-section="header" data-value="rol">
+            INGENIERO, PROGRAMADOR, PROFESIONAL
+          </p>
+
+          <div class="cta-row">
+            <a id="downloadCv" href="drc_cv_es.pdf" class="btn primary" download>
+            <i class="fa-solid fa-file-arrow-down"></i>
+            <span data-section="header" data-value="download-cv">Descargar CV</span>
+            </a>
+            <a href="#contacto" class="btn">
+            <span data-section="header" data-value="contact-cta">Contacto</span>
+            </a>
+         </div>
+
+          <div class="social" aria-label="Redes y enlaces">
+            <a class="social-link" href="https://www.youtube.com/@danrodcari" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+            </a>
+            <a class="social-link" href="https://www.linkedin.com/in/dani-rodriguez-carri%C3%B3n-a55973121/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+            </a>
+            <a class="social-link" href="https://github.com/DaniCampusIoT" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img class="avatar" src="img/IMG_4543.jpg" alt="Foto de Daniel Carrión" loading="lazy" />
+          <div class="mini">
+            <div class="mini-row">
+              <span class="mini-label" data-section="aboutme" data-value="aboutme-location">Ubicacion</span>
+              <span class="mini-value" data-section="aboutme" data-value="aboutme-location-text">España</span>
             </div>
-        </section>
-        
-        <!-- SECCION SOBRE MI -->
-        <section class="sobremi" id="sobremi">
-            <div class="contenido-seccion">
-                <h2 class="titulo-seccion" data-section="aboutme" data-value="aboutme-first-title">Sobre Mi</h2>
-                <h3 data-section="aboutme" data-value="aboutme-second-title">Detalles personales</h3>
-                <p class="especial" data-section="aboutme" data-value="aboutme-third-title">Me dedico a innovar y producir ideas creativas y originales</p>
-                <p data-section="aboutme" data-value="aboutme-first-paragraph">Ingeniero electrónico, robótico y mecatrónico con amplia experiencia en varios entornos de programación y 
-                simulación así como con herramientas de diseño CAD. Soy un apasionado de la programación en SoC y webs, edición e
-                impresión 3D y todo lo relacionado con el mundo del IoT.</p>
-                <div class="fila">
-                    <div class="col">
-                        <i class="fa-solid fa-user"></i>
-                        <span class="titulo-detalle" data-section="aboutme" data-value="aboutme-profile">Perfil</span>
-                        <p data-section="aboutme" data-value="aboutme-profile-text">Me considero una persona responsable, dinámica y creativa, con facilidad de adaptación y capacidad de trabajar en equipo,
-                            en condiciones de alta presión, con iniciativa para resolver problemas eficientemente y lograr las metas y objetivos trazados por la empresa.
-                        </p>
-                    </div>
-                    <div class="col">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span class="titulo-detalle" data-section="aboutme" data-value="aboutme-location">Ubicacion</span>
-                        <p>C/Candilas, San Cristóbal de La Laguna</p>
-                        <p>Santa Cruz de Tenerife</p>
-                        <p data-section="aboutme" data-value="aboutme-location-text">España</p>
-                    </div>
-                    <div class="col">
-                        <i class="fa-solid fa-flag"></i>
-                        <span class="titulo-detalle" data-section="aboutme" data-value="aboutme-interest">Intereses</span>
-                        <p data-section="aboutme" data-value="aboutme-interest-text">
-                            Programación<br>Diseño PCB<br>Cocinar<br>Trekking<br>Diseño 3D
-                        </p>
-                    </div>
-                </div>
+            <div class="mini-row">
+              <span class="mini-label" data-section="contact" data-value="webpage-title">Página web</span>
+              <a class="mini-value link" href="https://danicampusiot.github.io/" target="_blank" rel="noopener noreferrer">
+                danicampusiot.github.io
+              </a>
             </div>
-        </section>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <!-- SECCION HABILIDADES -->
-        <section class="habilidades" id="habilidades">
-            <div class="contenido-seccion">
-                <h2 class="titulo-seccion" data-section="skills" data-value="skills-first-title">Mis habilidades</h2>
-                <h3 data-section="skills" data-value="skills-second-title">Me especializo en</h3>
+    <!-- ABOUT -->
+    <section class="section" id="sobremi">
+      <div class="container">
+        <h2 class="section-title" data-section="aboutme" data-value="aboutme-first-title">Sobre Mi</h2>
+        <p class="section-subtitle" data-section="aboutme" data-value="aboutme-second-title">DETALLES PERSONALES</p>
 
-                <div class="fila">
-                    <div class="col">
-                        <span data-section="skills" data-value="first-skill">Electrónica y diseño PCB</span>
-                        <div class="cont-barra">
-                            <div class="barra" id="electronica">
-                                <!-- mediante js luego generaremos 17 barritas con clase e -->
-                                
-                            </div>
-                            <span>80%</span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <span>C/C++</span>
-                        <div class="cont-barra">
-                            <div class="barra" id="cpp">
-                                <!-- mediante js luego generaremos 17 barritas con clase e -->
-                                
-                            </div>
-                            <span>88%</span>
-                        </div>
-                    </div>
+        <div class="about-grid">
+          <div class="card">
+            <p class="lead" data-section="aboutme" data-value="aboutme-third-title">
+              Me dedico a innovar y producir ideas creativas y originales
+            </p>
+            <p class="muted" data-section="aboutme" data-value="aboutme-first-paragraph">
+              Ingeniero electrónico, robótico y mecatrónico...
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">
+              <i class="fa-solid fa-user" aria-hidden="true"></i>
+              <span data-section="aboutme" data-value="aboutme-profile">Perfil</span>
+            </h3>
+            <p class="muted" data-section="aboutme" data-value="aboutme-profile-text">
+              Me considero una persona responsable...
+            </p>
+          </div>
+
+          <div class="card">
+  <h3 class="card-title">
+    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+    <span data-section="aboutme" data-value="aboutme-location">Ubicacion</span>
+  </h3>
+
+  <p class="muted" data-section="aboutme" data-value="aboutme-location-text">Málaga, España</p>
+
+  <div class="map-embed" aria-label="Mapa de Málaga">
+    <iframe
+      title="Mapa: Málaga"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.openstreetmap.org/export/embed.html?bbox=-4.4500%2C36.7100%2C-4.3900%2C36.7400&amp;layer=mapnik&amp;marker=36.7213%2C-4.4214">
+    </iframe>
+  </div>
+
+  <a class="link" href="https://www.openstreetmap.org/?mlat=36.7213&amp;mlon=-4.4214#map=13/36.7213/-4.4214"
+     target="_blank" rel="noopener noreferrer">
+    Abrir mapa
+  </a>
+          </div>
+
+
+          <div class="card">
+            <h3 class="card-title">
+              <i class="fa-solid fa-flag" aria-hidden="true"></i>
+              <span data-section="aboutme" data-value="aboutme-interest">Intereses</span>
+            </h3>
+            <p class="muted" data-section="aboutme" data-value="aboutme-interest-text">
+              Programación<br>Diseño PCB<br>Cocinar<br>Trekking<br>Diseño 3D
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section section-alt" id="habilidades">
+      <div class="container">
+        <h2 class="section-title" data-section="skills" data-value="skills-first-title">Mis habilidades</h2>
+        <p class="section-subtitle" data-section="skills" data-value="skills-second-title">ME ESPECIALIZO EN</p>
+
+       <div class="skills">
+  <div class="skill" style="--level:90">
+    <div class="skill-top">
+      <span class="skill-name" data-section="skills" data-value="first-skill">Seguridad embebida</span>
+      <span class="skill-pct">90%</span>
+    </div>
+    <div class="skill-bar"><div class="skill-fill"></div></div>
+  </div>
+
+  <div class="skill" style="--level:85">
+    <div class="skill-top">
+      <span class="skill-name" data-section="skills" data-value="second-skill">Firmware / SoC</span>
+      <span class="skill-pct">85%</span>
+    </div>
+    <div class="skill-bar"><div class="skill-fill"></div></div>
+  </div>
+
+  <div class="skill" style="--level:88">
+    <div class="skill-top">
+      <span class="skill-name" data-section="skills" data-value="third-skill">Automatización (Python/C/C++)</span>
+      <span class="skill-pct">88%</span>
+    </div>
+    <div class="skill-bar"><div class="skill-fill"></div></div>
+  </div>
+
+  <div class="skill" style="--level:80">
+    <div class="skill-top">
+      <span class="skill-name" data-section="skills" data-value="fourth-skill">Diseño e impresión 3D</span>
+      <span class="skill-pct">80%</span>
+    </div>
+    <div class="skill-bar"><div class="skill-fill"></div></div>
+  </div>
+
+  <div class="skill" style="--level:82">
+    <div class="skill-top">
+      <span class="skill-name" data-section="skills" data-value="fifth-skill">IoT, BLE/Ethernet & redes</span>
+      <span class="skill-pct">82%</span>
+    </div>
+    <div class="skill-bar"><div class="skill-fill"></div></div>
+  </div>
+
+  <div class="skill" style="--level:78">
+    <div class="skill-top">
+      <span class="skill-name" data-section="skills" data-value="sixth-skill">Linux, tooling & depuración</span>
+      <span class="skill-pct">78%</span>
+    </div>
+    <div class="skill-bar"><div class="skill-fill"></div></div>
+  </div>
+</div>
+
+      </div>
+    </section>
+
+    <!-- RESUME -->
+    <section class="section" id="resumen">
+      <div class="container">
+        <h2 class="section-title" data-section="resumen" data-value="resumen-first-title">Resumen</h2>
+        <p class="section-subtitle" data-section="resumen" data-value="resumen-second-title">Mi preparación y experiencia</p>
+
+        <div class="two-col">
+          <div class="card">
+            <h3 class="card-title" data-section="education" data-value="main-title">Educación</h3>
+
+            <ol class="timeline">
+  <li class="timeline-item">
+    <div class="timeline-date" data-section="education" data-value="edu1-dates"></div>
+    <div class="timeline-body">
+      <div class="timeline-title" data-section="education" data-value="edu1-title"></div>
+      <div class="timeline-place" data-section="education" data-value="edu1-place"></div>
+      <div class="timeline-desc" data-section="education" data-value="edu1-description"></div>
+      <div class="badge" data-section="education" data-value="edu1-notes"></div>
+    </div>
+  </li>
+
+  <li class="timeline-item">
+    <div class="timeline-date" data-section="education" data-value="edu2-dates"></div>
+    <div class="timeline-body">
+      <div class="timeline-title" data-section="education" data-value="edu2-title"></div>
+      <div class="timeline-place" data-section="education" data-value="edu2-place"></div>
+      <div class="timeline-desc" data-section="education" data-value="edu2-description"></div>
+      <div class="badge" data-section="education" data-value="edu2-notes"></div>
+    </div>
+  </li>
+
+  <li class="timeline-item">
+    <div class="timeline-date" data-section="education" data-value="edu3-dates"></div>
+    <div class="timeline-body">
+      <div class="timeline-title" data-section="education" data-value="edu3-title"></div>
+      <div class="timeline-place" data-section="education" data-value="edu3-place"></div>
+      <div class="timeline-desc" data-section="education" data-value="edu3-description"></div>
+      <div class="badge" data-section="education" data-value="edu3-notes"></div>
+    </div>
+  </li>
+
+  <li class="timeline-item">
+    <div class="timeline-date" data-section="education" data-value="edu4-dates"></div>
+    <div class="timeline-body">
+      <div class="timeline-title" data-section="education" data-value="edu4-title"></div>
+      <div class="timeline-place" data-section="education" data-value="edu4-place"></div>
+      <div class="timeline-desc" data-section="education" data-value="edu4-description"></div>
+      <div class="badge" data-section="education" data-value="edu4-notes"></div>
+    </div>
+  </li>
+
+  <li class="timeline-item">
+    <div class="timeline-date" data-section="education" data-value="edu5-dates"></div>
+    <div class="timeline-body">
+      <div class="timeline-title" data-section="education" data-value="edu5-title"></div>
+      <div class="timeline-place" data-section="education" data-value="edu5-place"></div>
+      <div class="timeline-desc" data-section="education" data-value="edu5-description"></div>
+      <div class="badge" data-section="education" data-value="edu5-notes"></div>
+    </div>
+  </li>
+
+  <li class="timeline-item">
+    <div class="timeline-date" data-section="education" data-value="edu6-dates"></div>
+    <div class="timeline-body">
+      <div class="timeline-title" data-section="education" data-value="edu6-title"></div>
+      <div class="timeline-place" data-section="education" data-value="edu6-place"></div>
+      <div class="timeline-desc" data-section="education" data-value="edu6-description"></div>
+      <div class="badge" data-section="education" data-value="edu6-notes"></div>
+    </div>
+  </li>
+</ol>
+
+          </div>
+
+          <div class="card">
+            <h3 class="card-title" data-section="experience" data-value="main-title">Experiencia laboral</h3>
+
+            <ol class="timeline">
+            <!-- 1) DEKRA (más reciente) -->
+            <li class="timeline-item">
+                <div class="timeline-date" data-section="experience" data-value="exp1-dates"></div>
+                <div class="timeline-body">
+                <div class="timeline-title" data-section="experience" data-value="exp1-title"></div>
+                <div class="timeline-place" data-section="experience" data-value="exp1-place"></div>
+                <div class="timeline-desc" data-section="experience" data-value="exp1-description"></div>
                 </div>
+            </li>
 
-                <div class="fila">
-                    <div class="col">
-                        <span data-section="skills" data-value="second-skill">Robótica y Control</span>
-                        <div class="cont-barra">
-                            <div class="barra" id="robotica">
-                                <!-- mediante js luego generaremos 17 barritas con clase e -->
-                                
-                            </div>
-                            <span>75%</span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <span>CATIA V5</span>
-                        <div class="cont-barra">
-                            <div class="barra" id="catia">
-                                <!-- mediante js luego generaremos 17 barritas con clase e -->
-                                
-                            </div>
-                            <span>80%</span>
-                        </div>
-                    </div>
+            <!-- 2) UMA -->
+            <li class="timeline-item">
+                <div class="timeline-date" data-section="experience" data-value="exp2-dates"></div>
+                <div class="timeline-body">
+                <div class="timeline-title" data-section="experience" data-value="exp2-title"></div>
+                <div class="timeline-place" data-section="experience" data-value="exp2-place"></div>
+                <div class="timeline-desc" data-section="experience" data-value="exp2-description"></div>
                 </div>
+            </li>
 
-                <div class="fila">
-                    <div class="col">
-                        <span>IoT</span>
-                        <div class="cont-barra">
-                            <div class="barra" id="iot">
-                                <!-- mediante js luego generaremos 17 barritas con clase e -->
-                                
-                            </div>
-                            <span>80%</span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <span data-section="skills" data-value="third-skill">IMPRESIÓN 3D</span>
-                        <div class="cont-barra">
-                            <div class="barra" id="impresion3d">
-                                <!-- mediante js luego generaremos 17 barritas con clase e -->
-                                
-                            </div>
-                            <span>95%</span>
-                        </div>
-                    </div>
+            <!-- 3) SITER 2000 -->
+            <li class="timeline-item">
+                <div class="timeline-date" data-section="experience" data-value="exp3-dates"></div>
+                <div class="timeline-body">
+                <div class="timeline-title" data-section="experience" data-value="exp3-title"></div>
+                <div class="timeline-place" data-section="experience" data-value="exp3-place"></div>
+                <div class="timeline-desc" data-section="experience" data-value="exp3-description"></div>
                 </div>
+            </li>
+            </ol>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section section-alt" id="proyectos">
+    <div class="container">
+        <h2 class="section-title" data-section="projects" data-value="title">Proyectos</h2>
+        <p class="section-subtitle" data-section="projects" data-value="subtitle">
+        Selección de repositorios
+        </p>
+
+        <div id="projectsGrid" class="projects-grid"></div>
+    </div>
+    </section>
+
+
+
+    <!-- CONTACT -->
+    <section class="section section-dark" id="contacto">
+      <div class="container">
+        <h2 class="section-title" data-section="contact" data-value="main-title">Contacto</h2>
+        <p class="section-subtitle" data-section="contact" data-value="first-title">PONTE EN CONTACTO AHORA MISMO</p>
+
+        <div class="contact-grid">
+          <a class="contact-card" href="tel:+34722678959" aria-label="Llamar por teléfono">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            <div>
+              <div class="contact-title" data-section="contact" data-value="phone-title">Teléfono</div>
+              <div class="contact-value">+34 722 678 959</div>
             </div>
-        </section>
+          </a>
 
-        <!-- SECCION RESUMEN -->
-        <section class="resumen" id="resumen">
-            <div class="contenido-seccion">
-                <h2 class="titulo-seccion" data-section="resumen" data-value="resumen-first-title">Resumen</h2>
-                <h3 data-section="resumen" data-value="resumen-second-title">Mi preparación y experiencia</h3>
-                <div class="info">
-                    <div class="col">
-                        <span class="titulo" data-section="education" data-value="main-title">Educación</span>
-                        <table>
-                            <tr>
-                                <td class="datos">
-                                    <h3 data-section="education" data-value="first-education-dates">SEPT 2015 - SEPT 2021</h3>
-                                </td>
-                                <td rowspan="2" class="descripcion" data-section="education" data-value="first-education-description">
-                                    Con mención en Robótica y Automatización y matrícula de honor en Informática industrial. 2º Premio  BIZINTEK 22/23 al Proyecto Fin de Grado.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4 data-section="education" data-value="first-education-title">Grad. Ingeniería electrónica, robótica y mecatrónica</h4>
-                                    <p data-section="education" data-value="first-education-place">Universidad de Sevilla-Malaga</p>
-                                    <!-- <span class="promedio">6,57</span> -->                                   
-                                </td>
-                            </tr>
-                        </table>
-                        <table>
-                            <tr>
-                                <td class="datos">
-                                    <h3 data-section="education" data-value="second-education-dates">MAR 2019 - OCT 2020</h3>
-                                </td>
-                                <td rowspan="2" class="descripcion" class="descripcion" data-section="education" data-value="second-education-description">
-                                    Curso de programación full-stack en el que aprendí a programar en HTML (V5), y utilizar los lenguajes más usados para la edición y
-                                    administración web actuales, como son PHP, JavaScript, MySQL y CSS.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4 class="descripcion" data-section="education" data-value="second-education-title">Programador en PHP, JAVASCRIPT y MySQL</h4>
-                                    <p class="descripcion" data-section="education" data-value="second-education-place">DEUSTO FORMACIÓN</p>
-                                    <span class="promedio" data-section="education" data-value="second-education-notes">9.6</span>
-                                </td>
-                            </tr>
-                        </table>
-                        <table>
-                            <tr>
-                                <td class="datos">
-                                    <h3 data-section="education" data-value="third-education-dates">ENE 2019 - AGO 2019</h3>
-                                </td>
-                                <td rowspan="2" class="descripcion" data-section="education" data-value="third-education-description">
-                                    Curso en el que aprendí legislatura, manejo y procedimientos como piloto de RPAS de aeronaves multirrotor o "drones" y 
-                                    radiofonista operativo para vuelos en CTR con RPAS.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4 data-section="education" data-value="third-education-title">Piloto RPAS y radiofonista</h4>
-                                    <p data-section="education" data-value="third-education-place">Aerocamaras</p>
-                                    <span class="promedio" data-section="education" data-value="third-education-notes"> Habilitación A1/A3, A2 y STS</span>
-                                </td>
-                            </tr>
-                        </table>
-                        <table>
-                            <tr>
-                                <td class="datos">
-                                    <h3 data-section="education" data-value="fourth-education-dates">OCT 2022 - SEPT 2023</h3>
-                                </td>
-                                <td rowspan="2" class="descripcion" data-section="education" data-value="fourth-education-description">
-                                    Máster que profundiza en en las metodologías y tecnologías que permitirá la creación de productos avanzados y sistemas de ingeniería que están 
-                                    vinculados por la combinación sinérgica de tecnologías mecánica, electrónica, eléctrica, control e informática. 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4 data-section="education" data-value="fourth-education-title">Máster en Ingeniería mecatrónica</h4>
-                                    <p data-section="education" data-value="fourth-education-place">Universidad de Malaga</p>
-                                    <!-- <span class="promedio">7,86</span>-->                                    
-                                </td>
-                            </tr>
-                        </table>
-                        <table>
-                            <tr>
-                                <td class="datos">
-                                    <h3 data-section="education" data-value="fifth-education-dates">ABR 2022 - MAY 2023</h3>
-                                </td>
-                                <td rowspan="2" class="descripcion" data-section="education" data-value="fifth-education-description">
-                                    Máster en energía solar, centrada en sistemas fotovoltaicos, 
-                                    tratando varios de sus aspectos como el aprovechamiento del sol, 
-                                    las características de las células fotovoltaica, su legislación, 
-                                    aplicaciones, riesgos laborales e impacto ambiental. 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4 data-section="education" data-value="fifth-education-title">Master en Gestión de Proyectos de Instalaciones Solares Fotovoltaicas: Solar Project Management</h4>
-                                    <p data-section="education" data-value="fifth-education-place">EUROINNOVA BUSINESS SCHOOL</p>
-                                    <span class="promedio" data-section="education" data-value="fifth-education-notes">Sobresaliente</span>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="col">
-                        <span class="titulo" data-section="experience" data-value="main-title">Experiencia laboral</span>
-                        <table>
-                            <tr>
-                                <td class="datos">
-                                    <h3 data-section="experience" data-value="first-experience-dates">ABR 2019 - ENE 2020</h3>
-                                </td>
-                                <td rowspan="2" class="descripcion" data-section="experience" data-value="first-experience-description">
-                                    Empleado en SITER 2000 donde aprendí a editar y revisar 
-                                    documentación de proyectos como As-built de empresas
-                                    relacionadas con la instalación de APs en colegios y espacios públicos.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4 data-section="experience" data-value="first-experience-title">Auxiliar aministrativo</h4>
-                                    <p data-section="experience" data-value="first-experience-place">SITER 2000</p>
-                                </td>
-                            </tr>
-                        </table>
-                        <table>
-                            <tr>
-                                <td class="datos">
-                                    <h3 data-section="experience" data-value="second-experience-dates">FEB 2022 - NOV 2022</h3>
-                                </td>
-                                <td rowspan="2" class="descripcion" data-section="experience" data-value="second-experience-description">
-                                    Trabajo como personal técnico en el proyecto HORTSOST II del plan propio de SMART-CAMPUS de la Universidad de Málaga
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4 data-section="experience" data-value="second-experience-title">Personal técnico</h4>
-                                    <p data-section="experience" data-value="second-experience-place">DPTO. ARQUITECTURA COMPUTADORES, UMA</p>
-                                </td>
-                            </tr>
-                        </table>
-                        <table>
-                            <tr>
-                                <td class="datos">
-                                    <h3 data-section="experience" data-value="third-experience-dates">MAR 2023 - FEB 2024</h3>
-                                </td>
-                                <td rowspan="2" class="descripcion" data-section="experience" data-value="third-experience-description">
-                                    Trabajo como investigador en temas relacionados con computación de altas prestaciones (RISC-V) y dispositivos sensores enfocados en IoT (radares, topologías de redes)
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4 data-section="experience" data-value="third-experience-title">Titulado superior Investigación (Investigador)</h4>
-                                    <p data-section="experience" data-value="third-experience-place">DPTO. ARQUITECTURA COMPUTADORES, UMA</p>
-                                </td>
-                            </tr>
-                        </table>
-                        <table>
-                            <tr>
-                                <td class="datos">
-                                    <h3 data-section="experience" data-value="fourth-experience-dates">MAR 2024 - SEPT 2024</h3>
-                                </td>
-                                <td rowspan="2" class="descripcion" data-section="experience" data-value="fourth-experience-description">
-                                    Continua mi trabajo como investigador en temas relacionados con computación de altas prestaciones (RISC-V) y dispositivos sensores enfocados en IoT (radares, topologías de redes)
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4 data-section="experience" data-value="fourth-experience-title">Personal investigador formación en prácticas (Investigador)</h4>
-                                    <p data-section="experience" data-value="fourth-experience-place">DPTO. ARQUITECTURA COMPUTADORES, UMA</p>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
+          <a class="contact-card" href="mailto:carrion024@hotmail.com" aria-label="Enviar correo">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <div>
+              <div class="contact-title" data-section="contact" data-value="mail-title">Correo</div>
+              <div class="contact-value">carrion024@hotmail.com</div>
             </div>
-        </section>
+          </a>
 
-        <!-- SECCION CONTACTO -->
-        <section class="contacto" id="contacto">
-            <div class="contenido-seccion">
-                <h2 class="titulo-seccion" data-section="contact" data-value="main-title">Contacto</h2>
-                <h3 data-section="contact" data-value="first-title">Ponte en contacto ahora mismo</h3>
-                <div class="fila">
-                    <div class="col">
-                        <h2 data-section="contact" data-value="phone-title">
-                            <i class="fa-solid fa-phone"></i> Teléfono
-                        </h2>
-                        <span class="info-contacto">(+34) 722678959</span>
-                    </div>
-                    <div class="col">
-                        <h2 data-section="contact" data-value="mail-title">
-                            <i class="fa-solid fa-envelope"></i> Correo
-                        </h2>
-                        <span class="info-contacto">carrion024@hotmail.com</span>
-                    </div>
-                    <div class="col">
-                        <h2 data-section="contact" data-value="webpage-title">
-                            <i class="fa-solid fa-globe"></i> Página web
-                        </h2>
-                        <span class="info-contacto">https://danicampusiot.github.io/</span>
-                    </div>
-                </div>
+          <a class="contact-card" href="https://danicampusiot.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Abrir web">
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <div>
+              <div class="contact-title" data-section="contact" data-value="webpage-title">Página web</div>
+              <div class="contact-value">danicampusiot.github.io</div>
             </div>
-        </section>
+          </a>
+        </div>
 
-        <script src="js/app.js"></script>
-    </body>
+        <footer class="footer">
+          <a class="link" href="#top">Volver arriba</a>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
 </html>
-

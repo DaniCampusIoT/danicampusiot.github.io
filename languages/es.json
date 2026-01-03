@@ -4,82 +4,139 @@
         "aboutme":"Sobre mi",
         "skills":"Habilidades",
         "resumen":"Resumen",
+        "projects": "Proyectos",
         "contact":"Contacto"
     },
     "header":{
-        "rol": "INGENIERO, PROGRAMADOR, PROFESIONAL"
+        "rol": "INGENIERO, PROGRAMADOR, PROFESIONAL",
+        "download-cv": "Descargar CV",
+        "contact-cta": "Contacto"
     },
     "aboutme":{
         "aboutme-first-title": "Sobre Mi",
         "aboutme-second-title": "DETALLES PERSONALES",
-        "aboutme-third-title": "Me dedico a innovar y producir ideas creativas y originales",
-        "aboutme-first-paragraph": "Ingeniero electrónico, robótico y mecatrónico con amplia experiencia en varios entornos de programación y simulación así como con herramientas de diseño CAD. Soy un apasionado de la programación en SoC y webs, edición e impresión 3D y todo lo relacionado con el mundo del IoT.",
         "aboutme-profile": "Perfil",
-        "aboutme-profile-text": "Me considero una persona responsable, dinámica y creativa, con facilidad de adaptación y capacidad de trabajar en equipo, en condiciones de alta presión, con iniciativa para resolver problemas eficientemente y lograr las metas y objetivos trazados por la empresa. ",
         "aboutme-location": "Ubicacion",
-        "aboutme-location-text": "España",
         "aboutme-interest": "Intereses",
-        "aboutme-interest-text": "Programación<br>Diseño PCB<br>Cocinar<br>Trekking<br>Diseño 3D"
+        "aboutme-third-title": "Construyo soluciones robustas en IoT y sistemas embebidos, con enfoque en seguridad y automatización.",
+        "aboutme-first-paragraph": "Ingeniero electrónico, robótico y mecatrónico con experiencia en IoT, redes de sensores y sistemas embebidos. Me especializo en llevar prototipos a soluciones fiables: desde el diseño e instrumentación, hasta la validación de seguridad, análisis de logs y automatización de pruebas.",
+        "aboutme-profile-text": "Soy una persona metódica y orientada a resultados, con facilidad para aprender rápido y adaptarme a entornos exigentes. Me gusta trabajar con buenas prácticas (documentación clara, control de versiones y evidencia reproducible) y crear herramientas/scripting para optimizar procesos y reducir errores.",
+        "aboutme-location-text": "Málaga, España",
+        "aboutme-interest-text": "<span class='chip'>Seguridad embebida</span><span class='chip'>Firmware & reverse engineering</span><span class='chip'>Criptografía aplicada</span><span class='chip'>Automatización (Python/C/C++)</span><span class='chip'>IoT & redes</span><span class='chip'>Linux & scripting</span><span class='chip'>Diseño PCB</span><span class='chip'>Trekking</span>"
+
     },
-    "skills":{
-        "skills-first-title": "Mis Habilidades",
-        "skills-second-title": "ME ESPECIALIZO EN",
-        "first-skill": "Electrónica y diseño PCB",
-        "second-skill": "Robótica y Control",
-        "third-skill" : "Impresión 3D"
+    "projects": {
+  "title": "Proyectos",
+  "subtitle": "Selección de repositorios",
+  "btnRepo": "Ver repositorio",
+  "btnDemo": "Demo",
+  "items": [
+    {
+      "name": "Face Recognition App",
+      "desc": "Aplicación en Python para reconocimiento facial con librerías de visión por computador.",
+      "repo": "https://github.com/DaniCampusIoT/Face_Recognition_App",
+      "demo": "",
+      "tags": ["python", "vision", "face", "ml"]
     },
+    {
+      "name": "SDK Difference Scanner",
+      "desc": "Herramienta en Python para escanear y comparar diferencias entre SDKs (análisis y reporting).",
+      "repo": "https://github.com/DaniCampusIoT/SDK-Difference-Scanner",
+      "demo": "",
+      "tags": ["python", "scanner", "diff", "tooling"]
+    },
+    {
+      "name": "ESP-NOW Gateway (TFM)",
+      "desc": "Pasarela en ESP32 con conexión automática basada en ESP-NOW para escenarios IoT.",
+      "repo": "https://github.com/DaniCampusIoT/espnow_gateway",
+      "demo": "",
+      "tags": ["esp32", "espnow", "iot", "embedded"]
+    },
+    {
+      "name": "Infraestructura ESP-NOW (paper)",
+      "desc": "Ampliación del gateway con infraestructura propia de datos para compartir en el borde (edge).",
+      "repo": "https://github.com/DaniCampusIoT/infraestructura_espnow",
+      "demo": "",
+      "tags": ["esp32", "espnow", "edge", "data", "paper"]
+    }
+  ]
+},
+
+"skills": {
+  "skills-first-title": "Competencias",
+  "skills-second-title": "ÁREAS CLAVE",
+
+  "first-skill": "Seguridad embebida",
+  "second-skill": "Firmware / SoC",
+  "third-skill": "Automatización (Python/C/C++)",
+
+"fourth-skill": "Diseño e impresión 3D",
+  "fifth-skill": "IoT, BLE/Ethernet & redes",
+  "sixth-skill": "Linux, tooling & depuración"
+},
     "resumen":{
         "resumen-first-title":"Resumen",
         "resumen-second-title":"Mi preparación y experiencia"
     },
     
-    "education":{
-        "main-title":"Educación",
-        "first-education-title":"Grad. Ingeniería electrónica, robótica y mecatrónica",
-        "first-education-place":"Universidad de Sevilla-Malaga",
-        "first-education-notes":"",
-        "first-education-dates":"SEPT 2015 - SEPT 2021",
-        "first-education-description":"Con mención en Robótica y Automatización y matrícula de honor en Informática industrial. 2º Premio BIZINTEK 22/23 al Proyecto Fin de Grado.",
-        "second-education-title":"Programador en PHP, JAVASCRIPT y MySQL",
-        "second-education-place":"DEUSTO FORMACIÓN",
-        "second-education-notes":"9.6",
-        "second-education-dates":"MAR 2019 - OCT 2020",
-        "second-education-description":"Curso de programación full-stack en el que aprendí a programar en HTML (V5), y utilizar los lenguajes más usados para la edición y administración web actuales, como son PHP, JavaScript, MySQL y CSS. ",
-        "third-education-title":"Piloto RPAS y radiofonista",
-        "third-education-place":"Aerocamaras",
-        "third-education-notes":"Habilitación A1/A3, A2 y STS",
-        "third-education-dates":"ENE 2019-AGO 2019",
-        "third-education-description":"Curso en el que aprendí legislatura, manejo y procedimientos como piloto de RPAS de aeronaves multirrotor y radiofonista operativo para vuelos en CTR con RPAS. ",
-        "fourth-education-title":"Máster en Ingeniería mecatrónica",
-        "fourth-education-place":"Universidad de Malaga",
-        "fourth-education-notes":"",
-        "fourth-education-dates":"OCT 2022 - SEPT 2023",
-        "fourth-education-description":"Máster que profundiza en en las metodologías y tecnologías que permitirá la creación de productos avanzados y sistemas de ingeniería que están vinculados por la combinación sinérgica de tecnologías mecánica, electrónica, eléctrica, control e informática. ",
-        "fifth-education-title":"Master en Gestión de Proyectos de Instalaciones Solares Fotovoltaicas: Solar Project Management",
-        "fifth-education-place":"EUROINNOVA BUSINESS SCHOOL",
-        "fifth-education-notes":"Sobresaliente",
-        "fifth-education-dates":"ABR 2022 - MAY 2023",
-        "fifth-education-description":"Máster en energía solar, centrada en sistemas fotovoltaicos, tratando varios de sus aspectos como el aprovechamiento del sol, las características de las células fotovoltaica, su legislación, aplicaciones, riesgos laborales e impacto ambiental. "
+"education": {
+  "main-title": "Educación y certificaciones",
+
+  "edu1-dates": "2024",
+  "edu1-title": "CATIA V5 — Diseño de Piezas (Part Design Associate)",
+  "edu1-place": "Dassault Systèmes",
+  "edu1-description": "Certificación oficial orientada a modelado de piezas y diseño mecánico CAD.",
+  "edu1-notes": "CERT.",
+
+  "edu2-dates": "2023",
+  "edu2-title": "Máster en Ingeniería Mecatrónica",
+  "edu2-place": "Universidad de Málaga",
+  "edu2-description": "Formación avanzada en sistemas mecatrónicos: electrónica, control, software y diseño de sistemas.",
+  "edu2-notes": "M.A.",
+
+  "edu3-dates": "2023",
+  "edu3-title": "Gestión de Proyectos de Instalaciones Solares Fotovoltaicas",
+  "edu3-place": "Euroinnova Business School",
+  "edu3-description": "Planificación y gestión de proyectos FV: normativa, riesgos, aplicaciones e impacto.",
+  "edu3-notes": "M.A.",
+
+  "edu4-dates": "2021",
+  "edu4-title": "Grado en Ingeniería Electrónica, Robótica y Mecatrónica",
+  "edu4-place": "Universidad de Sevilla–Málaga",
+  "edu4-description": "Base sólida en electrónica, robótica y automatización aplicada a sistemas embebidos.",
+  "edu4-notes": "B.E.",
+
+  "edu5-dates": "2020",
+  "edu5-title": "Desarrollador PHP, JavaScript y MySQL",
+  "edu5-place": "Deusto Formación",
+  "edu5-description": "Programación web full‑stack y fundamentos de desarrollo y administración web.",
+  "edu5-notes": "CERT.",
+
+  "edu6-dates": "2019",
+  "edu6-title": "Piloto de RPAS y operador de radio",
+  "edu6-place": "Aerocámaras",
+  "edu6-description": "Formación y habilitación para operación de drones (RPAS) y comunicaciones.",
+  "edu6-notes": "CERT."
+},
+
+    "experience": {
+    "main-title": "Experiencia laboral",
+
+    "exp1-dates": "ENE 2025 - Presente",
+    "exp1-title": "Ingeniero de Ciberseguridad e I+D (IoT)",
+    "exp1-place": "DEKRA — IoT, Ciberseguridad y Cumplimiento",
+    "exp1-description": "• Evaluación y certificación de seguridad (p. ej., SESIP), incluyendo análisis criptográfico y revisión de diseño.<br>• Validación de funciones críticas: secure boot, secure storage, secure debug y actualizaciones/firmware upgrade.<br>• Ensayos sobre dispositivos IoT y redes (BLE/LTE/Ethernet/MACsec), analizando pairing, cifrado y gestión de claves.<br>• Automatización de pruebas y recolección de evidencias con scripts en Python y C/C++ en entornos Linux/VMs.",
+
+    "exp2-dates": "FEB 2022 - SEPT 2024",
+    "exp2-title": "Personal técnico e investigador",
+    "exp2-place": "Dpto. Arquitectura de Computadores — Universidad de Málaga (UMA)",
+    "exp2-description": "• Desarrollo de infraestructura IoT y redes de sensores (ESP32, FreeRTOS) orientadas a edge computing.<br>• Integración de datos y automatización con MQTT y Node-RED en servidores UNIX.<br>• Soporte técnico, co-tutoría de TFG y contribuciones en proyectos de investigación (RISC-V / sensores).",
+
+    "exp3-dates": "JUN 2019 - ENE 2020",
+    "exp3-title": "Personal técnico (prácticas)",
+    "exp3-place": "SITER 2000",
+    "exp3-description": "• Consultoría y estudios de despliegues de red (móvil y FTTH).<br>• Revisión de documentación técnica y as-builts para instalaciones en centros educativos."
     },
-    "experience":{
-        "main-title":"Experiencia laboral",
-        "first-experience-title":"Auxiliar aministrativo",
-        "first-experience-place":"SITER 2000",
-        "first-experience-dates":"ABR 2019 - ENE 2020",
-        "first-experience-description":"Empleado en SITER 2000 donde aprendí a editar y revisar documentación de proyectos como As-built de empresas relacionadas con la instalación de APs en colegios y espacios públicos. ",
-        "second-experience-title":"Personal técnico",
-        "second-experience-place":"DPTO. ARQUITECTURA COMPUTADORES, UMA",
-        "second-experience-dates":"FEB 2022 - NOV 2022",
-        "second-experience-description":"Trabajo como personal técnico en el proyecto HORTSOST II del plan propio de SMART-CAMPUS de la Universidad de Málaga ",
-        "third-experience-title":"Titulado superior Investigación (Investigador)",
-        "third-experience-place":"DPTO. ARQUITECTURA COMPUTADORES, UMA",
-        "third-experience-dates":"MAR 2023 - FEB 2024",
-        "third-experience-description":"Trabajo como investigador en temas relacionados con computación de altas prestaciones (RISC-V) y dispositivos sensores enfocados en IoT (radares, topologías de redes)",    
-        "fourth-experience-title":"Personal investigador formación en prácticas (Investigador)",
-        "fourth-experience-place":"DPTO. ARQUITECTURA COMPUTADORES, UMA",
-        "fourth-experience-dates":"MAR 2024 - SEPT 2024",
-        "fourth-experience-description":"Continua mi trabajo como investigador en temas relacionados con computación de altas prestaciones (RISC-V) y dispositivos sensores enfocados en IoT (radares, topologías de redes)"
-        },
     "contact":{
         "main-title": "Contacto",
         "first-title": "PONTE EN CONTACTO AHORA MISMO",
