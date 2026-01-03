@@ -426,7 +426,19 @@ body.theme-dark .map-embed{
 /* =========================
    PROJECTS
    ========================= */
-.projects-grid{
+/* Espacio entre tags y acciones */
+.project-actions{
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* Opcional: más aire debajo de la descripción */
+.project-desc{
+  margin-bottom: 12px;
+}
+  .projects-grid{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
