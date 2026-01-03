@@ -32,6 +32,14 @@
         "btnDemo": "Demo",
         "items": [
             {
+            "name": "DGT — Incidencias & balizas V16",
+            "desc": "Mapa de incidencias de tráfico y contexto de balizas V16 (DGT 3.0): frontend en HTML/JS con proxy en Go para consumir datos sin problemas de CORS. Deploy en Cloudflare Pages y entorno reproducible con Docker.",
+            "repo": "https://github.com/DaniCampusIoT/dgt_mapa_app",
+            "demo": "https://dgt-mapa-app.pages.dev/",
+            "tags": ["js", "cloudflare", "go", "docker"]
+            },
+
+            {
                 "name": "Face Recognition App",
                 "desc": "Aplicación en Python para reconocimiento facial con librerías de visión por computador.",
                 "repo": "https://github.com/DaniCampusIoT/Face_Recognition_App",

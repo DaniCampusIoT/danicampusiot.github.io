@@ -31,6 +31,13 @@
         "btnDemo": "Demo",
         "items": [
             {
+            "name": "DGT — Traffic incidents & V16 beacons",
+            "desc": "Traffic incidents map and V16 connected beacon context (DGT 3.0): HTML/JS frontend plus a Go proxy to consume data without CORS issues. Deployed on Cloudflare Pages and reproducible with Docker.",
+            "repo": "https://github.com/DaniCampusIoT/dgt_mapa_app",
+            "demo": "https://dgt-mapa-app.pages.dev/",
+            "tags": ["js", "cloudflare", "go", "docker"]
+            },
+            {
                 "name": "Face Recognition App",
                 "desc": "Python face recognition app using computer vision libraries.",
                 "repo": "https://github.com/DaniCampusIoT/Face_Recognition_App",

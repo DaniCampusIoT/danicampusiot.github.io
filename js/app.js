@@ -13,6 +13,22 @@ const cvByLanguage = {
 };
 
 const techBadges = {
+  js: {
+    label: { es: "JavaScript", en: "JavaScript" },
+    icon: "fa-brands fa-js"
+  },
+  docker: {
+    label: { es: "Docker", en: "Docker" },
+    icon: "fa-brands fa-docker"
+  },
+  cloudflare: {
+    label: { es: "Cloudflare", en: "Cloudflare" },
+    icon: "fa-solid fa-cloud"
+  },
+  go: {
+    label: { es: "Go (proxy)", en: "Go (proxy)" },
+    icon: "fa-brands fa-golang"
+  },
   python:  { label: { es: "Python", en: "Python" }, icon: "fa-brands fa-python" },
 
   vision:  { label: { es: "Visión", en: "Computer vision" }, icon: "fa-solid fa-camera" },
