@@ -12,6 +12,10 @@ const cvByLanguage = {
 };
 
 const techBadges = {
+  cad: { label: { es: "CAD", en: "CAD" }, icon: "fa-solid fa-drafting-compass" },
+  catia: { label: { es: "CATIA V5", en: "CATIA V5" }, icon: "fa-solid fa-cube" },
+  scan: { label: { es: "Escaneado 3D", en: "3D scanning" }, icon: "fa-solid fa-qrcode" },
+  printing: { label: { es: "Impresión 3D", en: "3D printing" }, icon: "fa-solid fa-print" },
   js: { label: { es: "JavaScript", en: "JavaScript" }, icon: "fa-brands fa-js" },
   docker: { label: { es: "Docker", en: "Docker" }, icon: "fa-brands fa-docker" },
   cloudflare: { label: { es: "Cloudflare", en: "Cloudflare" }, icon: "fa-solid fa-cloud" },
@@ -52,6 +56,9 @@ function renderProjects(projectsDict, language) {
   grid.innerHTML = items
     .map((p) => {
       const tagsHtml = renderBadges(p.tags, language);
+
+      const repoLabel = p.repoLabel ?? projectsDict.btnRepo;
+
       const demoBtn = p.demo
         ? `<a class="btn small" href="${p.demo}" target="_blank" rel="noopener noreferrer">${projectsDict.btnDemo}</a>`
         : "";
@@ -62,7 +69,7 @@ function renderProjects(projectsDict, language) {
           <p class="project-desc">${p.desc}</p>
           <div class="tags">${tagsHtml}</div>
           <div class="project-actions">
-            <a class="btn small primary" href="${p.repo}" target="_blank" rel="noopener noreferrer">${projectsDict.btnRepo}</a>
+            <a class="btn small primary" href="${p.repo}" target="_blank" rel="noopener noreferrer">${repoLabel}</a>
             ${demoBtn}
           </div>
         </article>
@@ -70,6 +77,7 @@ function renderProjects(projectsDict, language) {
     })
     .join("");
 }
+
 
 function setActiveFlag(lang) {
   const buttons = flagsElement?.querySelectorAll("[data-language]") ?? [];

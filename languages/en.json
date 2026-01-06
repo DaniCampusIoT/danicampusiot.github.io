@@ -31,6 +31,14 @@
         "btnDemo": "Demo",
         "items": [
             {
+            "name": "Cults3D — 3D Designs (CATIA V5 / scanning)",
+            "desc": "Collection of 3D-printable models: original designs made in CATIA V5, 3D-scanned parts, and custom creations ready to download/print.",
+            "repo": "https://cults3d.com/@mkdir_3d",
+            "demo": "",
+            "repoLabel": "View profile",
+            "tags": ["cad", "3d", "catia", "scan", "printing"]
+            },
+            {
             "name": "DGT — Traffic incidents & V16 beacons",
             "desc": "Traffic incidents map and V16 connected beacon context (DGT 3.0): HTML/JS frontend plus a Go proxy to consume data without CORS issues. Deployed on Cloudflare Pages and reproducible with Docker.",
             "repo": "https://github.com/DaniCampusIoT/dgt_mapa_app",
