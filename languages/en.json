@@ -145,7 +145,7 @@
     },
     "experience": {
         "main-title": "Work experience",
-        "exp1-dates": "JAN 2025 - Present",
+        "exp1-dates": "JAN 2025 - FEB 2026",
         "exp1-title": "Cybersecurity & R&D Engineer (IoT)",
         "exp1-place": "DEKRA — IoT, Cybersecurity & Compliance",
         "exp1-description": "• Security evaluation and certification (e.g., SESIP), including cryptographic analysis and design review.<br>• Validation of critical security functions: secure boot, secure storage, secure debug and firmware update flows.<br>• Testing IoT and networking technologies (BLE/LTE/Ethernet/MACsec), assessing pairing, encryption and key management.<br>• Test automation and evidence collection with Python and C/C++ scripts in Linux/VM environments.",

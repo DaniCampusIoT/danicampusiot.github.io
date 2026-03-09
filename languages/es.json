@@ -125,7 +125,7 @@
     },
     "experience": {
         "main-title": "Experiencia laboral",
-        "exp1-dates": "ENE 2025 - Presente",
+        "exp1-dates": "ENE 2025 - FEB 2026",
         "exp1-title": "Ingeniero de Ciberseguridad e I+D (IoT)",
         "exp1-place": "DEKRA — IoT, Ciberseguridad y Cumplimiento",
         "exp1-description": "• Evaluación y certificación de seguridad (p. ej., SESIP), incluyendo análisis criptográfico y revisión de diseño.<br>• Validación de funciones críticas: secure boot, secure storage, secure debug y actualizaciones/firmware upgrade.<br>• Ensayos sobre dispositivos IoT y redes (BLE/LTE/Ethernet/MACsec), analizando pairing, cifrado y gestión de claves.<br>• Automatización de pruebas y recolección de evidencias con scripts en Python y C/C++ en entornos Linux/VMs.",
