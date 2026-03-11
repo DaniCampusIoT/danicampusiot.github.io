@@ -153,11 +153,21 @@
         "exp2-title": "Technical staff & Researcher",
         "exp2-place": "Computer Architecture Dept. — University of Málaga (UMA)",
         "exp2-description": "• Built IoT infrastructure and self-configurable sensor networks (ESP32, FreeRTOS) for edge computing.<br>• Data integration and automation using MQTT and Node-RED on UNIX servers.<br>• Technical support, co-supervision of BSc projects, and research contributions (RISC-V / sensing systems).",
+        "exp2b-dates": "JAN 2025 - MAY 2025",
+        "exp2b-title": "Senior Mechatronic & Aerial Robotics Engineer",
+        "exp2b-place": "Averon · Part-time · Remote · Sturt-up",
+        "exp2b-description": "• Developed and contributed to the drone design for the final project concept.<br>• 3D modeling and support in the mechanical definition of the aerial system.<br>• Role carried out in parallel with my main position at DEKRA as a remote part-time collaboration.",
         "exp3-dates": "JUN 2019 - JAN 2020",
         "exp3-title": "Technical assistant (internship)",
         "exp3-place": "SITER 2000",
         "exp3-description": "• Consulting and network deployment studies (mobile networks and FTTH).<br>• Reviewed engineering documentation and as-built files for school/public-site installations."
     },
+    "drone": {
+        "title": "Drone / Averon",
+        "subtitle": "3D MODEL & CONTRIBUTION",
+        "role": "Senior Mechatronic & Aerial Robotics Engineer",
+        "summary": "During my part-time collaboration with Averon, I worked on the design and modeling of drones supporting the final concept of the project. The drone shown here was designed and modeled in CATIA V5, and is presented as an interactive 3D model."
+        },
     "contact": {
         "main-title": "Contact",
         "first-title": "GET IN TOUCH NOW",
