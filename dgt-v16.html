@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balizas V16 DGT — Mapa en tiempo real</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #1a1a2e; color: #eee; }
+    #map { height: 100vh; width: 100%; }
+
+    #panel {
+      position: absolute; top: 12px; left: 12px; z-index: 1000;
+      background: rgba(15, 15, 30, 0.95);
+      padding: 14px 16px; border-radius: 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+      min-width: 310px; max-width: 370px;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    #status {
+      position: absolute; top: 12px; right: 12px; z-index: 1000;
+      background: rgba(15, 15, 30, 0.95);
+      padding: 10px 14px; border-radius: 14px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 13px;
+    }
+
+    .panel-title {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 15px; font-weight: 700; color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .panel-title svg { flex-shrink: 0; }
+
+    .kpi { font-size: 12px; color: #aaa; margin-bottom: 8px; line-height: 1.5; }
+
+    .filters { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+    .filters > div { display: flex; flex-direction: column; gap: 4px; }
+    .filters label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    select {
+      width: 100%; padding: 6px 8px; border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.07);
+      color: #eee; font-size: 12px; cursor: pointer;
+    }
+    select:focus { outline: 2px solid #4f98a3; outline-offset: 2px; }
+
+    .toggles { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+    .toggles label {
+      display: flex; gap: 6px; align-items: center;
+      font-size: 12px; color: #ccc; cursor: pointer; user-select: none;
+    }
+    .toggles input[type="checkbox"] { accent-color: #4f98a3; cursor: pointer; }
+
+    .row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+
+    button {
+      cursor: pointer; border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(79, 152, 163, 0.15);
+      color: #cce; border-radius: 8px; padding: 7px 12px;
+      font-size: 12px; transition: background 0.2s;
+    }
+    button:hover { background: rgba(79, 152, 163, 0.35); }
+
+    .badge {
+      display: inline-block; font-size: 11px; padding: 2px 8px;
+      border-radius: 999px; font-weight: 600;
+    }
+    .badge.ok  { background: rgba(109,170,69,0.2); color: #6daa45; border: 1px solid rgba(109,170,69,0.3); }
+    .badge.err { background: rgba(221,105,116,0.2); color: #dd6974; border: 1px solid rgba(221,105,116,0.3); }
+    .badge.warn{ background: rgba(253,171,67,0.2); color: #fdab43; border: 1px solid rgba(253,171,67,0.3); }
+
+    .legend {
+      margin-top: 10px; padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .legend-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: #aaa; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+    /* Popup overrides */
+    .leaflet-popup-content-wrapper {
+      background: #1a1a2e !important; color: #eee !important;
+      border: 1px solid rgba(255,255,255,0.12) !important;
+      border-radius: 10px !important; box-shadow: 0 4px 16px rgba(0,0,0,0.5) !important;
+    }
+    .leaflet-popup-tip { background: #1a1a2e !important; }
+    .leaflet-popup-content { font-size: 12px; line-height: 1.6; }
+    .leaflet-popup-content b { color: #4f98a3; }
+
+    .proxy-note {
+      font-size: 10px; color: #666; margin-top: 8px; line-height: 1.4;
+    }
+    .proxy-note a { color: #4f98a3; }
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <div id="panel">
+    <div class="panel-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fd7b00" stroke-width="2.2">
+        <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      Balizas V16 DGT
+    </div>
+
+    <div class="kpi" id="count">Cargando datos…</div>
+
+    <div class="filters">
+      <div>
+        <label for="causaSelect">Causa</label>
+        <select id="causaSelect"></select>
+      </div>
+      <div>
+        <label for="subcausaSelect">Subcausa</label>
+        <select id="subcausaSelect"></select>
+      </div>
+    </div>
+
+    <div class="toggles">
+      <label><input id="toggleBalizas"  type="checkbox" checked /> Balizas</label>
+      <label><input id="toggleLineas"   type="checkbox" checked /> Líneas</label>
+      <label><input id="toggleAutoZoom" type="checkbox" checked /> Auto-zoom</label>
+      <label><input id="toggleCluster"  type="checkbox" checked /> Clustering</label>
+    </div>
+
+    <div class="row">
+      <button id="btnRefresh">↻ Actualizar</button>
+      <button id="btnResetFilters">✕ Reset filtros</button>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><div class="dot" style="background:#d90429"></div> Accidente</div>
+      <div class="legend-item"><div class="dot" style="background:#2a9d8f"></div> Obras</div>
+      <div class="legend-item"><div class="dot" style="background:#457b9d"></div> Meteor.</div>
+      <div class="legend-item"><div class="dot" style="background:#ff7a00"></div> Otros</div>
+    </div>
+
+    <div class="proxy-note">
+      Los datos se obtienen vía proxy CORS público desde
+      <a href="https://etraffic.dgt.es" target="_blank" rel="noopener">etraffic.dgt.es</a>.
+    </div>
+  </div>
+
+  <div id="status">
+    <div>Estado: <span id="health" class="badge warn">Cargando…</span></div>
+    <div style="margin-top:4px;font-size:11px;color:#888;">
+      Última actualización: <span id="lastUpdate">-</span>
+    </div>
+  </div>
+
+  <script>
+  // =====================================================
+  // Config
+  // =====================================================
+  const REFRESH_MS      = 60000;
+  const FETCH_TIMEOUT_MS = 12000;
+  const BEACON_TTL_MS   = 30 * 60 * 1000;
+
+  // CORS proxies (se intentan en orden)
+  const PROXIES = [
+    "https://corsproxy.io/?url=",
+    "https://api.allorigins.win/raw?url="
+  ];
+
+  const DGT_URL = "https://etraffic.dgt.es/etrafficWEB/api/cache/getFilteredData";
+  const DGT_PAYLOAD = JSON.stringify({
+    filtrosVia: ["Carreteras cortadas","Tráfico lento","Circulación restringida","Desvíos y embolsamientos","Otras vialidades"],
+    filtrosCausa: ["Obras","Accidente","Meteorológicos","Restricciones de circulación","Otras incidencias"]
+  });
+
+  // =====================================================
+  // Map init
+  // =====================================================
+  const map = L.map("map").setView([40.4168, -3.7038], 6);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
+    updateWhenZooming: false, updateWhenIdle: true
+  }).addTo(map);
+
+  // =====================================================
+  // Beacon icon (SVG inline como dataURL)
+  // =====================================================
+  const balizaOnIcon = L.divIcon({
+    className: "",
+    html: `<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="14" fill="#fd7b00" stroke="#fff" stroke-width="2"/>
+      <text x="16" y="21" text-anchor="middle" font-size="14" font-weight="bold" fill="white">V</text>
+    </svg>`,
+    iconSize: [32, 32], iconAnchor: [16, 16], popupAnchor: [0, -16]
+  });
+
+  const balizaOffIcon = L.divIcon({
+    className: "",
+    html: `<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="14" cy="14" r="12" fill="#555" stroke="#888" stroke-width="1.5"/>
+      <text x="14" y="19" text-anchor="middle" font-size="12" fill="#ccc">V</text>
+    </svg>`,
+    iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -14]
+  });
+
+  // =====================================================
+  // Layers
+  // =====================================================
+  const geoLayer = L.geoJSON([], {
+    pointToLayer: (feature, latlng) => L.circleMarker(latlng, {
+      radius: 5, color: "#111", weight: 2, fillColor: "#ff7a00", fillOpacity: 0.9
+    }),
+    style: (feature) => {
+      const causa = (feature?.properties?.causa || "").toLowerCase();
+      let color = "#ff7a00";
+      if (causa.includes("accidente")) color = "#d90429";
+      if (causa.includes("obras"))     color = "#2a9d8f";
+      if (causa.includes("meteor"))    color = "#457b9d";
+      return { color, weight: 5, opacity: 0.85 };
+    },
+    onEachFeature: (feature, layer) => {
+      layer.bindPopup(popupHtml(feature?.properties || {}));
+      layer.on("mouseover", () => { if (layer.setStyle) layer.setStyle({ weight: 9, opacity: 1 }); });
+      layer.on("mouseout",  () => { if (layer.setStyle) layer.setStyle(geoLayer.options.style(feature)); });
+    }
+  });
+
+  const clusterActiveLayer = L.markerClusterGroup({ chunkedLoading: true, disableClusteringAtZoom: 12 });
+  const plainActiveLayer   = L.layerGroup();
+  const clusterRecentLayer = L.markerClusterGroup({ chunkedLoading: true, disableClusteringAtZoom: 12 });
+  const plainRecentLayer   = L.layerGroup();
+  const otherPointsLayer   = L.layerGroup();
+
+  let state = {
+    autoZoom: true, showBalizas: true, showLineas: true,
+    useCluster: true, causa: "__ALL__", subcausa: "__ALL__"
+  };
+
+  geoLayer.addTo(map);
+
+  // =====================================================
+  // Utils
+  // =====================================================
+  function normalize(v) { return (v ?? "").toString().trim(); }
+  function norm(s)       { return (s ?? "").toString().trim().toLowerCase(); }
+
+  function xorDecodeBase64(b64) {
+    const bin = atob(b64);
+    const key = "K".charCodeAt(0);
+    const out = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i) ^ key;
+    return out;
+  }
+
+  function isCarIncident(r) {
+    const causa = norm(r?.causa);
+    const sub   = norm(r?.subcausa);
+    if (causa === "accidente") return true;
+    const CAR_SUBS = new Set(["vehículo detenido","vehiculo detenido","vehículo ardiendo","vehiculo ardiendo","otros obstáculos","otros obstaculos"]);
+    return CAR_SUBS.has(sub);
+  }
+
+  function popupHtml(r) {
+    const estado = r.__balizaEstado ? `<br>Estado: <b>${r.__balizaEstado}</b>` : "";
+    return `<b>Incidencia</b><br>
+      ID: ${r.id ?? "N/D"}<br>
+      Carretera: ${r.carretera ?? "N/D"}<br>
+      Provincia: ${r.provinciaIni ?? "N/D"} – ${r.provinciaFin ?? "N/D"}<br>
+      Causa: ${r.causa ?? "N/D"}<br>
+      Subcausa: ${r.subcausa ?? "N/D"}<br>
+      Inicio: ${r.fechaInicio ? new Date(r.fechaInicio).toLocaleString("es-ES") : "N/D"}
+      ${estado}`;
+  }
+
+  // =====================================================
+  // Geometría
+  // =====================================================
+  function flattenLineCoords(geom) {
+    if (!geom) return [];
+    if (geom.type === "LineString")      return geom.coordinates || [];
+    if (geom.type === "MultiLineString") return (geom.coordinates || []).flat();
+    return [];
+  }
+
+  function midpointAlongLine(geom) {
+    const pts = flattenLineCoords(geom);
+    if (!pts.length) return null;
+    if (pts.length === 1) return [pts[0][1], pts[0][0]];
+    let total = 0;
+    for (let i = 0; i < pts.length - 1; i++) total += L.latLng(pts[i][1], pts[i][0]).distanceTo(L.latLng(pts[i+1][1], pts[i+1][0]));
+    if (!total) return [pts[0][1], pts[0][0]];
+    const half = total / 2; let acc = 0;
+    for (let i = 0; i < pts.length - 1; i++) {
+      const d = L.latLng(pts[i][1], pts[i][0]).distanceTo(L.latLng(pts[i+1][1], pts[i+1][0]));
+      if (acc + d >= half) {
+        const t = (half - acc) / d;
+        return [pts[i][1] + (pts[i+1][1] - pts[i][1]) * t, pts[i][0] + (pts[i+1][0] - pts[i][0]) * t];
+      }
+      acc += d;
+    }
+    return [pts[pts.length-1][1], pts[pts.length-1][0]];
+  }
+
+  function fallbackCenter(geom) {
+    if (!geom?.type || !geom.coordinates) return null;
+    let pts = [];
+    if (geom.type === "Point")        pts = [geom.coordinates];
+    else if (geom.type === "Polygon") pts = geom.coordinates?.[0] || [];
+    if (!pts.length) return null;
+    const lon = pts.reduce((a, p) => a + p[0], 0) / pts.length;
+    const lat = pts.reduce((a, p) => a + p[1], 0) / pts.length;
+    return [lat, lon];
+  }
+
+  function bestBalizaPosition(geom) {
+    if (geom?.type === "LineString" || geom?.type === "MultiLineString") return midpointAlongLine(geom);
+    return fallbackCenter(geom);
+  }
+
+  // =====================================================
+  // Beacon cache
+  // =====================================================
+  const beaconCache = new Map();
+
+  function purgeExpiredBeacons(nowMs) {
+    for (const [id, v] of beaconCache.entries())
+      if (nowMs - v.lastSeenMs > BEACON_TTL_MS) beaconCache.delete(id);
+  }
+
+  // =====================================================
+  // Network — DGT via CORS proxy
+  // =====================================================
+  let refreshTimer    = null;
+  let inFlightCtrl    = null;
+  let currentInterval = REFRESH_MS;
+  let proxyIdx        = 0;
+
+  function scheduleNextTick() {
+    if (refreshTimer) clearTimeout(refreshTimer);
+    refreshTimer = setTimeout(() => updateData(false), currentInterval);
+  }
+
+  async function fetchWithProxy(url, options, proxyBase) {
+    const proxyUrl = proxyBase + encodeURIComponent(url);
+    const resp = await fetch(proxyUrl, { ...options, method: "GET", body: undefined });
+    if (!resp.ok) throw new Error(`HTTP ${resp.status} from proxy`);
+    return resp;
+  }
+
+  async function fetchTrafficSafe() {
+    if (inFlightCtrl) inFlightCtrl.abort();
+    const ctrl = new AbortController();
+    inFlightCtrl = ctrl;
+    const timeout = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT_MS);
+
+    // corsproxy.io acepta POST, allorigins solo GET cache
+    // Usamos corsproxy que soporta POST
+    const proxy = PROXIES[proxyIdx % PROXIES.length];
+    const targetUrl = DGT_URL;
+
+    try {
+      let resp;
+      try {
+        // intento con POST directo via corsproxy.io
+        const proxyFull = proxy + encodeURIComponent(targetUrl);
+        resp = await fetch(proxyFull, {
+          method: "POST",
+          signal: ctrl.signal,
+          headers: { "Content-Type": "application/json" },
+          body: DGT_PAYLOAD
+        });
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      } catch (e) {
+        // fallback: siguiente proxy
+        proxyIdx++;
+        const proxy2 = PROXIES[proxyIdx % PROXIES.length];
+        const proxyFull2 = proxy2 + encodeURIComponent(targetUrl);
+        resp = await fetch(proxyFull2, {
+          method: "POST",
+          signal: ctrl.signal,
+          headers: { "Content-Type": "application/json" },
+          body: DGT_PAYLOAD
+        });
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      }
+
+      const text = (await resp.text()).trim();
+
+      // Detectar si es Base64+XOR o JSON directo
+      let obj;
+      if (text.startsWith("{") || text.startsWith("[")) {
+        obj = JSON.parse(text);
+      } else {
+        const decoded = xorDecodeBase64(text);
+        obj = JSON.parse(new TextDecoder().decode(decoded));
+      }
+
+      return obj;
+    } finally {
+      clearTimeout(timeout);
+      inFlightCtrl = null;
+    }
+  }
+
+  // =====================================================
+  // UI helpers
+  // =====================================================
+  function setHealthBadge(type, text) {
+    const el = document.getElementById("health");
+    el.textContent = text;
+    el.className = "badge " + type;
+  }
+
+  function buildSelectOptions(sel, values, allLabel) {
+    sel.innerHTML = "";
+    const optAll = document.createElement("option");
+    optAll.value = "__ALL__"; optAll.textContent = allLabel;
+    sel.appendChild(optAll);
+    values.sort((a, b) => a.localeCompare(b, "es")).forEach(v => {
+      const o = document.createElement("option");
+      o.value = v; o.textContent = v;
+      sel.appendChild(o);
+    });
+  }
+
+  function applyLayerVisibility() {
+    state.showLineas ? map.addLayer(geoLayer) : map.removeLayer(geoLayer);
+
+    const aLayer = state.useCluster ? clusterActiveLayer : plainActiveLayer;
+    const rLayer = state.useCluster ? clusterRecentLayer : plainRecentLayer;
+
+    [clusterActiveLayer, plainActiveLayer, clusterRecentLayer, plainRecentLayer].forEach(l => {
+      if (map.hasLayer(l)) map.removeLayer(l);
+    });
+
+    aLayer.addTo(map);
+    if (state.showBalizas) rLayer.addTo(map);
+    if (!state.showBalizas) {
+      if (!map.hasLayer(otherPointsLayer)) otherPointsLayer.addTo(map);
+    } else {
+      if (map.hasLayer(otherPointsLayer)) map.removeLayer(otherPointsLayer);
+    }
+  }
+
+  function filtered(records) {
+    return records.filter(r => {
+      if (!r) return false;
+      if (state.causa !== "__ALL__"   && normalize(r.causa)    !== state.causa)    return false;
+      if (state.subcausa !== "__ALL__" && normalize(r.subcausa) !== state.subcausa) return false;
+      return true;
+    });
+  }
+
+  // =====================================================
+  // Render
+  // =====================================================
+  function clearDataLayers() {
+    [geoLayer, otherPointsLayer, clusterActiveLayer, plainActiveLayer, clusterRecentLayer, plainRecentLayer]
+      .forEach(l => l.clearLayers());
+  }
+
+  function addBalizaMarkerAt(latlng, props, estado) {
+    const icon = estado === "activa" ? balizaOnIcon : balizaOffIcon;
+    const m = L.marker(latlng, { icon }).bindPopup(popupHtml({ ...props, __balizaEstado: estado }));
+    if (estado === "activa") {
+      state.useCluster ? clusterActiveLayer.addLayer(m) : plainActiveLayer.addLayer(m);
+    } else {
+      state.useCluster ? clusterRecentLayer.addLayer(m) : plainRecentLayer.addLayer(m);
+    }
+  }
+
+  function updateMap(records, nowMs) {
+    clearDataLayers();
+    const activeIds = new Set();
+    let drawn = 0, balizasActivas = 0, balizasRecientes = 0;
+
+    for (const r of records) {
+      if (!r?.geometria) continue;
+      try {
+        const geom = JSON.parse(r.geometria);
+        geoLayer.addData({ type: "Feature", geometry: geom, properties: { ...r } });
+        drawn++;
+        const center = bestBalizaPosition(geom);
+        if (!center) continue;
+        if (isCarIncident(r)) {
+          const id = String(r.id ?? "");
+          if (id) { activeIds.add(id); beaconCache.set(id, { record: { ...r }, center, lastSeenMs: nowMs }); }
+          addBalizaMarkerAt(center, r, "activa");
+          balizasActivas++;
+        } else {
+          L.marker(center).bindPopup(popupHtml(r)).addTo(otherPointsLayer);
+        }
+      } catch(e) { console.warn("Geometría inválida", r?.id, e); }
+    }
+
+    purgeExpiredBeacons(nowMs);
+    for (const [id, v] of beaconCache.entries()) {
+      if (!activeIds.has(id)) { addBalizaMarkerAt(v.center, v.record, "reciente"); balizasRecientes++; }
+    }
+
+    if (state.autoZoom && geoLayer.getLayers().length > 0) {
+      try { map.fitBounds(geoLayer.getBounds().pad(0.1)); } catch(_) {}
+    }
+
+    applyLayerVisibility();
+    return { drawn, balizasActivas, balizasRecientes };
+  }
+
+  // =====================================================
+  // Main loop
+  // =====================================================
+  let latestRawRecords = [];
+
+  async function updateData(forceRedraw = false) {
+    setHealthBadge("warn", "Actualizando…");
+    try {
+      const data = await fetchTrafficSafe();
+      const records = Array.isArray(data.situationsRecords) ? data.situationsRecords : [];
+      latestRawRecords = records;
+
+      const causes    = new Set();
+      const subcauses = new Set();
+      records.forEach(r => {
+        if (!r) return;
+        const c = normalize(r.causa); const s = normalize(r.subcausa);
+        if (c) causes.add(c); if (s) subcauses.add(s);
+      });
+
+      const cSel = document.getElementById("causaSelect");
+      const sSel = document.getElementById("subcausaSelect");
+      if (cSel.options.length !== causes.size + 1)    buildSelectOptions(cSel, [...causes], "Todas las causas");
+      if (sSel.options.length !== subcauses.size + 1) buildSelectOptions(sSel, [...subcauses], "Todas las subcausas");
+      cSel.value = state.causa; sSel.value = state.subcausa;
+
+      const nowMs = Date.now();
+      const recs = filtered(records);
+      const { drawn, balizasActivas, balizasRecientes } = updateMap(recs, nowMs);
+
+      document.getElementById("count").innerHTML =
+        `<b style="color:#eee">${records.length}</b> incidencias &nbsp;|&nbsp; mostrando <b style="color:#4f98a3">${recs.length}</b><br>` +
+        `Líneas: ${drawn} &nbsp;·&nbsp; Balizas activas: <b style="color:#fd7b00">${balizasActivas}</b> &nbsp;·&nbsp; Recientes: ${balizasRecientes}`;
+
+      document.getElementById("lastUpdate").textContent = new Date().toLocaleTimeString("es-ES");
+      setHealthBadge("ok", "OK");
+      currentInterval = REFRESH_MS;
+      scheduleNextTick();
+    } catch(e) {
+      if (e?.name === "AbortError") setHealthBadge("warn", "Timeout");
+      else setHealthBadge("err", "Error");
+      document.getElementById("count").textContent = `Error al cargar datos: ${e.message ?? e}`;
+      document.getElementById("lastUpdate").textContent = new Date().toLocaleTimeString("es-ES");
+      currentInterval = Math.min(currentInterval * 2, 300000);
+      scheduleNextTick();
+    }
+  }
+
+  // =====================================================
+  // Wire events
+  // =====================================================
+  document.getElementById("btnRefresh").addEventListener("click", () => updateData(true));
+  document.getElementById("btnResetFilters").addEventListener("click", () => {
+    state.causa = "__ALL__"; state.subcausa = "__ALL__";
+    document.getElementById("causaSelect").value = "__ALL__";
+    document.getElementById("subcausaSelect").value = "__ALL__";
+    updateData(true);
+  });
+  document.getElementById("causaSelect").addEventListener("change", e => { state.causa = e.target.value; updateData(true); });
+  document.getElementById("subcausaSelect").addEventListener("change", e => { state.subcausa = e.target.value; updateData(true); });
+  document.getElementById("toggleBalizas").addEventListener("change", e => { state.showBalizas = e.target.checked; applyLayerVisibility(); });
+  document.getElementById("toggleLineas").addEventListener("change", e => { state.showLineas = e.target.checked; applyLayerVisibility(); });
+  document.getElementById("toggleAutoZoom").addEventListener("change", e => { state.autoZoom = e.target.checked; });
+  document.getElementById("toggleCluster").addEventListener("change", e => {
+    state.useCluster = e.target.checked;
+    updateMap(filtered(latestRawRecords), Date.now());
+  });
+
+  // =====================================================
+  // Start
+  // =====================================================
+  updateData(true).finally(scheduleNextTick);
+  </script>
+</body>
+</html>
