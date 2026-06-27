@@ -1,6 +1,7 @@
 "use strict";
 
-const flagsElement = document.getElementById("flags");
+/* El selector de idioma en el HTML tiene id="langToggle" */
+const flagsElement = document.getElementById("langToggle");
 const textsToChange = document.querySelectorAll("[data-section]");
 const burger = document.getElementById("burger");
 const themeToggle = document.getElementById("themeToggle");
@@ -56,9 +57,7 @@ function renderProjects(projectsDict, language) {
   grid.innerHTML = items
     .map((p) => {
       const tagsHtml = renderBadges(p.tags, language);
-
       const repoLabel = p.repoLabel ?? projectsDict.btnRepo;
-
       const demoBtn = p.demo
         ? `<a class="btn small" href="${p.demo}" target="_blank" rel="noopener noreferrer">${projectsDict.btnDemo}</a>`
         : "";
@@ -77,7 +76,6 @@ function renderProjects(projectsDict, language) {
     })
     .join("");
 }
-
 
 function setActiveFlag(lang) {
   const buttons = flagsElement?.querySelectorAll("[data-language]") ?? [];
@@ -104,12 +102,13 @@ async function changeLanguage(language) {
   }
 
   document.documentElement.lang = language;
-  localStorage.setItem("lang", language);
+  try { localStorage.setItem("lang", language); } catch (_) {}
   setActiveFlag(language);
 }
 
 function initLanguage() {
-  const saved = localStorage.getItem("lang");
+  let saved;
+  try { saved = localStorage.getItem("lang"); } catch (_) {}
   const browserPrefersEn = (navigator.language || "").toLowerCase().startsWith("en");
   const defaultLang = saved || (browserPrefersEn ? "en" : "es");
   changeLanguage(defaultLang);
@@ -130,31 +129,29 @@ function initNav() {
 
   burger.addEventListener("click", toggleNav);
 
-  // Cerrar al click en un link
   document.querySelectorAll('nav a[href^="#"]').forEach((a) => {
     a.addEventListener("click", closeNav);
   });
 
-  // ESC cierra menú
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeNav();
   });
 }
 
 function initTheme() {
-  const saved = localStorage.getItem("theme");
+  let saved;
+  try { saved = localStorage.getItem("theme"); } catch (_) {}
   if (saved) {
     document.body.classList.toggle("theme-dark", saved === "dark");
     return;
   }
-
   const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
   document.body.classList.toggle("theme-dark", prefersDark);
 }
 
 function toggleTheme() {
   const isDark = document.body.classList.toggle("theme-dark");
-  localStorage.setItem("theme", isDark ? "dark" : "light");
+  try { localStorage.setItem("theme", isDark ? "dark" : "light"); } catch (_) {}
 }
 
 function initSkillsAnimation() {
@@ -196,26 +193,20 @@ function initActiveSectionNav() {
     });
   };
 
-  // Si hay hash inicial, respétalo
   if (location.hash && linkByHash.has(location.hash)) {
     setActive(location.hash.slice(1));
   }
 
-  // Scrollspy robusto:
-  // - threshold: 0 (primer pixel)
-  // - rootMargin crea una “franja” activa en el centro del viewport
   const observer = new IntersectionObserver(
     (entries) => {
-      // Nos quedamos con la entrada que esté intersectando (en la franja central)
       const entry = entries.find((e) => e.isIntersecting);
       if (entry?.target?.id) setActive(entry.target.id);
     },
     {
       threshold: 0,
-      // Top y bottom negativos => "encogen" el viewport efectivo a una banda central
       rootMargin: "-45% 0px -50% 0px",
     }
-  ); 
+  );
 
   sections.forEach((sec) => observer.observe(sec));
 
@@ -226,8 +217,7 @@ function initActiveSectionNav() {
   });
 }
 
-
-/* Selector de idioma (click robusto + teclado) */
+/* ---- Selector de idioma ES|EN ---- */
 if (flagsElement) {
   flagsElement.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-language]");
