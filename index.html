@@ -56,12 +56,13 @@
             aria-controls="dropdownMenu"
             id="dropdownBtn"
           >
+            <!-- El span lleva el data-section; el icono está FUERA del span para que innerHTML no lo borre -->
             <span data-section="menu" data-value="projects">Proyectos</span>
             <i class="fa-solid fa-chevron-down nav-dropdown-arrow" aria-hidden="true"></i>
           </button>
           <ul class="nav-dropdown-menu" id="dropdownMenu" role="menu">
             <li role="none">
-              <a href="#proyectos" role="menuitem" data-section="menu" data-value="projects">
+              <a href="#proyectos" role="menuitem">
                 <i class="fa-solid fa-code" aria-hidden="true"></i>
                 <span data-section="menu" data-value="projects">Repositorios</span>
               </a>
@@ -73,13 +74,13 @@
               </a>
             </li>
             <li role="none">
-              <a href="#hardware" role="menuitem" data-section="menu" data-value="hardware">
+              <a href="#hardware" role="menuitem">
                 <i class="fa-solid fa-microchip" aria-hidden="true"></i>
                 <span data-section="menu" data-value="hardware">Hardware</span>
               </a>
             </li>
             <li role="none">
-              <a href="#docencia" role="menuitem" data-section="menu" data-value="teaching">
+              <a href="#docencia" role="menuitem">
                 <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
                 <span data-section="menu" data-value="teaching">Docencia</span>
               </a>
@@ -622,32 +623,58 @@
     const dropMenu = document.getElementById('dropdownMenu');
     const dropWrap = document.getElementById('navDropdown');
 
+    let closeTimer = null;
+
     function openDrop() {
+      clearTimeout(closeTimer);
       dropMenu.classList.add('is-open');
       dropBtn.setAttribute('aria-expanded', 'true');
     }
-    function closeDrop() {
-      dropMenu.classList.remove('is-open');
-      dropBtn.setAttribute('aria-expanded', 'false');
+
+    function scheduledClose() {
+      /* Delay de 120 ms: si el ratón entra en el menú antes, se cancela */
+      closeTimer = setTimeout(function() {
+        dropMenu.classList.remove('is-open');
+        dropBtn.setAttribute('aria-expanded', 'false');
+      }, 120);
     }
 
-    dropBtn.addEventListener('click', () =>
-      dropMenu.classList.contains('is-open') ? closeDrop() : openDrop()
-    );
+    /* Click en el trigger (teclado / móvil) */
+    dropBtn.addEventListener('click', function() {
+      dropMenu.classList.contains('is-open') ? scheduledClose() : openDrop();
+    });
 
-    /* Hover en desktop */
+    /* Hover en desktop con delay en el cierre */
     dropWrap.addEventListener('mouseenter', openDrop);
-    dropWrap.addEventListener('mouseleave', closeDrop);
+    dropWrap.addEventListener('mouseleave', scheduledClose);
+
+    /* Cancelar cierre si el ratón entra al menú (cubre el gap) */
+    dropMenu.addEventListener('mouseenter', openDrop);
+    dropMenu.addEventListener('mouseleave', scheduledClose);
 
     /* Cerrar al hacer click en un item del dropdown */
-    dropMenu.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', closeDrop)
-    );
+    dropMenu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        clearTimeout(closeTimer);
+        dropMenu.classList.remove('is-open');
+        dropBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
 
     /* Cerrar con Escape o click fuera */
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrop(); });
-    document.addEventListener('click', e => {
-      if (!dropWrap.contains(e.target)) closeDrop();
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        clearTimeout(closeTimer);
+        dropMenu.classList.remove('is-open');
+        dropBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('click', function(e) {
+      if (!dropWrap.contains(e.target)) {
+        clearTimeout(closeTimer);
+        dropMenu.classList.remove('is-open');
+        dropBtn.setAttribute('aria-expanded', 'false');
+      }
     });
   </script>
 </body>
