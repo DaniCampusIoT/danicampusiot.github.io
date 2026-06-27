@@ -305,14 +305,14 @@
       </div>
     </section>
 
-    <!-- HARDWARE -->
+    <!-- HARDWARE PCB -->
     <section class="section section-alt" id="hardware">
       <div class="container">
         <h2 class="section-title" data-section="hardware" data-value="title">Diseño Electrónico</h2>
         <p class="section-subtitle" data-section="hardware" data-value="subtitle">PROYECTOS DE PCB</p>
 
-        <!-- DEA -->
-        <div class="hw-card">
+        <!-- DEA: Controlador Motor 4 capas -->
+        <article class="hw-card" aria-label="PCB DEA — Controlador Motor MSP430">
           <div class="hw-top">
             <div class="hw-info">
               <div>
@@ -337,7 +337,7 @@
             <div class="hw-viewer">
               <model-viewer
                 src="hardware/dea/pcb_dea.glb"
-                alt="Modelo 3D del PCB DEA"
+                alt="Modelo 3D del PCB DEA — Controlador Motor"
                 camera-controls
                 auto-rotate
                 shadow-intensity="1"
@@ -345,24 +345,27 @@
               ></model-viewer>
             </div>
           </div>
-          <div class="hw-gallery">
-            <div class="hw-thumb" data-lb-src="hardware/dea/gif_circuito.gif" data-lb-caption="Animación del diseño PCB DEA">
+          <div class="hw-gallery" role="list" aria-label="Imágenes del PCB DEA">
+            <button class="hw-thumb" type="button" role="listitem" aria-label="Ver animación DEA"
+              data-lb-src="hardware/dea/gif_circuito.gif" data-lb-caption="Animación del diseño PCB DEA">
               <img src="hardware/dea/gif_circuito.gif" alt="GIF animación PCB DEA" loading="lazy" />
               <span class="hw-thumb-label">GIF</span>
-            </div>
-            <div class="hw-thumb" data-lb-src="hardware/dea/PRACTICE_DEA_DRC_TOP.png" data-lb-caption="Capa TOP — PCB DEA">
-              <img src="hardware/dea/PRACTICE_DEA_DRC_TOP.png" alt="Capa TOP del PCB DEA" loading="lazy" />
+            </button>
+            <button class="hw-thumb" type="button" role="listitem" aria-label="Ver capa TOP del PCB DEA"
+              data-lb-src="hardware/dea/PRACTICE_DEA_DRC_TOP.png" data-lb-caption="Capa TOP — PCB DEA">
+              <img src="hardware/dea/PRACTICE_DEA_DRC_TOP.png" alt="Capa TOP PCB DEA" loading="lazy" />
               <span class="hw-thumb-label" data-section="hardware" data-value="dea-top">Capa TOP</span>
-            </div>
-            <div class="hw-thumb" data-lb-src="hardware/dea/PRACTICE_DEA_DRC_BOTTOM.png" data-lb-caption="Capa BOTTOM — PCB DEA">
-              <img src="hardware/dea/PRACTICE_DEA_DRC_BOTTOM.png" alt="Capa BOTTOM del PCB DEA" loading="lazy" />
+            </button>
+            <button class="hw-thumb" type="button" role="listitem" aria-label="Ver capa BOTTOM del PCB DEA"
+              data-lb-src="hardware/dea/PRACTICE_DEA_DRC_BOTTOM.png" data-lb-caption="Capa BOTTOM — PCB DEA">
+              <img src="hardware/dea/PRACTICE_DEA_DRC_BOTTOM.png" alt="Capa BOTTOM PCB DEA" loading="lazy" />
               <span class="hw-thumb-label" data-section="hardware" data-value="dea-bottom">Capa BOTTOM</span>
-            </div>
+            </button>
           </div>
-        </div>
+        </article>
 
         <!-- Consola ESP32 -->
-        <div class="hw-card">
+        <article class="hw-card" aria-label="PCB Consola ESP32 — Altium Designer">
           <div class="hw-top">
             <div class="hw-info">
               <div>
@@ -394,25 +397,17 @@
               ></model-viewer>
             </div>
           </div>
-          <div class="hw-gallery">
-            <div class="hw-thumb" data-lb-src="hardware/consola/board_gif.gif" data-lb-caption="Animación diseño Consola ESP32">
+          <div class="hw-gallery" role="list" aria-label="Imágenes de la Consola ESP32">
+            <button class="hw-thumb" type="button" role="listitem" aria-label="Ver animación Consola ESP32"
+              data-lb-src="hardware/consola/board_gif.gif" data-lb-caption="Animación diseño Consola ESP32">
               <img src="hardware/consola/board_gif.gif" alt="GIF animación consola ESP32" loading="lazy" />
               <span class="hw-thumb-label">GIF</span>
-            </div>
+            </button>
           </div>
-        </div>
+        </article>
 
       </div>
     </section>
-
-    <!-- LIGHTBOX -->
-    <div class="lb-overlay" id="lbOverlay" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
-      <div class="lb-inner">
-        <button class="lb-close" id="lbClose" aria-label="Cerrar">&times;</button>
-        <img class="lb-img" id="lbImg" src="" alt="" />
-        <span class="lb-caption" id="lbCaption"></span>
-      </div>
-    </div>
 
     <!-- DOCENCIA -->
     <section class="section" id="docencia">
@@ -458,7 +453,7 @@
           </div>
         </div>
 
-        <!-- Grid de proyectos docentes -->
+        <!-- Grid proyectos docentes -->
         <div class="teaching-grid">
 
           <!-- 4º ESO -->
@@ -567,21 +562,21 @@
         <h2 class="section-title" data-section="contact" data-value="main-title">Contacto</h2>
         <p class="section-subtitle" data-section="contact" data-value="first-title">PONTE EN CONTACTO AHORA MISMO</p>
         <div class="contact-grid">
-          <a class="contact-card" href="tel:+34600000000">
+          <a class="contact-card" href="tel:+34722678959" aria-label="Llamar por teléfono">
             <i class="fa-solid fa-phone" aria-hidden="true" style="font-size:20px;color:var(--accent2)"></i>
             <div>
               <div class="contact-title" data-section="contact" data-value="phone-title">Teléfono</div>
-              <div class="contact-value">+34 600 000 000</div>
+              <div class="contact-value">+34 722 678 959</div>
             </div>
           </a>
-          <a class="contact-card" href="mailto:danicampus@outlook.com">
+          <a class="contact-card" href="mailto:carrion024@hotmail.com" aria-label="Enviar correo">
             <i class="fa-solid fa-envelope" aria-hidden="true" style="font-size:20px;color:var(--accent2)"></i>
             <div>
               <div class="contact-title" data-section="contact" data-value="mail-title">Correo</div>
-              <div class="contact-value">danicampus@outlook.com</div>
+              <div class="contact-value">carrion024@hotmail.com</div>
             </div>
           </a>
-          <a class="contact-card" href="https://danicampusiot.github.io/" target="_blank" rel="noopener noreferrer">
+          <a class="contact-card" href="https://danicampusiot.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Abrir web">
             <i class="fa-solid fa-globe" aria-hidden="true" style="font-size:20px;color:var(--accent2)"></i>
             <div>
               <div class="contact-title" data-section="contact" data-value="webpage-title">Página web</div>
@@ -599,10 +594,94 @@
     </div>
   </footer>
 
+  <!-- Lightbox (fuera de main, antes del cierre de body) -->
+  <div class="lb-overlay" id="lbOverlay" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+    <div class="lb-inner">
+      <button class="lb-close" id="lbClose" aria-label="Cerrar">&times;</button>
+      <img class="lb-img" id="lbImg" src="" alt="" />
+      <span class="lb-caption" id="lbCaption"></span>
+    </div>
+  </div>
+
   <!-- model-viewer -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
   <!-- JS principal -->
-  <script src="js/main.js" defer></script>
+  <script src="js/app.js" defer></script>
+
+  <script>
+    /* ---- Lightbox ---- */
+    const lbOverlay = document.getElementById('lbOverlay');
+    const lbImg     = document.getElementById('lbImg');
+    const lbCap     = document.getElementById('lbCaption');
+    const lbClose   = document.getElementById('lbClose');
+
+    function openLb(src, caption) {
+      lbImg.src = src; lbImg.alt = caption || '';
+      lbCap.textContent = caption || '';
+      lbOverlay.classList.add('is-open');
+      lbClose.focus();
+    }
+    function closeLb() {
+      lbOverlay.classList.remove('is-open');
+      lbImg.src = '';
+    }
+
+    document.querySelectorAll('.hw-thumb[data-lb-src]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        openLb(btn.dataset.lbSrc, btn.dataset.lbCaption);
+      });
+    });
+    lbClose.addEventListener('click', closeLb);
+    lbOverlay.addEventListener('click', function(e) { if (e.target === lbOverlay) closeLb(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLb(); });
+
+    /* ---- Dropdown Proyectos ---- */
+    const dropBtn  = document.getElementById('dropdownBtn');
+    const dropMenu = document.getElementById('dropdownMenu');
+    const dropWrap = document.getElementById('navDropdown');
+    let closeTimer = null;
+
+    function openDrop() {
+      clearTimeout(closeTimer);
+      dropMenu.classList.add('is-open');
+      dropBtn.setAttribute('aria-expanded', 'true');
+    }
+    function scheduledClose() {
+      closeTimer = setTimeout(function() {
+        dropMenu.classList.remove('is-open');
+        dropBtn.setAttribute('aria-expanded', 'false');
+      }, 120);
+    }
+
+    dropBtn.addEventListener('click', function() {
+      dropMenu.classList.contains('is-open') ? scheduledClose() : openDrop();
+    });
+    dropWrap.addEventListener('mouseenter', openDrop);
+    dropWrap.addEventListener('mouseleave', scheduledClose);
+    dropMenu.addEventListener('mouseenter', openDrop);
+    dropMenu.addEventListener('mouseleave', scheduledClose);
+    dropMenu.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        clearTimeout(closeTimer);
+        dropMenu.classList.remove('is-open');
+        dropBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        clearTimeout(closeTimer);
+        dropMenu.classList.remove('is-open');
+        dropBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('click', function(e) {
+      if (!dropWrap.contains(e.target)) {
+        clearTimeout(closeTimer);
+        dropMenu.classList.remove('is-open');
+        dropBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+  </script>
 </body>
 </html>
