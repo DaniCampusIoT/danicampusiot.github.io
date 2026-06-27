@@ -649,17 +649,6 @@
     document.addEventListener('click', e => {
       if (!dropWrap.contains(e.target)) closeDrop();
     });
-
-    /* ---- Selector de idioma ES|EN ---- */
-    const langOpts = document.querySelectorAll('.lang-opt');
-    langOpts.forEach(btn => {
-      btn.addEventListener('click', () => {
-        langOpts.forEach(b => b.classList.remove('is-active'));
-        btn.classList.add('is-active');
-        /* Dispara el mismo evento que esperaba el selector anterior */
-        btn.dispatchEvent(new Event('language-change', { bubbles: true }));
-      });
-    });
   </script>
 </body>
 </html>
