@@ -22,10 +22,9 @@
         "aboutme-interest": "Intereses",
         "aboutme-third-title": "Ingeniero de I+D en sistemas embebidos, con especialización en seguridad, sensórica avanzada y arquitecturas edge.",
         "aboutme-first-paragraph": "Ingeniero electrónico, robótico y mecatrónico con experiencia en I+D, evaluación de seguridad embebida e integración sensórica en entornos exigentes. He trabajado en certificación IoT (SESIP), diseño de plataformas aeronáuticas con NXP S32K344 y Jetson Orin NX, y en el desarrollo de infraestructuras de redes de sensores inalámbricos autoconfigurables para edge computing.",
-        "aboutme-profile-text": "Metódico y orientado a resultados, con facilidad para adaptarme a entornos técnicamente exigentes. Valoro las buenas prácticas de ingeniería: documentación clara, control de versiones y evidencia reproducible. Desarrolllo herramientas y scripting para optimizar procesos, reducir errores y acelerar ciclos de validación.",
+        "aboutme-profile-text": "Metódico y orientado a resultados, con facilidad para adaptarme a entornos técnicamente exigentes. Valoro las buenas prácticas de ingeniería: documentación clara, control de versiones y evidencia reproducible. Desarrollo herramientas y scripting para optimizar procesos, reducir errores y acelerar ciclos de validación.",
         "aboutme-location-text": "Málaga, España",
         "aboutme-interest-text": "<span class='chip'>Seguridad embebida</span><span class='chip'>Firmware & reverse engineering</span><span class='chip'>Criptografía aplicada</span><span class='chip'>Automatización (Python/C/C++)</span><span class='chip'>IoT & redes</span><span class='chip'>Linux & scripting</span><span class='chip'>Diseño PCB</span><span class='chip'>Trekking</span>"
-
     },
     "projects": {
         "title": "Proyectos",
@@ -127,6 +126,10 @@
     },
     "experience": {
         "main-title": "Experiencia laboral",
+        "exp0-dates": "JUN 2026 – Actualidad",
+        "exp0-title": "Ingeniero de Electrónica e I+D",
+        "exp0-place": "Quandum Aerospace",
+        "exp0-description": "• Primer ingeniero incorporado al depto. de electrónica: definición técnica y pre-diseño de una plataforma móvil aeroportuaria orientada a ayuda al piloto, detección de obstáculos y posicionamiento relativo.<br>• Arquitectura embebida jerárquica con NXP S32K344 como núcleo de control y Jetson Orin NX como companion ECU para percepción avanzada y preprocesado sensórico.<br>• Definición de cadena sensórica (LiDAR Ouster OS2, radar Acconeer A121/A212) e integración electrónica y de comunicaciones bajo marcos normativos aeronáuticos DO-178 y DO-278.",
         "exp1-dates": "ENE 2025 - FEB 2026",
         "exp1-title": "Ingeniero de Ciberseguridad e I+D (IoT)",
         "exp1-place": "DEKRA — IoT, Ciberseguridad y Cumplimiento",
@@ -144,7 +147,6 @@
         "exp3-place": "SITER 2000",
         "exp3-description": "• Consultoría y estudios de despliegues de red (móvil y FTTH).<br>• Revisión de documentación técnica y as-builts para instalaciones en centros educativos."
     },
-    
     "drone": {
         "title": "Drone / Averon",
         "subtitle": "MODELO 3D Y CONTRIBUCIÓN",
