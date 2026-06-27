@@ -10,7 +10,7 @@
         "contact": "Contact"
     },
     "header": {
-        "rol": "From chip to product, securely",
+        "rol": "Electronics · Embedded Security · Advanced Sensing",
         "download-cv": "Download CV",
         "contact-cta": "Contact"
     },
@@ -20,9 +20,9 @@
         "aboutme-profile": "Profile",
         "aboutme-location": "Location",
         "aboutme-interest": "Interests",
-        "aboutme-third-title": "I build robust IoT and embedded solutions, with a strong focus on security and automation.",
-        "aboutme-first-paragraph": "Electronics, robotics and mechatronics engineer with hands-on experience in IoT, sensor networks and embedded systems. I turn prototypes into reliable solutions: from design and instrumentation to security validation, log analysis and test automation.",
-        "aboutme-profile-text": "Methodical and results-driven, with strong adaptability in demanding environments. I value good engineering practices (clear documentation, version control and reproducible evidence) and I often create scripts/tools to streamline workflows and reduce errors.",
+        "aboutme-third-title": "R&D engineer in embedded systems, specialising in security, advanced sensing and edge architectures.",
+        "aboutme-first-paragraph": "Electronics, robotics and mechatronics engineer with hands-on R&D experience spanning embedded security evaluation, advanced sensor integration and edge computing. I have worked on IoT certification (SESIP), the design of aeronautical platforms with NXP S32K344 and Jetson Orin NX, and the development of self-configurable wireless sensor network infrastructures for edge computing.",
+        "aboutme-profile-text": "Methodical and results-driven, with strong adaptability in technically demanding environments. I value good engineering practices — clear documentation, version control and reproducible evidence — and I build tools and scripts to streamline workflows, reduce errors and accelerate validation cycles.",
         "aboutme-location-text": "Málaga, Spain",
         "aboutme-interest-text": "<span class='chip'>Embedded security</span><span class='chip'>Firmware & reverse engineering</span><span class='chip'>Applied cryptography</span><span class='chip'>Automation (Python/C/C++)</span><span class='chip'>IoT & networking</span><span class='chip'>Linux & scripting</span><span class='chip'>PCB design</span><span class='chip'>Hiking</span>"
     },

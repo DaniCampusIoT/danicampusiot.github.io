@@ -10,7 +10,7 @@
         "contact":"Contacto"
     },
     "header":{
-        "rol": "Del chip al producto, con seguridad",
+        "rol": "Electrónica · Seguridad embebida · Sensórica avanzada",
         "download-cv": "Descargar CV",
         "contact-cta": "Contacto"
     },
@@ -20,9 +20,9 @@
         "aboutme-profile": "Perfil",
         "aboutme-location": "Ubicacion",
         "aboutme-interest": "Intereses",
-        "aboutme-third-title": "Construyo soluciones robustas en IoT y sistemas embebidos, con enfoque en seguridad y automatización.",
-        "aboutme-first-paragraph": "Ingeniero electrónico, robótico y mecatrónico con experiencia en IoT, redes de sensores y sistemas embebidos. Me especializo en llevar prototipos a soluciones fiables: desde el diseño e instrumentación, hasta la validación de seguridad, análisis de logs y automatización de pruebas.",
-        "aboutme-profile-text": "Soy una persona metódica y orientada a resultados, con facilidad para aprender rápido y adaptarme a entornos exigentes. Me gusta trabajar con buenas prácticas (documentación clara, control de versiones y evidencia reproducible) y crear herramientas/scripting para optimizar procesos y reducir errores.",
+        "aboutme-third-title": "Ingeniero de I+D en sistemas embebidos, con especialización en seguridad, sensórica avanzada y arquitecturas edge.",
+        "aboutme-first-paragraph": "Ingeniero electrónico, robótico y mecatrónico con experiencia en I+D, evaluación de seguridad embebida e integración sensórica en entornos exigentes. He trabajado en certificación IoT (SESIP), diseño de plataformas aeronáuticas con NXP S32K344 y Jetson Orin NX, y en el desarrollo de infraestructuras de redes de sensores inalámbricos autoconfigurables para edge computing.",
+        "aboutme-profile-text": "Metódico y orientado a resultados, con facilidad para adaptarme a entornos técnicamente exigentes. Valoro las buenas prácticas de ingeniería: documentación clara, control de versiones y evidencia reproducible. Desarrolllo herramientas y scripting para optimizar procesos, reducir errores y acelerar ciclos de validación.",
         "aboutme-location-text": "Málaga, España",
         "aboutme-interest-text": "<span class='chip'>Seguridad embebida</span><span class='chip'>Firmware & reverse engineering</span><span class='chip'>Criptografía aplicada</span><span class='chip'>Automatización (Python/C/C++)</span><span class='chip'>IoT & redes</span><span class='chip'>Linux & scripting</span><span class='chip'>Diseño PCB</span><span class='chip'>Trekking</span>"
 
