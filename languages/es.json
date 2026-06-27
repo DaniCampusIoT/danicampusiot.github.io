@@ -6,6 +6,7 @@
         "resumen":"Resumen",
         "projects": "Proyectos",
         "hardware": "Hardware",
+        "teaching": "Docencia",
         "contact":"Contacto"
     },
     "header":{
@@ -165,6 +166,27 @@
         "consola-desc": "PCB de 2 capas diseñada con Altium Designer. Se trata de una consola portátil basada en el módulo ESP32, con conectividad WiFi y Bluetooth integradas. El diseño prioriza la compactibilidad del layout y la correcta gestión de las líneas de alimentación, antena y señales digitales en un factor de forma reducido.",
         "consola-schematic": "Ver esquemático",
         "consola-3d": "Modelo 3D interactivo de la Consola ESP32"
+    },
+    "teaching": {
+        "title": "Docencia",
+        "subtitle": "PRÁCTICUM & RECURSOS EDUCATIVOS",
+        "rea-kicker": "RECURSO EDUCATIVO ABIERTO · MÁSTER EN EDUCACIÓN",
+        "rea-title": "Guía Didáctica IoT con ESP8266",
+        "rea-desc": "REA completo creado con ExeLearning para la asignatura de Aprendizaje y Enseñanza de la Tecnología. Incluye fundamentos teóricos de IoT, actividades prácticas con ESP8266 y BMP280, rúbricas de evaluación y recursos multimedia orientados a ESO y Bachillerato.",
+        "rea-btn": "Ver guía didáctica",
+        "lvl-4eso": "4º ESO",
+        "lvl-1bach": "1º BACH.",
+        "lvl-tfm": "TFM · MÁSTER EDUCACIÓN",
+        "p4eso-title": "Nodo IoT con ESP8266 y BMP280",
+        "p4eso-desc": "Proyecto de iniciación a IoT: los alumnos flashean MicroPython en un Wemos D1 mini, leen temperatura y presión con un sensor BMP280 por I2C y publican los datos a un broker MQTT en formato JSON. Incluye firmware, librería y comandos listos para copiar.",
+        "p1bach-title": "Nodo IoT avanzado con LWT y reconexión",
+        "p1bach-desc": "Versión avanzada del nodo IoT programada en C++ con el framework Arduino. Implementa reconexión automática al broker MQTT, estado Online/Offline mediante LWT (Last Will & Testament) y publicación periódica de datos en JSON. Orientado a alumnos de Bachillerato con base en programación.",
+        "pnotebooks-title": "Cuadernos Python por unidades",
+        "pnotebooks-desc": "Colección de ejercicios de Python en formato Jupyter Notebook, organizados por unidades didácticas con aprendizaje progresivo. Cada carpeta incluye 10 actividades + reto y un notebook de soluciones, listos para usar en Google Colab o entorno local.",
+        "aulavista-title": "AulaVista — Seguimiento del alumnado",
+        "aulavista-desc": "Trabajo Final de Máster en Educación. Aplicación de escritorio en Python (PySide6) para registrar observaciones del alumnado, visualizar su evolución a lo largo del curso y apoyar la toma de decisiones pedagógicas basada en datos. Diseñada para uso real en el aula por docentes de secundaria.",
+        "aulavista-private": "Repositorio privado — en desarrollo",
+        "btn-repo": "Ver repositorio"
     },
     "contact":{
         "main-title": "Contacto",

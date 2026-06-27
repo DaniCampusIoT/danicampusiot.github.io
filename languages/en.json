@@ -6,6 +6,7 @@
         "resumen": "Overview",
         "projects": "Projects",
         "hardware": "Hardware",
+        "teaching": "Teaching",
         "contact": "Contact"
     },
     "header": {
@@ -163,6 +164,27 @@
         "consola-desc": "2-layer PCB designed with Altium Designer. A compact handheld console based on the ESP32 module, featuring integrated WiFi and Bluetooth connectivity. The design focuses on layout compactness and proper management of power rails, antenna routing and digital signals within a small form factor.",
         "consola-schematic": "View schematic",
         "consola-3d": "Interactive 3D model of the ESP32 Console"
+    },
+    "teaching": {
+        "title": "Teaching",
+        "subtitle": "PRACTICUM & EDUCATIONAL RESOURCES",
+        "rea-kicker": "OPEN EDUCATIONAL RESOURCE · MASTER IN EDUCATION",
+        "rea-title": "IoT Didactic Guide with ESP8266",
+        "rea-desc": "Complete OER built with ExeLearning for the Learning and Teaching of Technology subject. Includes IoT theoretical foundations, hands-on activities with ESP8266 and BMP280, assessment rubrics and multimedia resources aimed at secondary and sixth-form students.",
+        "rea-btn": "View didactic guide",
+        "lvl-4eso": "4th ESO",
+        "lvl-1bach": "1st BACH.",
+        "lvl-tfm": "MASTER THESIS · EDUCATION",
+        "p4eso-title": "IoT Node with ESP8266 & BMP280",
+        "p4eso-desc": "IoT introduction project: students flash MicroPython onto a Wemos D1 mini, read temperature and pressure from a BMP280 sensor over I2C, and publish the data to an MQTT broker in JSON format. Includes firmware, library and copy-paste-ready commands for Windows.",
+        "p1bach-title": "Advanced IoT Node with LWT & auto-reconnect",
+        "p1bach-desc": "Advanced version of the IoT node programmed in C++ with the Arduino framework. Implements automatic MQTT broker reconnection, Online/Offline status via LWT (Last Will & Testament) and periodic JSON data publishing. Aimed at sixth-form students with programming experience.",
+        "pnotebooks-title": "Python Notebooks by unit",
+        "pnotebooks-desc": "Collection of Python exercises in Jupyter Notebook format, organised by teaching units with progressive learning. Each folder includes 10 activities + a challenge and a solutions notebook, ready to use on Google Colab or locally.",
+        "aulavista-title": "AulaVista — Student Progress Tracker",
+        "aulavista-desc": "Master's Final Project in Education. A Python desktop application (PySide6) to record student observations, track their progress throughout the school year and support data-driven pedagogical decisions. Designed for real classroom use by secondary school teachers.",
+        "aulavista-private": "Private repository — in development",
+        "btn-repo": "View repository"
     },
     "contact": {
         "main-title": "Contact",
