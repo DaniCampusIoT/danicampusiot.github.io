@@ -61,7 +61,7 @@
           </button>
           <ul class="nav-dropdown-menu" id="dropdownMenu" role="menu">
             <li role="none">
-              <a href="#proyectos" role="menuitem" data-section="menu" data-value="projects">
+              <a href="#proyectos" role="menuitem">
                 <i class="fa-solid fa-code" aria-hidden="true"></i>
                 <span data-section="menu" data-value="projects">Repositorios</span>
               </a>
@@ -73,13 +73,13 @@
               </a>
             </li>
             <li role="none">
-              <a href="#hardware" role="menuitem" data-section="menu" data-value="hardware">
+              <a href="#hardware" role="menuitem">
                 <i class="fa-solid fa-microchip" aria-hidden="true"></i>
                 <span data-section="menu" data-value="hardware">Hardware</span>
               </a>
             </li>
             <li role="none">
-              <a href="#docencia" role="menuitem" data-section="menu" data-value="teaching">
+              <a href="#docencia" role="menuitem">
                 <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
                 <span data-section="menu" data-value="teaching">Docencia</span>
               </a>
@@ -648,17 +648,6 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrop(); });
     document.addEventListener('click', e => {
       if (!dropWrap.contains(e.target)) closeDrop();
-    });
-
-    /* ---- Selector de idioma ES|EN ---- */
-    const langOpts = document.querySelectorAll('.lang-opt');
-    langOpts.forEach(btn => {
-      btn.addEventListener('click', () => {
-        langOpts.forEach(b => b.classList.remove('is-active'));
-        btn.classList.add('is-active');
-        /* Dispara el mismo evento que esperaba el selector anterior */
-        btn.dispatchEvent(new Event('language-change', { bubbles: true }));
-      });
     });
   </script>
 </body>
