@@ -46,6 +46,7 @@
         <a href="#habilidades" data-section="menu" data-value="skills">Habilidades</a>
         <a href="#resumen" data-section="menu" data-value="resumen">Resumen</a>
         <a href="#proyectos" data-section="menu" data-value="projects">Proyectos</a>
+        <a href="#hardware" data-section="menu" data-value="hardware">Hardware</a>
         <a href="#contacto" data-section="menu" data-value="contact">Contacto</a>
       </nav>
 
@@ -394,7 +395,7 @@
     <section class="section" id="drone-averon">
       <div class="container">
         <h2 class="section-title" data-section="drone" data-value="title">Drone at Averon</h2>
-        <p class="section-subtitle" data-section="drone" data-value="subtitle">3D MODEL & CONTRIBUTION</p>
+        <p class="section-subtitle" data-section="drone" data-value="subtitle">3D MODEL &amp; CONTRIBUTION</p>
 
         <div class="drone-grid">
           <div class="card">
@@ -425,6 +426,160 @@
       </div>
     </section>
 
+    <!-- HARDWARE PCB -->
+    <section class="section section-alt" id="hardware">
+      <div class="container">
+        <h2 class="section-title" data-section="hardware" data-value="title">Diseño Electrónico</h2>
+        <p class="section-subtitle" data-section="hardware" data-value="subtitle">PROYECTOS DE PCB</p>
+
+        <!-- DEA: Controlador Motor 4 capas -->
+        <div class="drone-grid" style="margin-bottom: 4rem;">
+          <div class="card">
+            <h3 class="card-title">
+              <i class="fa-solid fa-microchip" aria-hidden="true"></i>
+              <span data-section="hardware" data-value="dea-title">DEA — Controlador Motor (MSP430)</span>
+            </h3>
+            <p class="muted" style="font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;" data-section="hardware" data-value="dea-subtitle">PCB 4 CAPAS · EAGLE · MÁSTER MECATRÓNICA</p>
+            <p class="muted" data-section="hardware" data-value="dea-desc">
+              PCB de 4 capas diseñada con Eagle para la asignatura de Diseño Electrónico Avanzado del Máster en Mecatrónica. El circuito implementa un controlador de motor basado en el microcontrolador MSP430G2XX1 de Texas Instruments.
+            </p>
+            <div class="tags" style="margin-top: 1rem;">
+              <span class="chip">Eagle</span>
+              <span class="chip">4 capas</span>
+              <span class="chip">MSP430G2XX1</span>
+              <span class="chip">Motor driver</span>
+              <span class="chip">Texas Instruments</span>
+            </div>
+
+            <!-- GIF animado -->
+            <img
+              src="hardware/dea/gif_circuito.gif"
+              alt="Animación del diseño PCB DEA"
+              loading="lazy"
+              width="800" height="450"
+              style="width:100%; border-radius: 0.75rem; margin-top: 1.5rem;"
+            />
+
+            <!-- Miniaturas DRC TOP/BOTTOM -->
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap: 0.75rem; margin-top: 1rem;">
+              <figure style="margin:0;">
+                <img
+                  src="hardware/dea/PRACTICE_DEA_DRC_TOP.png"
+                  alt="Capa TOP del PCB DEA"
+                  loading="lazy"
+                  width="400" height="300"
+                  style="border-radius: 0.5rem; width:100%;"
+                />
+                <figcaption style="font-size:0.75rem; text-align:center; margin-top:0.25rem; opacity:0.6;" data-section="hardware" data-value="dea-top">Capa TOP</figcaption>
+              </figure>
+              <figure style="margin:0;">
+                <img
+                  src="hardware/dea/PRACTICE_DEA_DRC_BOTTOM.png"
+                  alt="Capa BOTTOM del PCB DEA"
+                  loading="lazy"
+                  width="400" height="300"
+                  style="border-radius: 0.5rem; width:100%;"
+                />
+                <figcaption style="font-size:0.75rem; text-align:center; margin-top:0.25rem; opacity:0.6;" data-section="hardware" data-value="dea-bottom">Capa BOTTOM</figcaption>
+              </figure>
+            </div>
+
+            <!-- Enlace esquemático -->
+            <a
+              class="btn"
+              href="hardware/dea/dea_circuit_sheets.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="margin-top: 1.5rem; display:inline-flex; align-items:center; gap: 0.5rem;"
+            >
+              <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+              <span data-section="hardware" data-value="dea-schematic">Ver esquemático</span>
+            </a>
+          </div>
+
+          <!-- Visor 3D DEA -->
+          <div class="card drone-viewer-card">
+            <model-viewer
+              src="hardware/dea/pcb_3d.glb"
+              alt="Modelo 3D del PCB DEA — Controlador Motor MSP430"
+              camera-controls
+              auto-rotate
+              shadow-intensity="1"
+              exposure="1.2"
+              style="width:100%; height:460px; background:transparent;">
+            </model-viewer>
+          </div>
+        </div>
+
+        <!-- Consola ESP32 -->
+        <div class="drone-grid">
+          <div class="card">
+            <h3 class="card-title">
+              <i class="fa-solid fa-gamepad" aria-hidden="true"></i>
+              <span data-section="hardware" data-value="consola-title">Consola ESP32 — Altium Designer</span>
+            </h3>
+            <p class="muted" style="font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem;" data-section="hardware" data-value="consola-subtitle">PCB 2 CAPAS · ALTIUM · ESP32</p>
+            <p class="muted" data-section="hardware" data-value="consola-desc">
+              PCB de 2 capas diseñada con Altium Designer. Consola portátil basada en el módulo ESP32, con conectividad WiFi y Bluetooth integradas.
+            </p>
+            <div class="tags" style="margin-top: 1rem;">
+              <span class="chip">Altium Designer</span>
+              <span class="chip">2 capas</span>
+              <span class="chip">ESP32</span>
+              <span class="chip">WiFi</span>
+              <span class="chip">Bluetooth</span>
+            </div>
+
+            <!-- GIF animado -->
+            <img
+              src="hardware/consola/board_gif.gif"
+              alt="Animación del diseño de la Consola ESP32"
+              loading="lazy"
+              width="800" height="450"
+              style="width:100%; border-radius: 0.75rem; margin-top: 1.5rem;"
+            />
+
+            <!-- Miniatura first_layer -->
+            <figure style="margin: 1rem 0 0;">
+              <img
+                src="hardware/consola/first_layer.png"
+                alt="Primera capa de la Consola ESP32"
+                loading="lazy"
+                width="800" height="450"
+                style="border-radius: 0.5rem; width:100%;"
+              />
+              <figcaption style="font-size:0.75rem; text-align:center; margin-top:0.25rem; opacity:0.6;">Layer 1</figcaption>
+            </figure>
+
+            <!-- Enlace esquemático -->
+            <a
+              class="btn"
+              href="hardware/consola/sheets.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="margin-top: 1.5rem; display:inline-flex; align-items:center; gap: 0.5rem;"
+            >
+              <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+              <span data-section="hardware" data-value="consola-schematic">Ver esquemático</span>
+            </a>
+          </div>
+
+          <!-- Visor 3D Consola -->
+          <div class="card drone-viewer-card">
+            <model-viewer
+              src="hardware/consola/console_pcb.glb"
+              alt="Modelo 3D de la Consola ESP32"
+              camera-controls
+              auto-rotate
+              shadow-intensity="1"
+              exposure="1.2"
+              style="width:100%; height:460px; background:transparent;">
+            </model-viewer>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
     <!-- CONTACT -->
     <section class="section section-dark" id="contacto">
