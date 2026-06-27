@@ -204,14 +204,15 @@ img{ max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--gap);
-  padding: 12px 0;
+  gap: 10px;
+  padding: 10px 0;
 }
 
 
 .brand{
   text-decoration: none;
   color: inherit;
+  flex-shrink: 0;
 }
 .brand-mark{
   font-weight: 800;
@@ -221,40 +222,194 @@ img{ max-width: 100%; display: block; }
 .brand-accent{ color: var(--accent2); }
 
 
+/* ---- Nav links ---- */
 .nav{
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 2px;
 }
-.nav a{
+.nav > a{
   text-decoration: none;
   color: inherit;
-  padding: 10px 10px;
-  border-radius: 10px;
+  padding: 6px 9px;
+  border-radius: 8px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: background var(--t-fast) var(--ease-out), color var(--t-fast) var(--ease-out);
+}
+.nav > a:hover{ background: rgba(124,29,126,0.08); }
+body.theme-dark .nav > a:hover{ background: rgba(255,255,255,0.06); }
+
+
+.nav > a.is-active{
+  background: rgba(124,29,126,0.12);
+  border: 1px solid rgba(162,28,175,0.35);
+}
+body.theme-dark .nav > a.is-active{
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.16);
+}
+
+
+/* ========================
+   DROPDOWN — Proyectos
+   ======================== */
+.nav-dropdown{
+  position: relative;
+}
+
+.nav-dropdown-trigger{
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 9px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
   transition: background var(--t-fast) var(--ease-out);
 }
-.nav a:hover{ background: rgba(124,29,126,0.08); }
-body.theme-dark .nav a:hover{ background: rgba(255,255,255,0.06); }
+.nav-dropdown-trigger:hover,
+.nav-dropdown:hover .nav-dropdown-trigger{
+  background: rgba(124,29,126,0.08);
+}
+body.theme-dark .nav-dropdown-trigger:hover,
+body.theme-dark .nav-dropdown:hover .nav-dropdown-trigger{
+  background: rgba(255,255,255,0.06);
+}
+
+.nav-dropdown-arrow{
+  font-size: 9px;
+  transition: transform var(--t-fast) var(--ease-out);
+  opacity: 0.6;
+}
+.nav-dropdown-menu.is-open ~ * .nav-dropdown-arrow,
+.nav-dropdown-trigger[aria-expanded="true"] .nav-dropdown-arrow{
+  transform: rotate(180deg);
+}
+
+/* Menú flotante */
+.nav-dropdown-menu{
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 180px;
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid var(--page-border);
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+  z-index: 300;
+  /* Animación de entrada */
+  opacity: 0;
+  transform: translateX(-50%) translateY(-6px);
+  transition:
+    opacity var(--t-fast) var(--ease-out),
+    transform var(--t-fast) var(--ease-out);
+}
+.nav-dropdown-menu.is-open{
+  display: block;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Items del dropdown */
+.nav-dropdown-menu li + li{
+  margin-top: 2px;
+}
+.nav-dropdown-menu a{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background var(--t-fast) var(--ease-out);
+}
+.nav-dropdown-menu a:hover{
+  background: rgba(124,29,126,0.10);
+}
+body.theme-dark .nav-dropdown-menu a:hover{
+  background: rgba(255,255,255,0.08);
+}
+.nav-dropdown-menu a i{
+  width: 14px;
+  text-align: center;
+  color: var(--accent2);
+  flex-shrink: 0;
+}
+
+/* Divisor sutil antes del último item */
+.nav-dropdown-menu li:nth-child(3){
+  border-bottom: 1px solid var(--page-border);
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+}
+
+
+/* ========================
+   LANG TOGGLE  ES | EN
+   ======================== */
+.lang-toggle{
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--page-border);
+  background: var(--glass-bg);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.lang-opt{
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--page-muted);
+  padding: 2px 4px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition: color var(--t-fast) var(--ease-out), background var(--t-fast) var(--ease-out);
+}
+.lang-opt.is-active{
+  color: var(--accent2);
+  background: rgba(162,28,175,0.10);
+}
+.lang-opt:hover:not(.is-active){
+  color: var(--page-text);
+}
+
+.lang-sep{
+  color: var(--page-muted);
+  opacity: 0.4;
+  user-select: none;
+  font-size: 11px;
+}
 
 
 .header-actions{
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  flex-shrink: 0;
 }
-
-
-.nav a.is-active{
-  background: rgba(124,29,126,0.12);
-  border: 1px solid rgba(162,28,175,0.35);
-}
-body.theme-dark .nav a.is-active{
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.16);
-}
-
 
 
 /* Buttons & icon buttons */
@@ -262,28 +417,12 @@ body.theme-dark .nav a.is-active{
   border: 1px solid var(--page-border);
   background: var(--glass-bg);
   color: inherit;
-  border-radius: 12px;
-  padding: 10px 12px;
+  border-radius: 10px;
+  padding: 7px 10px;
   cursor: pointer;
   transition: transform var(--t-fast) var(--ease-out), box-shadow var(--t-fast) var(--ease-out);
 }
 .icon-btn:hover{ transform: translateY(-1px); box-shadow: var(--shadow-soft); }
-
-
-.lang-switch{ display: flex; gap: 8px; }
-.flag{
-  border: 1px solid var(--page-border);
-  background: var(--glass-bg);
-  border-radius: 12px;
-  padding: 8px;
-  cursor: pointer;
-  transition: transform var(--t-fast) var(--ease-out), box-shadow var(--t-fast) var(--ease-out);
-}
-.flag:hover{ transform: translateY(-1px); box-shadow: var(--shadow-soft); }
-.flag.is-active{
-  border-color: rgba(162,28,175,0.55);
-  box-shadow: 0 0 0 3px rgba(162,28,175,0.18);
-}
 
 
 .burger{ display: none; }
@@ -727,7 +866,6 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
    HARDWARE — Layout Opción A
    ========================= */
 
-/* Tarjeta de proyecto hardware: fila superior info+viewer, fila inferior galería */
 .hw-card{
   border-radius: var(--radius);
   border: 1px solid var(--card-border);
@@ -741,7 +879,6 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
   border-color: rgba(162,28,175,0.30);
 }
 
-/* Fila superior: descripción izquierda + visor 3D derecha */
 .hw-top{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -770,7 +907,6 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
   --poster-color: transparent;
 }
 
-/* Fila inferior: galería de miniaturas */
 .hw-gallery{
   display: flex;
   gap: 10px;
@@ -781,7 +917,6 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
   background: var(--section-alt-bg);
 }
 
-/* Cada thumbnail */
 .hw-thumb{
   flex: 0 0 auto;
   width: 120px;
@@ -809,7 +944,6 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
   transform: scale(1.06);
 }
 
-/* Etiqueta encima del thumb (GIF, TOP, etc.) */
 .hw-thumb-label{
   position: absolute;
   bottom: 4px;
@@ -826,7 +960,6 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
   white-space: nowrap;
 }
 
-/* Botón "Ver esquemático" dentro de hw-info */
 .hw-info .btn{
   align-self: flex-start;
   margin-top: 1rem;
@@ -891,7 +1024,6 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
   white-space: nowrap;
 }
 
-/* Responsive hw */
 @media (max-width: 720px){
   .hw-top{ grid-template-columns: 1fr; }
   .hw-info{ border-right: none; border-bottom: 1px solid var(--card-border); }
@@ -904,12 +1036,10 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
    DOCENCIA — Teaching section
    ========================= */
 
-/* Card destacada: REA ExeLearning */
 .teaching-featured{
   margin-bottom: 2rem;
 }
 
-/* Kicker de sección (texto pequeño tipo "RECURSO EDUCATIVO ABIERTO") */
 .teaching-kicker{
   font-size: 11px;
   letter-spacing: 0.14em;
@@ -919,7 +1049,6 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
   margin: 0 0 8px;
 }
 
-/* Preview de la web ExeLearning (ventana de browser falsa) */
 .teaching-preview{
   background: var(--section-alt-bg);
   padding: 12px;
@@ -955,7 +1084,6 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
   text-align: center;
 }
 
-/* Grid de tarjetas de aula (3 columnas) */
 .teaching-grid{
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -963,13 +1091,11 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
   margin-top: 0;
 }
 
-/* Tarjeta individual de aula */
 .teaching-card{
   display: flex;
   flex-direction: column;
 }
 
-/* Cabecera de tarjeta: nivel + icono */
 .teaching-card-header{
   display: flex;
   align-items: center;
@@ -977,7 +1103,6 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
   margin-bottom: 4px;
 }
 
-/* Badge de nivel (4º ESO, 1º BACH, TFM…) */
 .teaching-level{
   font-size: 10px;
   font-weight: 800;
@@ -990,14 +1115,12 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
   color: var(--page-muted);
 }
 
-/* Variante especial para TFM */
 .teaching-level--tfm{
   border-color: rgba(162,28,175,0.45);
   background: rgba(162,28,175,0.10);
   color: var(--accent2);
 }
 
-/* Tarjeta destacada (AulaVista TFM) */
 .teaching-card--featured{
   border-color: rgba(162,28,175,0.30);
   background: linear-gradient(
@@ -1010,7 +1133,6 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
   border-color: rgba(162,28,175,0.55);
 }
 
-/* Nota de repositorio privado */
 .teaching-private-note{
   display: inline-flex;
   align-items: center;
@@ -1030,7 +1152,6 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
   color: var(--accent2);
 }
 
-/* Responsive teaching grid */
 @media (max-width: 920px){
   .teaching-grid{
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1041,7 +1162,7 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
     grid-template-columns: 1fr;
   }
   .teaching-preview{
-    display: none; /* Ocultar iframe en móvil para ahorrar recursos */
+    display: none;
   }
 }
 
@@ -1135,4 +1256,23 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
   body.theme-dark .nav{ background: rgba(11,11,16,0.92); }
 
   body.nav-open .nav{ display: flex; }
+
+  /* En móvil el dropdown se queda inline */
+  .nav-dropdown-menu{
+    position: static;
+    transform: none !important;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0 0 0 16px;
+    min-width: unset;
+  }
+  .nav-dropdown-menu.is-open{
+    display: block;
+  }
+  .nav-dropdown-trigger{
+    width: 100%;
+    justify-content: space-between;
+  }
 }

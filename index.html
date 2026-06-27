@@ -45,20 +45,57 @@
         <a href="#sobremi" data-section="menu" data-value="aboutme">Sobre mi</a>
         <a href="#habilidades" data-section="menu" data-value="skills">Habilidades</a>
         <a href="#resumen" data-section="menu" data-value="resumen">Resumen</a>
-        <a href="#proyectos" data-section="menu" data-value="projects">Proyectos</a>
-        <a href="#hardware" data-section="menu" data-value="hardware">Hardware</a>
-        <a href="#docencia" data-section="menu" data-value="teaching">Docencia</a>
+
+        <!-- Dropdown Proyectos -->
+        <div class="nav-dropdown" id="navDropdown">
+          <button
+            class="nav-dropdown-trigger"
+            type="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="dropdownMenu"
+            id="dropdownBtn"
+          >
+            <span data-section="menu" data-value="projects">Proyectos</span>
+            <i class="fa-solid fa-chevron-down nav-dropdown-arrow" aria-hidden="true"></i>
+          </button>
+          <ul class="nav-dropdown-menu" id="dropdownMenu" role="menu">
+            <li role="none">
+              <a href="#proyectos" role="menuitem" data-section="menu" data-value="projects">
+                <i class="fa-solid fa-code" aria-hidden="true"></i>
+                <span data-section="menu" data-value="projects">Repositorios</span>
+              </a>
+            </li>
+            <li role="none">
+              <a href="#drone-averon" role="menuitem">
+                <i class="fa-solid fa-helicopter" aria-hidden="true"></i>
+                <span>Drone Averon</span>
+              </a>
+            </li>
+            <li role="none">
+              <a href="#hardware" role="menuitem" data-section="menu" data-value="hardware">
+                <i class="fa-solid fa-microchip" aria-hidden="true"></i>
+                <span data-section="menu" data-value="hardware">Hardware</span>
+              </a>
+            </li>
+            <li role="none">
+              <a href="#docencia" role="menuitem" data-section="menu" data-value="teaching">
+                <i class="fa-solid fa-chalkboard-user" aria-hidden="true"></i>
+                <span data-section="menu" data-value="teaching">Docencia</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
         <a href="#contacto" data-section="menu" data-value="contact">Contacto</a>
       </nav>
 
       <div class="header-actions">
-        <div class="lang-switch" id="flags" aria-label="Selector de idioma">
-          <button class="flag" type="button" data-language="es" aria-label="Español">
-            <img src="img/es.svg" alt="ES" width="24" height="24" />
-          </button>
-          <button class="flag" type="button" data-language="en" aria-label="English">
-            <img src="img/gb.svg" alt="EN" width="24" height="24" />
-          </button>
+        <!-- Selector de idioma compacto -->
+        <div class="lang-toggle" id="langToggle" aria-label="Selector de idioma">
+          <button class="lang-opt is-active" type="button" data-language="es" aria-label="Español">ES</button>
+          <span class="lang-sep" aria-hidden="true">|</span>
+          <button class="lang-opt" type="button" data-language="en" aria-label="English">EN</button>
         </div>
         <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambiar tema">
           <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
@@ -403,7 +440,6 @@
                 <span data-section="teaching" data-value="rea-btn">Ver guía didáctica</span>
               </a>
             </div>
-            <!-- Preview visual de la web ExeLearning -->
             <div class="hw-viewer teaching-preview">
               <div class="teaching-preview-inner">
                 <div class="teaching-preview-bar">
@@ -425,7 +461,6 @@
         <!-- Grid de proyectos de aula -->
         <div class="teaching-grid">
 
-          <!-- 4º ESO: MicroPython -->
           <article class="card teaching-card" aria-label="Proyecto IoT 4º ESO">
             <div class="teaching-card-header">
               <span class="teaching-level" data-section="teaching" data-value="lvl-4eso">4º ESO</span>
@@ -448,7 +483,6 @@
             </a>
           </article>
 
-          <!-- 1º Bach: C++ / Arduino -->
           <article class="card teaching-card" aria-label="Proyecto IoT 1º Bachillerato">
             <div class="teaching-card-header">
               <span class="teaching-level" data-section="teaching" data-value="lvl-1bach">1º BACH.</span>
@@ -471,7 +505,6 @@
             </a>
           </article>
 
-          <!-- Python Notebooks 4º ESO -->
           <article class="card teaching-card" aria-label="Notebooks Python 4º ESO">
             <div class="teaching-card-header">
               <span class="teaching-level" data-section="teaching" data-value="lvl-4eso">4º ESO</span>
@@ -493,7 +526,6 @@
             </a>
           </article>
 
-          <!-- AulaVista — TFM Máster Educación -->
           <article class="card teaching-card teaching-card--featured" aria-label="AulaVista — TFM Máster en Educación">
             <div class="teaching-card-header">
               <span class="teaching-level teaching-level--tfm" data-section="teaching" data-value="lvl-tfm">TFM · MÁSTER EDUCACIÓN</span>
@@ -567,32 +599,67 @@
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <script src="js/app.js"></script>
   <script>
+    /* ---- Lightbox ---- */
     const lb      = document.getElementById('lightbox');
     const lbImg   = document.getElementById('lbImg');
     const lbCap   = document.getElementById('lbCaption');
     const lbClose = document.getElementById('lbClose');
-
     function openLb(src, caption) {
-      lbImg.src = src;
-      lbImg.alt = caption || '';
+      lbImg.src = src; lbImg.alt = caption || '';
       lbCap.textContent = caption || '';
-      lb.classList.add('is-open');
-      lbClose.focus();
+      lb.classList.add('is-open'); lbClose.focus();
     }
-    function closeLb() {
-      lb.classList.remove('is-open');
-      lbImg.src = '';
-    }
-
-    document.querySelectorAll('.hw-thumb').forEach(btn => {
-      btn.addEventListener('click', () =>
-        openLb(btn.dataset.lbSrc, btn.dataset.lbCaption)
-      );
-    });
-
+    function closeLb() { lb.classList.remove('is-open'); lbImg.src = ''; }
+    document.querySelectorAll('.hw-thumb').forEach(btn =>
+      btn.addEventListener('click', () => openLb(btn.dataset.lbSrc, btn.dataset.lbCaption))
+    );
     lbClose.addEventListener('click', closeLb);
     lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+    /* ---- Dropdown Proyectos ---- */
+    const dropBtn  = document.getElementById('dropdownBtn');
+    const dropMenu = document.getElementById('dropdownMenu');
+    const dropWrap = document.getElementById('navDropdown');
+
+    function openDrop() {
+      dropMenu.classList.add('is-open');
+      dropBtn.setAttribute('aria-expanded', 'true');
+    }
+    function closeDrop() {
+      dropMenu.classList.remove('is-open');
+      dropBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    dropBtn.addEventListener('click', () =>
+      dropMenu.classList.contains('is-open') ? closeDrop() : openDrop()
+    );
+
+    /* Hover en desktop */
+    dropWrap.addEventListener('mouseenter', openDrop);
+    dropWrap.addEventListener('mouseleave', closeDrop);
+
+    /* Cerrar al hacer click en un item del dropdown */
+    dropMenu.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', closeDrop)
+    );
+
+    /* Cerrar con Escape o click fuera */
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrop(); });
+    document.addEventListener('click', e => {
+      if (!dropWrap.contains(e.target)) closeDrop();
+    });
+
+    /* ---- Selector de idioma ES|EN ---- */
+    const langOpts = document.querySelectorAll('.lang-opt');
+    langOpts.forEach(btn => {
+      btn.addEventListener('click', () => {
+        langOpts.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        /* Dispara el mismo evento que esperaba el selector anterior */
+        btn.dispatchEvent(new Event('language-change', { bubbles: true }));
+      });
+    });
   </script>
 </body>
 </html>
