@@ -901,6 +901,152 @@ body.theme-dark .skill-bar{ background: rgba(255,255,255,0.10); }
 
 
 /* =========================
+   DOCENCIA — Teaching section
+   ========================= */
+
+/* Card destacada: REA ExeLearning */
+.teaching-featured{
+  margin-bottom: 2rem;
+}
+
+/* Kicker de sección (texto pequeño tipo "RECURSO EDUCATIVO ABIERTO") */
+.teaching-kicker{
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent2);
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+/* Preview de la web ExeLearning (ventana de browser falsa) */
+.teaching-preview{
+  background: var(--section-alt-bg);
+  padding: 12px;
+}
+.teaching-preview-inner{
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+}
+.teaching-preview-bar{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: var(--glass-bg-strong);
+  border-bottom: 1px solid var(--card-border);
+}
+.tpb-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(162,28,175,0.25);
+  flex-shrink: 0;
+}
+.tpb-url{
+  font-size: 11px;
+  color: var(--page-muted);
+  letter-spacing: 0.02em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  text-align: center;
+}
+
+/* Grid de tarjetas de aula (3 columnas) */
+.teaching-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gap);
+  margin-top: 0;
+}
+
+/* Tarjeta individual de aula */
+.teaching-card{
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabecera de tarjeta: nivel + icono */
+.teaching-card-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+/* Badge de nivel (4º ESO, 1º BACH, TFM…) */
+.teaching-level{
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--chip-border);
+  background: var(--chip-bg);
+  color: var(--page-muted);
+}
+
+/* Variante especial para TFM */
+.teaching-level--tfm{
+  border-color: rgba(162,28,175,0.45);
+  background: rgba(162,28,175,0.10);
+  color: var(--accent2);
+}
+
+/* Tarjeta destacada (AulaVista TFM) */
+.teaching-card--featured{
+  border-color: rgba(162,28,175,0.30);
+  background: linear-gradient(
+    145deg,
+    rgba(162,28,175,0.06) 0%,
+    var(--card-bg) 60%
+  );
+}
+.teaching-card--featured:hover{
+  border-color: rgba(162,28,175,0.55);
+}
+
+/* Nota de repositorio privado */
+.teaching-private-note{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1rem;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--page-muted);
+  border: 1px dashed var(--page-border);
+  background: transparent;
+  align-self: flex-start;
+}
+.teaching-private-note i{
+  font-size: 11px;
+  color: var(--accent2);
+}
+
+/* Responsive teaching grid */
+@media (max-width: 920px){
+  .teaching-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px){
+  .teaching-grid{
+    grid-template-columns: 1fr;
+  }
+  .teaching-preview{
+    display: none; /* Ocultar iframe en móvil para ahorrar recursos */
+  }
+}
+
+
+/* =========================
    CONTACT
    ========================= */
 .contact-grid{
