@@ -335,8 +335,9 @@
               </a>
             </div>
             <div class="hw-viewer">
+              <!-- FIXED: filename is pcb_3d.glb, not pcb_dea.glb -->
               <model-viewer
-                src="hardware/dea/pcb_dea.glb"
+                src="hardware/dea/pcb_3d.glb"
                 alt="Modelo 3D del PCB DEA — Controlador Motor"
                 camera-controls
                 auto-rotate
@@ -438,6 +439,7 @@
                 <span data-section="teaching" data-value="rea-btn">Ver guía didáctica</span>
               </a>
             </div>
+            <!-- FIXED: replaced broken img with live iframe preview of the ExeLearning site -->
             <div class="teaching-preview">
               <div class="teaching-preview-inner">
                 <div class="teaching-preview-bar">
@@ -446,8 +448,15 @@
                   <span class="tpb-dot"></span>
                   <span class="tpb-url">danicampusiot.github.io/iot-guide</span>
                 </div>
-                <img src="img/rea-preview.png" alt="Vista previa de la guía didáctica" loading="lazy"
-                  style="width:100%;display:block;aspect-ratio:16/9;object-fit:cover;" />
+                <iframe
+                  title="Vista previa de la guía didáctica IoT"
+                  src="https://danicampusiot.github.io/iot-guide/"
+                  loading="lazy"
+                  scrolling="no"
+                  style="width:100%;height:260px;border:none;display:block;pointer-events:none;transform-origin:top left;"
+                  tabindex="-1"
+                  aria-hidden="true"
+                ></iframe>
               </div>
             </div>
           </div>
