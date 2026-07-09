@@ -6,7 +6,11 @@
 
   <title>Daniel Carrión — Portfolio</title>
   <meta name="description" content="Portfolio/CV de Daniel Carrión: ingeniería, programación, IoT y experiencia profesional." />
-  <meta name="theme-color" content="#7c1d7e" />
+  <meta name="theme-color" content="#0a7c8c" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="img/favicon.png" type="image/png" />
+  <link rel="shortcut icon" href="img/favicon.png" />
 
   <!-- Font Awesome -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
@@ -249,7 +253,6 @@
           <div class="card">
             <h3 class="card-title" data-section="experience" data-value="main-title">Experiencia laboral</h3>
             <ol class="timeline">
-              <!-- Quandum Aerospace — entrada más reciente -->
               <li class="timeline-item timeline-item--current">
                 <div class="timeline-date" data-section="experience" data-value="exp0-dates"></div>
                 <div class="timeline-body">
@@ -311,7 +314,6 @@
         <h2 class="section-title" data-section="hardware" data-value="title">Diseño Electrónico</h2>
         <p class="section-subtitle" data-section="hardware" data-value="subtitle">PROYECTOS DE PCB</p>
 
-        <!-- DEA: Controlador Motor 4 capas -->
         <article class="hw-card" aria-label="PCB DEA — Controlador Motor MSP430">
           <div class="hw-top">
             <div class="hw-info">
@@ -335,7 +337,6 @@
               </a>
             </div>
             <div class="hw-viewer">
-              <!-- FIXED: filename is pcb_3d.glb, not pcb_dea.glb -->
               <model-viewer
                 src="hardware/dea/pcb_3d.glb"
                 alt="Modelo 3D del PCB DEA — Controlador Motor"
@@ -365,7 +366,6 @@
           </div>
         </article>
 
-        <!-- Consola ESP32 -->
         <article class="hw-card" aria-label="PCB Consola ESP32 — Altium Designer">
           <div class="hw-top">
             <div class="hw-info">
@@ -416,7 +416,6 @@
         <h2 class="section-title" data-section="teaching" data-value="title">Docencia</h2>
         <p class="section-subtitle" data-section="teaching" data-value="subtitle">PRÁCTICUM &amp; RECURSOS EDUCATIVOS</p>
 
-        <!-- REA destacado -->
         <div class="card teaching-featured teaching-card--featured">
           <div class="drone-grid" style="align-items:stretch; gap:var(--gap);">
             <div style="display:flex;flex-direction:column;justify-content:space-between;">
@@ -439,7 +438,6 @@
                 <span data-section="teaching" data-value="rea-btn">Ver guía didáctica</span>
               </a>
             </div>
-            <!-- FIXED: replaced broken img with live iframe preview of the ExeLearning site -->
             <div class="teaching-preview">
               <div class="teaching-preview-inner">
                 <div class="teaching-preview-bar">
@@ -462,10 +460,8 @@
           </div>
         </div>
 
-        <!-- Grid proyectos docentes -->
         <div class="teaching-grid">
 
-          <!-- 4º ESO -->
           <div class="card teaching-card">
             <div class="teaching-card-header">
               <span class="teaching-level" data-section="teaching" data-value="lvl-4eso">4º ESO</span>
@@ -489,7 +485,6 @@
             </div>
           </div>
 
-          <!-- 1º BACH -->
           <div class="card teaching-card">
             <div class="teaching-card-header">
               <span class="teaching-level" data-section="teaching" data-value="lvl-1bach">1º BACH.</span>
@@ -513,7 +508,6 @@
             </div>
           </div>
 
-          <!-- Python Notebooks -->
           <div class="card teaching-card">
             <div class="teaching-card-header">
               <span class="teaching-level">Python</span>
@@ -537,7 +531,6 @@
             </div>
           </div>
 
-          <!-- AulaVista TFM -->
           <div class="card teaching-card teaching-card--featured">
             <div class="teaching-card-header">
               <span class="teaching-level teaching-level--tfm" data-section="teaching" data-value="lvl-tfm">TFM · MÁSTER EDUCACIÓN</span>
@@ -599,11 +592,10 @@
 
   <footer class="footer section">
     <div class="container">
-      <p class="muted" style="font-size:13px">© 2025 Daniel Carrión — Portfolio</p>
+      <p class="muted" style="font-size:13px">© 2026 Daniel Carrión — Portfolio</p>
     </div>
   </footer>
 
-  <!-- Lightbox (fuera de main, antes del cierre de body) -->
   <div class="lb-overlay" id="lbOverlay" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
     <div class="lb-inner">
       <button class="lb-close" id="lbClose" aria-label="Cerrar">&times;</button>
@@ -612,14 +604,10 @@
     </div>
   </div>
 
-  <!-- model-viewer -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-
-  <!-- JS principal -->
   <script src="js/app.js" defer></script>
 
   <script>
-    /* ---- Lightbox ---- */
     const lbOverlay = document.getElementById('lbOverlay');
     const lbImg     = document.getElementById('lbImg');
     const lbCap     = document.getElementById('lbCaption');
@@ -645,7 +633,6 @@
     lbOverlay.addEventListener('click', function(e) { if (e.target === lbOverlay) closeLb(); });
     document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLb(); });
 
-    /* ---- Dropdown Proyectos ---- */
     const dropBtn  = document.getElementById('dropdownBtn');
     const dropMenu = document.getElementById('dropdownMenu');
     const dropWrap = document.getElementById('navDropdown');
