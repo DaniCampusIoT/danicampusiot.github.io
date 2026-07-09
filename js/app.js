@@ -217,6 +217,39 @@ function initActiveSectionNav() {
   });
 }
 
+/**
+ * Obfusca el email y teléfono en la sección contacto.
+ * Los datos no están en el HTML estático — se montan en runtime
+ * para dificultar el rastreo por bots de spam.
+ */
+function initContactObfuscation() {
+  // Partes separadas para evitar que aparezcan juntas en el HTML/JS como cadena literal
+  const emailUser = "carrion" + "024";
+  const emailDomain = "hotmail" + ".com";
+  const email = emailUser + "@" + emailDomain;
+
+  const telCountry = "+34";
+  const telNumber = " 722 678 959";
+  const tel = telCountry + telNumber;
+  const telHref = telCountry + "722678959";
+
+  // Enlace teléfono
+  const phoneLink = document.getElementById("contact-phone");
+  if (phoneLink) {
+    phoneLink.href = "tel:" + telHref;
+    const valEl = phoneLink.querySelector(".contact-value");
+    if (valEl) valEl.textContent = tel;
+  }
+
+  // Enlace email
+  const emailLink = document.getElementById("contact-email");
+  if (emailLink) {
+    emailLink.href = "mailto:" + email;
+    const valEl = emailLink.querySelector(".contact-value");
+    if (valEl) valEl.textContent = email;
+  }
+}
+
 /* ---- Selector de idioma ES|EN ---- */
 if (flagsElement) {
   flagsElement.addEventListener("click", (e) => {
@@ -241,3 +274,4 @@ initTheme();
 initLanguage();
 initSkillsAnimation();
 initActiveSectionNav();
+initContactObfuscation();
