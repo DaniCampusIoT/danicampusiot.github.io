@@ -1,20 +1,20 @@
 {
-    "menu":{
-        "home":"Inicio",
-        "aboutme":"Sobre mi",
-        "skills":"Habilidades",
-        "resumen":"Resumen",
+    "menu": {
+        "home": "Inicio",
+        "aboutme": "Sobre mi",
+        "skills": "Habilidades",
+        "resumen": "Resumen",
         "projects": "Proyectos",
         "hardware": "Hardware",
         "teaching": "Docencia",
-        "contact":"Contacto"
+        "contact": "Contacto"
     },
-    "header":{
+    "header": {
         "rol": "Electrónica · Seguridad embebida · Sensórica avanzada",
         "download-cv": "Descargar CV",
         "contact-cta": "Contacto"
     },
-    "aboutme":{
+    "aboutme": {
         "aboutme-first-title": "Sobre Mi",
         "aboutme-second-title": "DETALLES PERSONALES",
         "aboutme-profile": "Perfil",
@@ -31,51 +31,7 @@
         "subtitle": "Selección de repositorios",
         "btnRepo": "Ver repositorio",
         "btnDemo": "Demo",
-        "items": [
-            {
-            "name": "Cults3D — Diseños 3D (CATIA V5 / escaneado)",
-            "desc": "Colección de modelos 3D para impresión: diseños propios en CATIA V5, piezas obtenidas por escaneado y modelos originales listos para descargar/imprimir.",
-            "repo": "https://cults3d.com/@mkdir_3d",
-            "demo": "",
-            "repoLabel": "Ver perfil",
-            "tags": ["cad", "catia", "scan", "printing"]
-            },
-            {
-            "name": "DGT — Incidencias & balizas V16",
-            "desc": "Mapa de incidencias de tráfico y contexto de balizas V16 (DGT 3.0): frontend en HTML/JS con proxy en Go para consumir datos sin problemas de CORS. Deploy en Cloudflare Pages y entorno reproducible con Docker.",
-            "repo": "https://github.com/DaniCampusIoT/dgt_mapa_app",
-            "demo": "https://dgt-mapa-app.pages.dev/",
-            "tags": ["js", "cloudflare", "go", "docker"]
-            },
-            {
-                "name": "Face Recognition App",
-                "desc": "Aplicación en Python para reconocimiento facial con librerías de visión por computador.",
-                "repo": "https://github.com/DaniCampusIoT/Face_Recognition_App",
-                "demo": "",
-                "tags": ["python", "vision", "face", "ml"]
-            },
-            {
-                "name": "SDK Difference Scanner",
-                "desc": "Herramienta en Python para escanear y comparar diferencias entre SDKs (análisis y reporting).",
-                "repo": "https://github.com/DaniCampusIoT/SDK-Difference-Scanner",
-                "demo": "",
-                "tags": ["python", "scanner", "diff", "tooling"]
-            },
-            {
-                "name": "ESP-NOW Gateway (TFM)",
-                "desc": "Pasarela en ESP32 con conexión automática basada en ESP-NOW para escenarios IoT.",
-                "repo": "https://github.com/DaniCampusIoT/espnow_gateway",
-                "demo": "",
-                "tags": ["esp32", "espnow", "iot", "embedded"]
-            },
-            {
-                "name": "Infraestructura ESP-NOW (paper)",
-                "desc": "Ampliación del gateway con infraestructura propia de datos para compartir en el borde (edge).",
-                "repo": "https://github.com/DaniCampusIoT/infraestructura_espnow",
-                "demo": "",
-                "tags": ["esp32", "espnow", "edge", "data", "paper"]
-            }
-        ]
+        "items": []
     },
     "skills": {
         "skills-first-title": "Competencias",
@@ -190,7 +146,7 @@
         "aulavista-private": "Repositorio privado — en desarrollo",
         "btn-repo": "Ver repositorio"
     },
-    "contact":{
+    "contact": {
         "main-title": "Contacto",
         "first-title": "PONTE EN CONTACTO AHORA MISMO",
         "phone-title": "Teléfono",
