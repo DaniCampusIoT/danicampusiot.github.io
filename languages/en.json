@@ -31,7 +31,51 @@
         "subtitle": "Selected repositories",
         "btnRepo": "View repository",
         "btnDemo": "Demo",
-        "items": []
+        "items": [
+            {
+            "name": "Cults3D — 3D Designs (CATIA V5 / scanning)",
+            "desc": "Collection of 3D-printable models: original designs made in CATIA V5, 3D-scanned parts, and custom creations ready to download/print.",
+            "repo": "https://cults3d.com/@mkdir_3d",
+            "demo": "",
+            "repoLabel": "View profile",
+            "tags": ["cad", "catia", "scan", "printing"]
+            },
+            {
+            "name": "DGT — Traffic incidents & V16 beacons",
+            "desc": "Traffic incidents map and V16 connected beacon context (DGT 3.0): HTML/JS frontend plus a Go proxy to consume data without CORS issues. Deployed on Cloudflare Pages and reproducible with Docker.",
+            "repo": "https://github.com/DaniCampusIoT/dgt_mapa_app",
+            "demo": "https://dgt-mapa-app.pages.dev/",
+            "tags": ["js", "cloudflare", "go", "docker"]
+            },
+            {
+                "name": "Face Recognition App",
+                "desc": "Python face recognition app using computer vision libraries.",
+                "repo": "https://github.com/DaniCampusIoT/Face_Recognition_App",
+                "demo": "",
+                "tags": ["python", "vision", "face", "ml"]
+            },
+            {
+                "name": "SDK Difference Scanner",
+                "desc": "Python tool to scan and compare SDK differences (analysis and reporting).",
+                "repo": "https://github.com/DaniCampusIoT/SDK-Difference-Scanner",
+                "demo": "",
+                "tags": ["python", "scanner", "diff", "tooling"]
+            },
+            {
+                "name": "ESP-NOW Gateway (Master thesis)",
+                "desc": "ESP32 gateway with automatic connection based on ESP-NOW for IoT scenarios.",
+                "repo": "https://github.com/DaniCampusIoT/espnow_gateway",
+                "demo": "",
+                "tags": ["esp32", "espnow", "iot", "embedded"]
+            },
+            {
+                "name": "ESP-NOW Infrastructure (paper)",
+                "desc": "Gateway extension with a custom data infrastructure to share data at the edge.",
+                "repo": "https://github.com/DaniCampusIoT/infraestructura_espnow",
+                "demo": "",
+                "tags": ["esp32", "espnow", "edge", "data", "paper"]
+            }
+        ]
     },
     "skills": {
         "skills-first-title": "Skills",
