@@ -6,9 +6,13 @@
 
   <title>Daniel Carrión — Portfolio</title>
   <meta name="description" content="Portfolio/CV de Daniel Carrión: ingeniería, programación, IoT y experiencia profesional." />
+  <meta name="author" content="Daniel Carrión" />
 
   <!-- Canonical -->
   <link rel="canonical" href="https://danicampusiot.github.io/" />
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.webmanifest" />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
@@ -33,6 +37,29 @@
   <link rel="icon" href="img/favicon.png" type="image/png" />
   <link rel="shortcut icon" href="img/favicon.png" />
   <link rel="apple-touch-icon" href="img/favicon.png" />
+
+  <!-- Schema.org JSON-LD — Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Daniel Carrión",
+    "url": "https://danicampusiot.github.io/",
+    "jobTitle": "Embedded Systems & IoT Engineer",
+    "description": "Ingeniero electrónico, robótico y mecatrónico especializado en seguridad embebida, firmware, IoT y diseño PCB.",
+    "image": "https://danicampusiot.github.io/img/me.png",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Málaga",
+      "addressCountry": "ES"
+    },
+    "sameAs": [
+      "https://github.com/DaniCampusIoT",
+      "https://www.linkedin.com/in/dani-rodriguez-carrión-a55973121/",
+      "https://www.youtube.com/@danrodcar"
+    ]
+  }
+  </script>
 
   <!-- Font Awesome -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
