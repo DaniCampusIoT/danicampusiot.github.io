@@ -74,6 +74,27 @@
                 "repo": "https://github.com/DaniCampusIoT/infraestructura_espnow",
                 "demo": "",
                 "tags": ["esp32", "espnow", "edge", "data", "paper"]
+            },
+            {
+                "name": "Torizon Qt6 Diagnostics — Apalis i.MX8",
+                "desc": "Dashboard Qt6/QML de diagnóstico en tiempo real sobre Apalis i.MX8 con Torizon OS. Muestra el estado del loopback SPI y la temperatura I2C (TMP75C) desde dentro de un contenedor Docker, con arquitectura C++/QML desacoplada mediante QObject y QTimer.",
+                "repo": "https://github.com/DaniCampusIoT/torizon-qt6-diagnostics",
+                "demo": "",
+                "tags": ["cpp", "qt6", "torizon", "embedded", "docker"]
+            },
+            {
+                "name": "Torizon I2C — TMP75C (Apalis i.MX8)",
+                "desc": "Lectura de temperatura por I2C en C++ sobre Apalis i.MX8 con Torizon OS. Accede al sensor TMP75C (dirección 0x4F) en i2c-4 mediante la interfaz userspace i2c-dev con ioctl(), desde un contenedor Docker. Incluye además la prueba de loopback SPI como binario de validación combinado.",
+                "repo": "https://github.com/DaniCampusIoT/torizon-i2c-tmp75c",
+                "demo": "",
+                "tags": ["cpp", "i2c", "torizon", "embedded", "docker"]
+            },
+            {
+                "name": "Torizon SPI Loopback — Apalis i.MX8",
+                "desc": "Test de loopback SPI en C++ para Apalis i.MX8 con Torizon OS. Verifica el acceso al bus SPI desde un contenedor Docker mediante la interfaz userspace spidev con ioctl(): MOSI y MISO se puentean físicamente y cada byte transmitido debe llegar intacto.",
+                "repo": "https://github.com/DaniCampusIoT/torizon-spi-loopback",
+                "demo": "",
+                "tags": ["cpp", "spi", "torizon", "embedded", "docker"]
             }
         ]
     },
