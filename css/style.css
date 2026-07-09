@@ -1,10 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap");
+/* =============================================
+   FONTS
+   Syne        → display / títulos (--font-display)
+   Inter       → body / UI       (--font-body)   — variable font
+   JetBrains Mono → código / badges monoespaciados (--font-mono)
+   ============================================= */
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@600..800&family=Inter:wght@300..800&family=JetBrains+Mono:wght@400;700&display=swap");
 
 
 /* =========================
    TOKENS / THEME
    ========================= */
 :root{
+  /* Fonts */
+  --font-display: 'Syne', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
   /* Dark palette (values) */
   --bg: #050c12;
   --text-on-dark: rgba(210,235,248,0.92);
@@ -103,7 +114,7 @@ html{ scroll-behavior: smooth; }
 
 body{
   margin: 0;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: var(--font-body);
   color: var(--page-text);
   font-size: clamp(15px, 1.2vw, 16px);
   line-height: 1.5;
@@ -171,7 +182,9 @@ img{ max-width: 100%; display: block; }
    ========================= */
 .section-title{
   margin: 0 0 6px;
+  font-family: var(--font-display);
   font-size: 28px;
+  font-weight: 700;
   letter-spacing: -0.02em;
 }
 
@@ -180,8 +193,9 @@ img{ max-width: 100%; display: block; }
   margin: 0 0 22px;
   color: var(--page-muted);
   text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 0.14em;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.16em;
 }
 
 
@@ -216,6 +230,7 @@ img{ max-width: 100%; display: block; }
   flex-shrink: 0;
 }
 .brand-mark{
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 20px;
   letter-spacing: -0.02em;
@@ -490,18 +505,25 @@ body.theme-dark .nav-dropdown-menu a:hover{
 .kicker{
   margin: 0 0 10px;
   color: var(--page-muted);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
 }
 
 
 .hero-title{
   margin: 0 0 8px;
-  font-size: clamp(32px, 4vw, 44px);
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
   letter-spacing: -0.03em;
 }
 .hero-subtitle{
   margin: 0 0 18px;
   color: var(--page-muted);
   font-size: 16px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
 }
 
 
@@ -642,7 +664,9 @@ body.theme-dark .nav-dropdown-menu a:hover{
 
 .card-title{
   margin: 0 0 10px;
+  font-family: var(--font-display);
   font-size: 16px;
+  font-weight: 700;
   display: flex;
   gap: 10px;
   align-items: center;
@@ -651,6 +675,7 @@ body.theme-dark .nav-dropdown-menu a:hover{
 
 .lead{
   margin: 0 0 12px;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 18px;
   letter-spacing: -0.01em;
@@ -706,11 +731,13 @@ body.theme-dark .map-embed{
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 10px;
+  padding: 5px 10px;
   margin: 6px 6px 0 0;
   border-radius: 999px;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  letter-spacing: 0.02em;
   border: 1px solid var(--page-border);
   background: var(--glass-bg);
   color: var(--page-text);
@@ -795,6 +822,7 @@ body.theme-dark .skill:hover .skill-bar{
 }
 .skill-pct{
   color: var(--page-muted);
+  font-family: var(--font-mono);
   font-weight: 700;
 }
 
@@ -845,13 +873,14 @@ body.theme-dark .skill-bar{ background: rgba(56,180,220,0.10); }
 
 
 .timeline-date{
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  font-size: 11px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  font-family: var(--font-mono);
   color: var(--page-muted);
   margin-bottom: 6px;
 }
-.timeline-title{ font-weight: 800; margin-bottom: 2px; }
+.timeline-title{ font-family: var(--font-display); font-weight: 700; margin-bottom: 2px; }
 .timeline-place{ color: var(--page-muted); font-size: 13px; margin-bottom: 8px; }
 .timeline-desc{ color: var(--page-muted); line-height: 1.55; font-size: 14px; }
 
@@ -863,8 +892,10 @@ body.theme-dark .skill-bar{ background: rgba(56,180,220,0.10); }
   border-radius: 999px;
   border: 1px solid rgba(13,110,148,0.30);
   background: rgba(13,110,148,0.08);
-  font-weight: 800;
-  font-size: 12px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.04em;
 }
 
 /* badge--current */
@@ -1003,6 +1034,7 @@ body.theme-dark .skill-bar{ background: rgba(56,180,220,0.10); }
   background: rgba(0,0,0,0.55);
   color: #fff;
   font-size: 10px;
+  font-family: var(--font-mono);
   font-weight: 700;
   letter-spacing: 0.08em;
   padding: 2px 6px;
@@ -1072,6 +1104,7 @@ body.theme-dark .skill-bar{ background: rgba(56,180,220,0.10); }
   transform: translateX(-50%);
   color: rgba(255,255,255,0.75);
   font-size: 13px;
+  font-family: var(--font-mono);
   white-space: nowrap;
 }
 
@@ -1092,10 +1125,11 @@ body.theme-dark .skill-bar{ background: rgba(56,180,220,0.10); }
 }
 
 .teaching-kicker{
-  font-size: 11px;
-  letter-spacing: 0.14em;
+  font-size: 10px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent2);
+  font-family: var(--font-mono);
   font-weight: 700;
   margin: 0 0 8px;
 }
@@ -1126,6 +1160,7 @@ body.theme-dark .skill-bar{ background: rgba(56,180,220,0.10); }
 }
 .tpb-url{
   font-size: 11px;
+  font-family: var(--font-mono);
   color: var(--page-muted);
   letter-spacing: 0.02em;
   overflow: hidden;
@@ -1156,7 +1191,8 @@ body.theme-dark .skill-bar{ background: rgba(56,180,220,0.10); }
 
 .teaching-level{
   font-size: 10px;
-  font-weight: 800;
+  font-weight: 700;
+  font-family: var(--font-mono);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 4px 10px;
@@ -1192,6 +1228,7 @@ body.theme-dark .skill-bar{ background: rgba(56,180,220,0.10); }
   padding: 8px 12px;
   border-radius: 10px;
   font-size: 12px;
+  font-family: var(--font-mono);
   font-weight: 700;
   color: var(--page-muted);
   border: 1px dashed var(--page-border);
@@ -1240,8 +1277,8 @@ body.theme-dark .skill-bar{ background: rgba(56,180,220,0.10); }
 .contact-card:focus{ outline: none; box-shadow: var(--focus); }
 
 
-.contact-title{ font-weight: 800; margin-bottom: 4px; }
-.contact-value{ color: var(--page-muted); }
+.contact-title{ font-family: var(--font-display); font-weight: 700; margin-bottom: 4px; }
+.contact-value{ color: var(--page-muted); font-size: 14px; }
 
 
 /* =========================
