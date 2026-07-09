@@ -1,0 +1,65 @@
+{
+  "_comment": "Descripciones y badges manuales por repo. La clave es el nombre exacto del repo en GitHub.",
+  "_usage": "Añade el topic 'portfolio' a un repo para que aparezca. Añade 'portfolio-1', 'portfolio-2'... para fijar el orden.",
+
+  "es": {
+    "danicampusiot.github.io": {
+      "_skip": true
+    },
+    "dgt_mapa_app": {
+      "name": "DGT — Incidencias & balizas V16",
+      "desc": "Mapa de incidencias de tráfico y contexto de balizas V16 (DGT 3.0): frontend en HTML/JS con proxy en Go para consumir datos sin problemas de CORS. Deploy en Cloudflare Pages y entorno reproducible con Docker.",
+      "demo": "https://dgt-mapa-app.pages.dev/",
+      "tags": ["js", "cloudflare", "go", "docker"]
+    },
+    "Face_Recognition_App": {
+      "name": "Face Recognition App",
+      "desc": "Aplicación en Python para reconocimiento facial con librerías de visión por computador.",
+      "tags": ["python", "vision", "face", "ml"]
+    },
+    "SDK-Difference-Scanner": {
+      "name": "SDK Difference Scanner",
+      "desc": "Herramienta en Python para escanear y comparar diferencias entre SDKs (análisis y reporting).",
+      "tags": ["python", "scanner", "diff", "tooling"]
+    },
+    "espnow_gateway": {
+      "name": "ESP-NOW Gateway (TFM)",
+      "desc": "Pasarela en ESP32 con conexión automática basada en ESP-NOW para escenarios IoT.",
+      "tags": ["esp32", "espnow", "iot", "embedded"]
+    },
+    "infraestructura_espnow": {
+      "name": "Infraestructura ESP-NOW (paper)",
+      "desc": "Ampliación del gateway con infraestructura propia de datos para compartir en el borde (edge).",
+      "tags": ["esp32", "espnow", "edge", "data", "paper"]
+    }
+  },
+
+  "en": {
+    "dgt_mapa_app": {
+      "name": "DGT — Traffic Incidents & V16 Beacons",
+      "desc": "Traffic incidents map and V16 beacon context (DGT 3.0): HTML/JS frontend with a Go proxy to solve CORS issues. Deployed on Cloudflare Pages with a reproducible Docker environment.",
+      "demo": "https://dgt-mapa-app.pages.dev/",
+      "tags": ["js", "cloudflare", "go", "docker"]
+    },
+    "Face_Recognition_App": {
+      "name": "Face Recognition App",
+      "desc": "Python application for facial recognition using computer vision libraries.",
+      "tags": ["python", "vision", "face", "ml"]
+    },
+    "SDK-Difference-Scanner": {
+      "name": "SDK Difference Scanner",
+      "desc": "Python tool to scan and compare differences between SDKs (analysis and reporting).",
+      "tags": ["python", "scanner", "diff", "tooling"]
+    },
+    "espnow_gateway": {
+      "name": "ESP-NOW Gateway (thesis)",
+      "desc": "ESP32 gateway with automatic connection based on ESP-NOW for IoT scenarios.",
+      "tags": ["esp32", "espnow", "iot", "embedded"]
+    },
+    "infraestructura_espnow": {
+      "name": "ESP-NOW Infrastructure (paper)",
+      "desc": "Extension of the gateway with a custom data infrastructure for edge sharing.",
+      "tags": ["esp32", "espnow", "edge", "data", "paper"]
+    }
+  }
+}
