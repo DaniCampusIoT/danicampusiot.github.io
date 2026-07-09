@@ -129,7 +129,7 @@
         "exp0-dates": "JUN 2026 – Present",
         "exp0-title": "Electronics & R&D Engineer",
         "exp0-place": "Quandum Aerospace",
-        "exp0-description": "• First engineer to join the electronics department: technical definition and pre-design of an airside mobile platform for pilot assistance, obstacle detection and relative positioning.<br>• Hierarchical embedded architecture with NXP S32K344 as the control core and Jetson Orin NX as companion ECU for advanced perception and sensor pre-processing.<br>• Definition of the sensor chain (LiDAR Ouster OS2, radar Acconeer A121/A212) and electronic/communication integration under aeronautical normative frameworks DO-178 and DO-278.",
+        "exp0-description": "• First engineer to join the electronics department, contributing to the technical definition and pre-design of an airside mobile platform for pilot assistance, obstacle detection and relative positioning.<br>• Search, analysis and selection of suitable sensors for the project, evaluating different technologies for perception and detection within aeronautical normative frameworks DO-178 and DO-278.<br>• Started firmware development on the NXP S32K344 microcontroller, focused on the embedded control architecture and integration of system peripherals and communications.<br>• Evaluation of an i.MX8-based ECU as a high-level processing unit, running tests on the Apalis Evaluation Board with Torizon OS.",
         "exp1-dates": "JAN 2025 - FEB 2026",
         "exp1-title": "Cybersecurity & R&D Engineer (IoT)",
         "exp1-place": "DEKRA — IoT, Cybersecurity & Compliance",
