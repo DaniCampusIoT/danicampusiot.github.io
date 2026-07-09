@@ -35,6 +35,11 @@ const techBadges = {
   edge: { label: { es: "Edge", en: "Edge" }, icon: "fa-solid fa-network-wired" },
   data: { label: { es: "Data", en: "Data" }, icon: "fa-solid fa-database" },
   paper: { label: { es: "Paper", en: "Paper" }, icon: "fa-solid fa-file-lines" },
+  cpp: { label: { es: "C++", en: "C++" }, icon: "fa-solid fa-code" },
+  qt6: { label: { es: "Qt6 / QML", en: "Qt6 / QML" }, icon: "fa-solid fa-window-maximize" },
+  i2c: { label: { es: "I2C", en: "I2C" }, icon: "fa-solid fa-plug" },
+  spi: { label: { es: "SPI", en: "SPI" }, icon: "fa-solid fa-arrows-left-right" },
+  torizon: { label: { es: "Torizon OS", en: "Torizon OS" }, icon: "fa-solid fa-layer-group" },
 };
 
 function renderBadges(tagIds, language) {
