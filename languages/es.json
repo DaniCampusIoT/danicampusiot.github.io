@@ -129,7 +129,7 @@
         "exp0-dates": "JUN 2026 – Actualidad",
         "exp0-title": "Ingeniero de Electrónica e I+D",
         "exp0-place": "Quandum Aerospace",
-        "exp0-description": "• Primer ingeniero incorporado al depto. de electrónica: definición técnica y pre-diseño de una plataforma móvil aeroportuaria orientada a ayuda al piloto, detección de obstáculos y posicionamiento relativo.<br>• Arquitectura embebida jerárquica con NXP S32K344 como núcleo de control y Jetson Orin NX como companion ECU para percepción avanzada y preprocesado sensórico.<br>• Definición de cadena sensórica (LiDAR Ouster OS2, radar Acconeer A121/A212) e integración electrónica y de comunicaciones bajo marcos normativos aeronáuticos DO-178 y DO-278.",
+        "exp0-description": "• Primer ingeniero incorporado al departamento de electrónica, participando en la definición técnica y el pre-diseño de una plataforma móvil aeroportuaria orientada a ayuda al piloto, detección de obstáculos y posicionamiento relativo.<br>• Búsqueda, análisis y selección de sensores adecuados para el proyecto, evaluando distintas tecnologías para percepción y detección dentro de marcos normativos aeronáuticos como DO-178 y DO-278.<br>• Inicio del desarrollo de firmware sobre el microcontrolador NXP S32K344, enfocado a la arquitectura de control embebido y a la integración de periféricos y comunicaciones del sistema.<br>• Evaluación de una ECU basada en i.MX8 como unidad de procesamiento de alto nivel, realizando pruebas sobre Apalis Evaluation Board con Torizon OS.",
         "exp1-dates": "ENE 2025 - FEB 2026",
         "exp1-title": "Ingeniero de Ciberseguridad e I+D (IoT)",
         "exp1-place": "DEKRA — IoT, Ciberseguridad y Cumplimiento",
