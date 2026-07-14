@@ -143,7 +143,12 @@
         "edu6-title": "Piloto de RPAS y operador de radio",
         "edu6-place": "Aerocámaras",
         "edu6-description": "Formación y habilitación para operación de drones (RPAS) y comunicaciones.",
-        "edu6-notes": "CERT."
+        "edu6-notes": "CERT.",
+        "edu7-dates": "2025",
+        "edu7-title": "Máster Universitario en Formación del Profesorado de ESO y Bachillerato, FP e Idiomas (Plan 2020)",
+        "edu7-place": "Universidad de Málaga",
+        "edu7-description": "Formación pedagógica y didáctica habilitante para la docencia en enseñanzas secundarias. Incluye didáctica específica de Tecnología e Informática, prácticum en centro educativo, innovación docente y elaboración del Trabajo Fin de Máster.",
+        "edu7-notes": "M.A."
     },
     "experience": {
         "main-title": "Experiencia laboral",
