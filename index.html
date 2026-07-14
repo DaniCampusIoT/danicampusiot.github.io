@@ -319,6 +319,7 @@
               <li class="timeline-item"><div class="timeline-date" data-section="education" data-value="edu4-dates"></div><div class="timeline-body"><div class="timeline-title" data-section="education" data-value="edu4-title"></div><div class="timeline-place" data-section="education" data-value="edu4-place"></div><div class="timeline-desc" data-section="education" data-value="edu4-description"></div></div><span class="badge" data-section="education" data-value="edu4-notes"></span></li>
               <li class="timeline-item"><div class="timeline-date" data-section="education" data-value="edu5-dates"></div><div class="timeline-body"><div class="timeline-title" data-section="education" data-value="edu5-title"></div><div class="timeline-place" data-section="education" data-value="edu5-place"></div><div class="timeline-desc" data-section="education" data-value="edu5-description"></div></div><span class="badge" data-section="education" data-value="edu5-notes"></span></li>
               <li class="timeline-item"><div class="timeline-date" data-section="education" data-value="edu6-dates"></div><div class="timeline-body"><div class="timeline-title" data-section="education" data-value="edu6-title"></div><div class="timeline-place" data-section="education" data-value="edu6-place"></div><div class="timeline-desc" data-section="education" data-value="edu6-description"></div></div><span class="badge" data-section="education" data-value="edu6-notes"></span></li>
+              <li class="timeline-item"><div class="timeline-date" data-section="education" data-value="edu7-dates"></div><div class="timeline-body"><div class="timeline-title" data-section="education" data-value="edu7-title"></div><div class="timeline-place" data-section="education" data-value="edu7-place"></div><div class="timeline-desc" data-section="education" data-value="edu7-description"></div></div><span class="badge" data-section="education" data-value="edu7-notes"></span></li>
             </ol>
           </div>
 
@@ -699,59 +700,30 @@
       lbImg.src = '';
     }
 
-    document.querySelectorAll('.hw-thumb[data-lb-src]').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        openLb(btn.dataset.lbSrc, btn.dataset.lbCaption);
-      });
+    document.querySelectorAll('.hw-thumb').forEach(btn => {
+      btn.addEventListener('click', () => openLb(btn.dataset.lbSrc, btn.dataset.lbCaption));
     });
     lbClose.addEventListener('click', closeLb);
-    lbOverlay.addEventListener('click', function(e) { if (e.target === lbOverlay) closeLb(); });
-    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLb(); });
+    lbOverlay.addEventListener('click', e => { if (e.target === lbOverlay) closeLb(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 
-    const dropBtn  = document.getElementById('dropdownBtn');
-    const dropMenu = document.getElementById('dropdownMenu');
-    const dropWrap = document.getElementById('navDropdown');
-    let closeTimer = null;
+    // Dropdown nav
+    const dropdownBtn  = document.getElementById('dropdownBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    const navDropdown  = document.getElementById('navDropdown');
 
-    function openDrop() {
-      clearTimeout(closeTimer);
-      dropMenu.classList.add('is-open');
-      dropBtn.setAttribute('aria-expanded', 'true');
-    }
-    function scheduledClose() {
-      closeTimer = setTimeout(function() {
-        dropMenu.classList.remove('is-open');
-        dropBtn.setAttribute('aria-expanded', 'false');
-      }, 120);
+    function toggleDropdown(force) {
+      const open = typeof force === 'boolean' ? force : dropdownBtn.getAttribute('aria-expanded') !== 'true';
+      dropdownBtn.setAttribute('aria-expanded', String(open));
+      navDropdown.classList.toggle('is-open', open);
     }
 
-    dropBtn.addEventListener('click', function() {
-      dropMenu.classList.contains('is-open') ? scheduledClose() : openDrop();
+    dropdownBtn?.addEventListener('click', e => { e.stopPropagation(); toggleDropdown(); });
+    document.addEventListener('click', e => {
+      if (!navDropdown?.contains(e.target)) toggleDropdown(false);
     });
-    dropWrap.addEventListener('mouseenter', openDrop);
-    dropWrap.addEventListener('mouseleave', scheduledClose);
-    dropMenu.addEventListener('mouseenter', openDrop);
-    dropMenu.addEventListener('mouseleave', scheduledClose);
-    dropMenu.querySelectorAll('a').forEach(function(a) {
-      a.addEventListener('click', function() {
-        clearTimeout(closeTimer);
-        dropMenu.classList.remove('is-open');
-        dropBtn.setAttribute('aria-expanded', 'false');
-      });
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        clearTimeout(closeTimer);
-        dropMenu.classList.remove('is-open');
-        dropBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-    document.addEventListener('click', function(e) {
-      if (!dropWrap.contains(e.target)) {
-        clearTimeout(closeTimer);
-        dropMenu.classList.remove('is-open');
-        dropBtn.setAttribute('aria-expanded', 'false');
-      }
+    dropdownMenu?.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => toggleDropdown(false));
     });
   </script>
 </body>
