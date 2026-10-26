@@ -1433,3 +1433,22 @@ section[id] { scroll-margin-top: 80px; }
 @media (max-width: 920px) { .featured-grid { grid-template-columns: 1fr; } }
 @media (max-width: 768px) { .hero-intro { margin-inline: auto; } }
 @media (max-width: 600px) { .expertise-grid { grid-template-columns: 1fr; } .featured-project, .expertise-card { padding: 20px; } }
+
+/* Timeline progressive disclosure */
+.timeline-preview { margin: 8px 0 0; color: var(--page-muted); font-size: 14px; line-height: 1.7; }
+.timeline-details { margin-top: 10px; }
+.timeline-details-toggle { cursor: pointer; min-height: 44px; padding: 10px 4px; color: var(--page-text); font-size: 13px; font-weight: 700; border-radius: 6px; }
+.timeline-details-toggle::marker { color: var(--accent2); }
+.timeline-details-toggle:focus-visible { outline: 2px solid var(--accent2); outline-offset: 3px; }
+.timeline-details .timeline-desc { padding: 12px 0 4px; border-top: 1px solid var(--page-border); line-height: 1.75; overflow-wrap: anywhere; }
+.timeline-details .details-hide { display: none; }
+.timeline-details[open] .details-show { display: none; }
+.timeline-details[open] .details-hide { display: inline; }
+#resumen .card:hover { transform: none; box-shadow: none; }
+#resumen .timeline-item { border-style: solid; padding: 18px; }
+#experience-dekra { scroll-margin-top: 80px; }
+@media print {
+  .timeline-details-toggle, .timeline-preview { display: none; }
+  .timeline-details .timeline-desc { display: block !important; border: 0; padding: 0; }
+  .timeline-details::details-content { content-visibility: visible; }
+}

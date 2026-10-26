@@ -167,6 +167,54 @@ function setActiveFlag(lang) {
   buttons.forEach((btn) => btn.classList.toggle("is-active", btn.dataset.language === lang));
 }
 
+// Timeline progressive disclosure
+const timelineDisclosureState = new Map();
+function renderTimelineDetails(language) {
+  const en = language === "en";
+  const labels = en
+    ? { show: "View details", hide: "Hide details" }
+    : { show: "Ver detalles", hide: "Ocultar detalles" };
+  document.querySelectorAll("#resumen .timeline-item").forEach((item) => {
+    const description = item.querySelector(".timeline-desc");
+    if (!description || !description.textContent.trim()) return;
+    const title = item.querySelector(".timeline-title");
+    const section = title?.dataset.section || "experience";
+    const key = item.id || `${section}:${title?.dataset.value}`;
+    if (section === "experience" && title?.dataset.value === "exp1-title") {
+      item.id = "experience-dekra";
+    }
+    let details = item.querySelector(".timeline-details");
+    let preview = item.querySelector(".timeline-preview");
+    if (!details) {
+      details = document.createElement("details");
+      details.className = "timeline-details";
+      const summary = document.createElement("summary");
+      summary.className = "timeline-details-toggle";
+      const show = document.createElement("span");
+      show.className = "details-show";
+      const hide = document.createElement("span");
+      hide.className = "details-hide";
+      summary.append(show, hide);
+      details.append(summary);
+      preview = document.createElement("p");
+      preview.className = "timeline-preview";
+      description.before(preview, details);
+      details.append(description);
+      details.open = timelineDisclosureState.get(key) === true;
+      details.addEventListener("toggle", () => {
+        timelineDisclosureState.set(key, details.open);
+      });
+    }
+    details.querySelector(".details-show").textContent = labels.show;
+    details.querySelector(".details-hide").textContent = labels.hide;
+    const plain = description.textContent.replace(/\s+/g, " ").replace(/^•\s*/, "").trim();
+    const sentence = plain.match(/^.*?[.!?](?=\s|$)/)?.[0] || plain;
+    preview.textContent = sentence.length <= 200
+      ? sentence
+      : sentence.slice(0, 197).replace(/\s+\S*$/, "") + "…";
+  });
+}
+
 async function changeLanguage(language) {
   const requestJSON = await fetch(`languages/${language}.json`, { cache: "no-store" });
   const texts = await requestJSON.json();
@@ -179,6 +227,7 @@ async function changeLanguage(language) {
   }
 
   renderLatestExperience(language);
+  renderTimelineDetails(language);
 
   if (downloadCvLink && cvByLanguage[language]) {
     downloadCvLink.href = cvByLanguage[language];
@@ -406,3 +455,15 @@ initLanguage();
 initSkillsAnimation();
 initActiveSectionNav();
 initContactObfuscation();
+
+const timelinePrintState = new Map();
+window.addEventListener("beforeprint", () => {
+  document.querySelectorAll(".timeline-details").forEach((details) => {
+    timelinePrintState.set(details, details.open);
+    details.open = true;
+  });
+});
+window.addEventListener("afterprint", () => {
+  timelinePrintState.forEach((open, details) => { details.open = open; });
+  timelinePrintState.clear();
+});
