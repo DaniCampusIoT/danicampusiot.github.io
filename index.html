@@ -10,14 +10,14 @@
   <meta name="google-site-verification" content="HoUo43dU0InKn1sSWaQ6md-1Ii3aaviSwJej90ehszo" />
 
   <!-- Canonical -->
-  <link rel="canonical" href="https://danicampusiot.github.io/" />
+  <link rel="canonical" href="https://portfolio.danicampus.dev/" />
 
   <!-- PWA Manifest -->
   <link rel="manifest" href="/manifest.webmanifest" />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
-  <meta property="og:url"         content="https://danicampusiot.github.io/" />
+  <meta property="og:url"         content="https://portfolio.danicampus.dev/" />
   <meta property="og:title"       content="Daniel Carrión — Portfolio" />
   <meta property="og:description" content="Portfolio/CV de Daniel Carrión: ingeniería, programación, IoT y experiencia profesional." />
   <meta property="og:image"       content="https://danicampusiot.github.io/img/me.png" />
@@ -45,7 +45,7 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Daniel Carrión",
-    "url": "https://danicampusiot.github.io/",
+    "url": "https://portfolio.danicampus.dev/",
     "jobTitle": "Embedded Systems & IoT Engineer",
     "description": "Ingeniero electrónico, robótico y mecatrónico especializado en seguridad embebida, firmware, IoT y diseño PCB.",
     "image": "https://danicampusiot.github.io/img/me.png",
@@ -71,7 +71,7 @@
     referrerpolicy="no-referrer"
   />
 
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=nav-domain-20261026" />
 
   <!-- Fallback para navegadores sin JS: muestra aviso en timeline -->
   <noscript>
@@ -210,7 +210,7 @@
             </div>
             <div class="mini-row">
               <span class="mini-label" data-section="contact" data-value="webpage-title">Página web</span>
-              <a class="mini-value link" href="https://danicampusiot.github.io/" target="_blank" rel="noopener noreferrer">danicampusiot.github.io</a>
+              <a class="mini-value link" href="https://portfolio.danicampus.dev/" target="_blank" rel="noopener noreferrer">portfolio.danicampus.dev</a>
             </div>
           </div>
         </div>
@@ -654,11 +654,11 @@
               <div class="contact-value">&#8203;</div>
             </div>
           </a>
-          <a class="contact-card" href="https://danicampusiot.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Abrir web">
+          <a class="contact-card" href="https://portfolio.danicampus.dev/" target="_blank" rel="noopener noreferrer" aria-label="Abrir web">
             <i class="fa-solid fa-globe" aria-hidden="true" style="font-size:20px;color:var(--accent2)"></i>
             <div>
               <div class="contact-title" data-section="contact" data-value="webpage-title">Página web</div>
-              <div class="contact-value">danicampusiot.github.io</div>
+              <div class="contact-value">portfolio.danicampus.dev</div>
             </div>
           </a>
         </div>
@@ -681,7 +681,7 @@
   </div>
 
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
-  <script src="js/app.js" defer></script>
+  <script src="js/app.js?v=nav-domain-20261026" defer></script>
 
   <script>
     const lbOverlay = document.getElementById('lbOverlay');
@@ -707,24 +707,6 @@
     lbOverlay.addEventListener('click', e => { if (e.target === lbOverlay) closeLb(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 
-    // Dropdown nav
-    const dropdownBtn  = document.getElementById('dropdownBtn');
-    const dropdownMenu = document.getElementById('dropdownMenu');
-    const navDropdown  = document.getElementById('navDropdown');
-
-    function toggleDropdown(force) {
-      const open = typeof force === 'boolean' ? force : dropdownBtn.getAttribute('aria-expanded') !== 'true';
-      dropdownBtn.setAttribute('aria-expanded', String(open));
-      navDropdown.classList.toggle('is-open', open);
-    }
-
-    dropdownBtn?.addEventListener('click', e => { e.stopPropagation(); toggleDropdown(); });
-    document.addEventListener('click', e => {
-      if (!navDropdown?.contains(e.target)) toggleDropdown(false);
-    });
-    dropdownMenu?.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => toggleDropdown(false));
-    });
   </script>
 </body>
 </html>

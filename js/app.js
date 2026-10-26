@@ -191,6 +191,7 @@ async function changeLanguage(language) {
   document.documentElement.lang = language;
   try { localStorage.setItem("lang", language); } catch (_) {}
   setActiveFlag(language);
+  closeNav();
 }
 
 function initLanguage() {
@@ -201,28 +202,71 @@ function initLanguage() {
   changeLanguage(defaultLang);
 }
 
+function setProjectMenu(open) {
+  const dropdown = document.getElementById("navDropdown");
+  const button = document.getElementById("dropdownBtn");
+  const menu = document.getElementById("dropdownMenu");
+  dropdown?.classList.toggle("is-open", open);
+  menu?.classList.toggle("is-open", open);
+  button?.setAttribute("aria-expanded", String(open));
+}
+function setMobileMenu(open) {
+  document.body.classList.toggle("nav-open", open);
+  burger?.setAttribute("aria-expanded", String(open));
+  const english = document.documentElement.lang === "en";
+  burger?.setAttribute("aria-label", english
+    ? (open ? "Close menu" : "Open menu")
+    : (open ? "Cerrar menú" : "Abrir menú"));
+  const icon = burger?.querySelector("i");
+  icon?.classList.toggle("fa-bars", !open);
+  icon?.classList.toggle("fa-xmark", open);
+  if (!open) setProjectMenu(false);
+}
 function toggleNav() {
-  const isOpen = document.body.classList.toggle("nav-open");
-  burger?.setAttribute("aria-expanded", String(isOpen));
+  setMobileMenu(!document.body.classList.contains("nav-open"));
 }
-
-function closeNav() {
-  document.body.classList.remove("nav-open");
-  burger?.setAttribute("aria-expanded", "false");
-}
-
+function closeNav() { setMobileMenu(false); }
 function initNav() {
-  if (!burger) return;
-
+  const nav = document.getElementById("primary-nav");
+  const projectButton = document.getElementById("dropdownBtn");
+  if (!burger || !nav) return;
+  closeNav();
   burger.addEventListener("click", toggleNav);
-
-  document.querySelectorAll('nav a[href^="#"]').forEach((a) => {
-    a.addEventListener("click", closeNav);
+  projectButton?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    setProjectMenu(projectButton.getAttribute("aria-expanded") !== "true");
   });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeNav();
+  nav.addEventListener("click", (event) => {
+    const link = event.target.closest('a[href^="#"]');
+    if (!link) return;
+    closeNav();
+    nav.querySelectorAll('a[href^="#"]').forEach((item) => {
+      const active = item === link;
+      item.classList.toggle("is-active", active);
+      if (active) item.setAttribute("aria-current", "page");
+      else item.removeAttribute("aria-current");
+    });
   });
+  document.addEventListener("click", (event) => {
+    if (!nav.contains(event.target) && !burger.contains(event.target)) closeNav();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    const open = document.body.classList.contains("nav-open");
+    if (open) { closeNav(); burger.focus(); }
+    else if (projectButton?.getAttribute("aria-expanded") === "true") {
+      setProjectMenu(false); projectButton.focus();
+    }
+  });
+  document.addEventListener("focusin", (event) => {
+    if (!nav.contains(event.target) && !burger.contains(event.target)) closeNav();
+  });
+  window.matchMedia("(max-width: 820px)").addEventListener("change", closeNav);
+  window.addEventListener("pageshow", closeNav);
+  const projectMenu = document.getElementById("dropdownMenu");
+  projectButton?.removeAttribute("aria-haspopup");
+  projectMenu?.removeAttribute("role");
+  projectMenu?.querySelectorAll("[role]").forEach((el) => el.removeAttribute("role"));
 }
 
 function initTheme() {

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://danicampusiot.github.io/sitemap.xml
+Sitemap: https://portfolio.danicampus.dev/sitemap.xml
