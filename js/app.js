@@ -12,6 +12,86 @@ const cvByLanguage = {
   en: "drc_cv_en.pdf",
 };
 
+// Latest experience is rendered explicitly on every language change.
+const latestExperience = {
+  es: {
+    title: "Ingeniero de Sistemas Embebidos e I+D",
+    dates: "22/09/2026 – Actualidad",
+    project: "Proyecto PRIMUS OS",
+    current: "ACTUAL",
+    quandumDates: "JUN 2026 – SEPT 2026",
+    tasks: [
+      "Desarrollo de la plataforma Linux embebida sobre NVIDIA Jetson Orin NX, integrando un kernel PREEMPT_RT, un sistema de archivos raíz mínimo y componentes de soporte de placa; verificación del despliegue y arranque en hardware.",
+      "Creación de un flujo reproducible de compilación y flasheo con Docker, Bash y Python, automatizando la integración del BSP, el aprovisionamiento QSPI/NVMe y las comprobaciones posteriores.",
+      "Implementación de una prueba de concepto con un orquestador de procesos, nodos ROS 2 Humble y una interfaz de control simulada, ejecutando el mismo paquete de aplicaciones en SIL y en Jetson.",
+      "Desarrollo de pruebas automatizadas de integración e inyección de fallos, con registros estructurados y trazabilidad de las ejecuciones.",
+      "Diseño de pruebas de rendimiento de comunicaciones entre el equipo anfitrión y Jetson para ROS 2 y simulación con MuJoCo, evaluando latencia, jitter, entrega de mensajes, consumo de recursos y recuperación ante comunicaciones degradadas.",
+      "Elaboración de documentación de arquitectura, matrices de trazabilidad de requisitos y pruebas, procedimientos de validación y evidencias reproducibles.",
+    ],
+  },
+  en: {
+    title: "Embedded Systems and R&D Engineer",
+    dates: "22/09/2026 – Present",
+    project: "PRIMUS OS Project",
+    current: "CURRENT",
+    quandumDates: "JUN 2026 – SEP 2026",
+    tasks: [
+      "Developed the embedded Linux platform for PRIMUS OS on NVIDIA Jetson Orin NX, configuring and integrating a PREEMPT_RT kernel, a minimal root filesystem, and board support components; verified deployment and boot on target hardware.",
+      "Built a reproducible Docker-based build and flashing pipeline using Bash and Python, automating kernel configuration checks, BSP integration, QSPI/NVMe provisioning, post-flash verification, and diagnostic evidence collection.",
+      "Implemented a proof of concept combining a process orchestrator, ROS 2 Humble nodes, and a mock control interface, exercising the same application bundle in software-in-the-loop (SIL) and on the Jetson platform.",
+      "Developed automated integration and fault-injection tests covering nominal execution, process crashes, timeouts, and interface failures, with structured logging and execution identifiers for end-to-end traceability.",
+      "Designed and implemented a host–Jetson communications benchmark for ROS 2 and MuJoCo-based simulation, covering latency, jitter, message delivery, resource usage, and recovery under degraded communication conditions.",
+      "Produced architecture decision records, requirements and test traceability matrices, validation procedures, and reproducible evidence packages to support the transition from proof of concept to a maintainable embedded platform.",
+    ],
+  },
+};
+
+function renderLatestExperience(language) {
+  const copy = latestExperience[language] || latestExperience.es;
+  const quandumDate = document.querySelector('[data-section="experience"][data-value="exp0-dates"]');
+  const quandumItem = quandumDate?.closest(".timeline-item");
+  const timeline = quandumItem?.parentElement;
+  if (!timeline) return;
+
+  quandumDate.textContent = copy.quandumDates;
+  quandumItem.classList.remove("timeline-item--current");
+  quandumItem.querySelector(".badge--current")?.remove();
+
+  let item = document.getElementById("experience-funditec");
+  if (!item) {
+    item = document.createElement("li");
+    item.id = "experience-funditec";
+    item.className = "timeline-item timeline-item--current";
+  }
+  item.replaceChildren();
+
+  const date = document.createElement("div");
+  date.className = "timeline-date";
+  date.textContent = copy.dates;
+  const body = document.createElement("div");
+  body.className = "timeline-body";
+  const title = document.createElement("div");
+  title.className = "timeline-title";
+  title.textContent = copy.title;
+  const place = document.createElement("div");
+  place.className = "timeline-place";
+  place.textContent = "FUNDITEC";
+  const description = document.createElement("div");
+  description.className = "timeline-desc";
+  const project = document.createElement("strong");
+  project.textContent = copy.project;
+  description.append(project);
+  for (const task of copy.tasks) {
+    description.append(document.createElement("br"), document.createTextNode(`• ${task}`));
+  }
+  body.append(title, place, description);
+  const badge = document.createElement("span");
+  badge.className = "badge badge--current";
+  badge.textContent = copy.current;
+  item.append(date, body, badge);
+  timeline.insertBefore(item, quandumItem);
+}
+
 const techBadges = {
   cad: { label: { es: "CAD", en: "CAD" }, icon: "fa-solid fa-drafting-compass" },
   catia: { label: { es: "CATIA V5", en: "CATIA V5" }, icon: "fa-solid fa-cube" },
@@ -97,6 +177,8 @@ async function changeLanguage(language) {
     const translated = texts?.[section]?.[value];
     if (translated !== undefined) el.innerHTML = translated;
   }
+
+  renderLatestExperience(language);
 
   if (downloadCvLink && cvByLanguage[language]) {
     downloadCvLink.href = cvByLanguage[language];
