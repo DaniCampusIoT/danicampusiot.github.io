@@ -1412,3 +1412,24 @@ section[id] { scroll-margin-top: 80px; }
   #burger { min-width: 44px; min-height: 44px;
     align-items: center; justify-content: center; }
 }
+
+/* Portfolio presentation refresh */
+.hero-title { font-size: clamp(32px, 4.4vw, 54px); line-height: 1.12; }
+.hero-subtitle { font-family: var(--font-body); font-size: clamp(19px,2.3vw,25px); font-weight: 600; letter-spacing: -.02em; margin-top: 18px; }
+.hero-intro { max-width: 48ch; font-size: 17px; line-height: 1.7; color: var(--page-muted); }
+.featured-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
+.featured-project, .expertise-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 24px; min-width: 0; }
+.featured-project { display: flex; flex-direction: column; }
+.featured-number { font-family: var(--font-mono); color: var(--accent2); font-size: 12px; letter-spacing: .14em; }
+.featured-project-title, .expertise-card h3 { font-family: var(--font-display); font-size: 21px; line-height: 1.3; margin: 14px 0 12px; }
+.featured-tech { font-family: var(--font-mono); font-size: 12px; line-height: 1.8; color: var(--page-muted); overflow-wrap: anywhere; }
+.featured-project dl { margin: 8px 0 24px; flex: 1; }
+.featured-project dt { font-weight: 700; font-size: 13px; margin-top: 16px; }
+.featured-project dd { margin: 6px 0 0; color: var(--page-muted); font-size: 14px; line-height: 1.7; }
+.featured-project .btn { align-self: flex-start; }
+.expertise-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+.expertise-card .link { display: inline-flex; min-height: 44px; align-items: center; }
+#experience-funditec { scroll-margin-top: 80px; }
+@media (max-width: 920px) { .featured-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) { .hero-intro { margin-inline: auto; } }
+@media (max-width: 600px) { .expertise-grid { grid-template-columns: 1fr; } .featured-project, .expertise-card { padding: 20px; } }

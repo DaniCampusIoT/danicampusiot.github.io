@@ -71,7 +71,7 @@
     referrerpolicy="no-referrer"
   />
 
-  <link rel="stylesheet" href="css/style.css?v=nav-domain-20261026" />
+  <link rel="stylesheet" href="css/style.css?v=presentation-20261026" />
 
   <!-- Fallback para navegadores sin JS: muestra aviso en timeline -->
   <noscript>
@@ -178,10 +178,10 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <p class="kicker">Portfolio / CV</p>
-          <h1 class="hero-title">DANIEL CARRION</h1>
-          <p class="hero-subtitle" data-section="header" data-value="rol">INGENIERO, PROGRAMADOR, PROFESIONAL</p>
-          <div class="cta-row">
-            <a id="downloadCv" href="drc_cv_es.pdf" class="btn primary" download>
+          <h1 class="hero-title">Daniel Rodríguez Carrión</h1>
+          <p class="hero-subtitle" data-section="header" data-value="rol">Ingeniero de I+D en sistemas embebidos</p>
+          <p class="hero-intro" data-section="header" data-value="intro">Linux embebido, robótica y ciberseguridad: del hardware a la validación.</p><div class="cta-row"><a class="btn primary" href="#destacados" data-section="header" data-value="view-projects">Ver proyectos</a>
+            <a id="downloadCv" href="drc_cv_es.pdf" class="btn" download>
               <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
               <span data-section="header" data-value="download-cv">Descargar CV</span>
             </a>
@@ -217,7 +217,9 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- FEATURED PROJECTS -->
+<section class="section section-alt" id="destacados"><div class="container"><h2 class="section-title" data-section="presentation" data-value="featured-title">Proyectos destacados</h2><p class="section-subtitle" data-section="presentation" data-value="featured-subtitle">Una selección de mi trabajo en IoT, electrónica y Linux embebido</p><div class="featured-grid"><article class="featured-project"><span class="featured-number" aria-hidden="true">01</span><h3 class="featured-project-title" data-section="presentation" data-value="project0-title">Gateway IoT con ESP-NOW</h3><p class="featured-tech" data-section="presentation" data-value="project0-tech">ESP32 · ESP-NOW · IoT</p><dl><dt data-section="presentation" data-value="problem">El reto</dt><dd data-section="presentation" data-value="project0-problem">Conectar nodos ESP32 a una pasarela IoT mediante una conexión automática.</dd><dt data-section="presentation" data-value="contribution">Mi contribución</dt><dd data-section="presentation" data-value="project0-contribution">Desarrollo de una pasarela sobre ESP32 basada en ESP-NOW, presentada como trabajo de fin de máster.</dd></dl><a class="btn small" href="https://github.com/DaniCampusIoT/espnow_gateway" target="_blank" rel="noopener noreferrer" data-section="presentation" data-value="project0-link">Ver código</a></article><article class="featured-project"><span class="featured-number" aria-hidden="true">02</span><h3 class="featured-project-title" data-section="presentation" data-value="project1-title">Controlador de motor MSP430</h3><p class="featured-tech" data-section="presentation" data-value="project1-tech">MSP430 · Eagle · PCB de 4 capas</p><dl><dt data-section="presentation" data-value="problem">El reto</dt><dd data-section="presentation" data-value="project1-problem">Integrar control y gestión de potencia en una PCB de cuatro capas.</dd><dt data-section="presentation" data-value="contribution">Mi contribución</dt><dd data-section="presentation" data-value="project1-contribution">Diseño con Eagle para Diseño Electrónico Avanzado del Máster en Mecatrónica, con separación de señal y potencia y protecciones de sobrecorriente.</dd></dl><a class="btn small" href="hardware/dea/dea_circuit_sheets.pdf" target="_blank" rel="noopener noreferrer" data-section="presentation" data-value="project1-link">Ver esquemático</a></article><article class="featured-project"><span class="featured-number" aria-hidden="true">03</span><h3 class="featured-project-title" data-section="presentation" data-value="project2-title">Diagnóstico Qt6 sobre i.MX8</h3><p class="featured-tech" data-section="presentation" data-value="project2-tech">C++ · Qt6/QML · Torizon · Docker</p><dl><dt data-section="presentation" data-value="problem">El reto</dt><dd data-section="presentation" data-value="project2-problem">Visualizar el estado de las interfaces de hardware desde una aplicación en Linux embebido.</dd><dt data-section="presentation" data-value="contribution">Mi contribución</dt><dd data-section="presentation" data-value="project2-contribution">Dashboard C++/QML sobre Apalis i.MX8 con Torizon OS y Docker para mostrar el loopback SPI y la temperatura del sensor TMP75C por I2C.</dd></dl><a class="btn small" href="https://github.com/DaniCampusIoT/torizon-qt6-diagnostics" target="_blank" rel="noopener noreferrer" data-section="presentation" data-value="project2-link">Ver código</a></article></div></div></section>
+<!-- ABOUT -->
     <section class="section" id="sobremi">
       <div class="container">
         <h2 class="section-title" data-section="aboutme" data-value="aboutme-first-title">Sobre Mi</h2>
@@ -264,38 +266,7 @@
     </section>
 
     <!-- SKILLS -->
-    <section class="section section-alt" id="habilidades">
-      <div class="container">
-        <h2 class="section-title" data-section="skills" data-value="skills-first-title">Mis habilidades</h2>
-        <p class="section-subtitle" data-section="skills" data-value="skills-second-title">ME ESPECIALIZO EN</p>
-        <div class="skills">
-          <div class="skill" style="--level: 90">
-            <div class="skill-top"><span class="skill-name" data-section="skills" data-value="first-skill">Seguridad embebida</span><span class="skill-pct">90%</span></div>
-            <div class="skill-bar"><div class="skill-fill"></div></div>
-          </div>
-          <div class="skill" style="--level: 85">
-            <div class="skill-top"><span class="skill-name" data-section="skills" data-value="second-skill">Firmware / SoC</span><span class="skill-pct">85%</span></div>
-            <div class="skill-bar"><div class="skill-fill"></div></div>
-          </div>
-          <div class="skill" style="--level: 88">
-            <div class="skill-top"><span class="skill-name" data-section="skills" data-value="third-skill">Automatización (Python/C/C++)</span><span class="skill-pct">88%</span></div>
-            <div class="skill-bar"><div class="skill-fill"></div></div>
-          </div>
-          <div class="skill" style="--level: 80">
-            <div class="skill-top"><span class="skill-name" data-section="skills" data-value="fourth-skill">Diseño e impresión 3D</span><span class="skill-pct">80%</span></div>
-            <div class="skill-bar"><div class="skill-fill"></div></div>
-          </div>
-          <div class="skill" style="--level: 82">
-            <div class="skill-top"><span class="skill-name" data-section="skills" data-value="fifth-skill">IoT, BLE/Ethernet &amp; redes</span><span class="skill-pct">82%</span></div>
-            <div class="skill-bar"><div class="skill-fill"></div></div>
-          </div>
-          <div class="skill" style="--level: 78">
-            <div class="skill-top"><span class="skill-name" data-section="skills" data-value="sixth-skill">Linux, tooling &amp; depuración</span><span class="skill-pct">78%</span></div>
-            <div class="skill-bar"><div class="skill-fill"></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
+<section class="section" id="habilidades"><div class="container"><h2 class="section-title" data-section="presentation" data-value="skills-title">Competencias técnicas</h2><p class="section-subtitle" data-section="presentation" data-value="skills-subtitle">Tecnologías aplicadas, con proyectos y experiencia como evidencia</p><div class="expertise-grid"><article class="expertise-card"><h3 class="" data-section="presentation" data-value="skill0-title">Linux embebido y robótica</h3><p class="muted" data-section="presentation" data-value="skill0-description">Integración de plataformas Linux, aplicaciones de diagnóstico y validación de sistemas robóticos.</p><p class="featured-tech" data-section="presentation" data-value="skill0-tech">Jetson Orin NX · PREEMPT_RT · ROS 2 · MuJoCo · i.MX8 · Torizon OS</p><a class="link" href="#experience-funditec" data-section="presentation" data-value="skill0-link">Ver experiencia en FUNDITEC</a></article><article class="expertise-card"><h3 class="" data-section="presentation" data-value="skill1-title">Firmware, electrónica y sensórica</h3><p class="muted" data-section="presentation" data-value="skill1-description">Desarrollo de firmware, integración de sensores y diseño electrónico para plataformas conectadas.</p><p class="featured-tech" data-section="presentation" data-value="skill1-tech">C/C++ · ESP32 · FreeRTOS · ESP-NOW · MQTT · I2C · SPI · PCB</p><a class="link" href="#hardware" data-section="presentation" data-value="skill1-link">Ver diseño electrónico</a></article><article class="expertise-card"><h3 class="" data-section="presentation" data-value="skill2-title">Seguridad y validación</h3><p class="muted" data-section="presentation" data-value="skill2-description">Evaluación de dispositivos conectados, mecanismos de seguridad embebida y documentación de evidencias.</p><p class="featured-tech" data-section="presentation" data-value="skill2-tech">SESIP · RED · Secure boot · Secure storage · PSA API</p><a class="link" href="#resumen" data-section="presentation" data-value="skill2-link">Ver experiencia en DEKRA</a></article><article class="expertise-card"><h3 class="" data-section="presentation" data-value="skill3-title">Automatización y herramientas</h3><p class="muted" data-section="presentation" data-value="skill3-description">Herramientas reproducibles para compilación, despliegue, pruebas y diagnóstico.</p><p class="featured-tech" data-section="presentation" data-value="skill3-tech">Python · Bash · Docker · Git · CMake · Qt6/QML</p><a class="link" href="https://github.com/DaniCampusIoT/torizon-qt6-diagnostics" data-section="presentation" data-value="skill3-link">Ver proyecto de diagnóstico</a></article></div></div></section>
 
     <!-- RESUME -->
     <section class="section" id="resumen">
