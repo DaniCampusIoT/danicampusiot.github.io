@@ -1,0 +1,146 @@
+name: Add education and experience details
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/portfolio-timeline-details.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: portfolio-timeline-details
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Add timeline disclosures without removing descriptions
+        shell: python
+        run: |
+          from pathlib import Path
+          import re, json
+          js_path = Path('js/app.js')
+          css_path = Path('css/style.css')
+          html_path = Path('index.html')
+          js = js_path.read_text()
+          css = css_path.read_text()
+          html = html_path.read_text()
+          marker = '// Timeline progressive disclosure'
+          if marker not in js:
+              helper = '''// Timeline progressive disclosure
+          const timelineDisclosureState = new Map();
+          function renderTimelineDetails(language) {
+            const en = language === "en";
+            const labels = en
+              ? { show: "View details", hide: "Hide details" }
+              : { show: "Ver detalles", hide: "Ocultar detalles" };
+            document.querySelectorAll("#resumen .timeline-item").forEach((item) => {
+              const description = item.querySelector(".timeline-desc");
+              if (!description || !description.textContent.trim()) return;
+              const title = item.querySelector(".timeline-title");
+              const section = title?.dataset.section || "experience";
+              const key = item.id || `${section}:${title?.dataset.value}`;
+              if (section === "experience" && title?.dataset.value === "exp1-title") {
+                item.id = "experience-dekra";
+              }
+              let details = item.querySelector(".timeline-details");
+              let preview = item.querySelector(".timeline-preview");
+              if (!details) {
+                details = document.createElement("details");
+                details.className = "timeline-details";
+                const summary = document.createElement("summary");
+                summary.className = "timeline-details-toggle";
+                const show = document.createElement("span");
+                show.className = "details-show";
+                const hide = document.createElement("span");
+                hide.className = "details-hide";
+                summary.append(show, hide);
+                details.append(summary);
+                preview = document.createElement("p");
+                preview.className = "timeline-preview";
+                description.before(preview, details);
+                details.append(description);
+                details.open = timelineDisclosureState.get(key) === true;
+                details.addEventListener("toggle", () => {
+                  timelineDisclosureState.set(key, details.open);
+                });
+              }
+              details.querySelector(".details-show").textContent = labels.show;
+              details.querySelector(".details-hide").textContent = labels.hide;
+              const plain = description.textContent.replace(/\s+/g, " ").replace(/^•\s*/, "").trim();
+              const sentence = plain.match(/^.*?[.!?](?=\s|$)/)?.[0] || plain;
+              preview.textContent = sentence.length <= 200
+                ? sentence
+                : sentence.slice(0, 197).replace(/\s+\S*$/, "") + "…";
+            });
+          }
+          
+          '''
+              assert 'async function changeLanguage(language) {' in js
+              js = js.replace('async function changeLanguage(language) {', helper+'async function changeLanguage(language) {', 1)
+              assert '  renderLatestExperience(language);' in js
+              js = js.replace('  renderLatestExperience(language);', '  renderLatestExperience(language);\n  renderTimelineDetails(language);', 1)
+              js += '''
+          const timelinePrintState = new Map();
+          window.addEventListener("beforeprint", () => {
+            document.querySelectorAll(".timeline-details").forEach((details) => {
+              timelinePrintState.set(details, details.open);
+              details.open = true;
+            });
+          });
+          window.addEventListener("afterprint", () => {
+            timelinePrintState.forEach((open, details) => { details.open = open; });
+            timelinePrintState.clear();
+          });
+          '''
+          if '/* Timeline progressive disclosure */' not in css:
+              css += '''
+          /* Timeline progressive disclosure */
+          .timeline-preview { margin: 8px 0 0; color: var(--page-muted); font-size: 14px; line-height: 1.7; }
+          .timeline-details { margin-top: 10px; }
+          .timeline-details-toggle { cursor: pointer; min-height: 44px; padding: 10px 4px; color: var(--page-text); font-size: 13px; font-weight: 700; border-radius: 6px; }
+          .timeline-details-toggle::marker { color: var(--accent2); }
+          .timeline-details-toggle:focus-visible { outline: 2px solid var(--accent2); outline-offset: 3px; }
+          .timeline-details .timeline-desc { padding: 12px 0 4px; border-top: 1px solid var(--page-border); line-height: 1.75; overflow-wrap: anywhere; }
+          .timeline-details .details-hide { display: none; }
+          .timeline-details[open] .details-show { display: none; }
+          .timeline-details[open] .details-hide { display: inline; }
+          #resumen .card:hover { transform: none; box-shadow: none; }
+          #resumen .timeline-item { border-style: solid; padding: 18px; }
+          #experience-dekra { scroll-margin-top: 80px; }
+          @media print {
+            .timeline-details-toggle, .timeline-preview { display: none; }
+            .timeline-details .timeline-desc { display: block !important; border: 0; padding: 0; }
+            .timeline-details::details-content { content-visibility: visible; }
+          }
+          '''
+          html = re.sub(r'css/style\.css(?:\?[^"]*)?"', 'css/style.css?v=timeline-details-20261026"', html)
+          html = re.sub(r'js/app\.js(?:\?[^"]*)?"', 'js/app.js?v=timeline-details-20261026"', html)
+          # Keep the new DEKRA evidence link specific when phase one is present.
+          html = html.replace('href="#resumen" data-section="presentation" data-value="skill2-link"', 'href="#experience-dekra" data-section="presentation" data-value="skill2-link"')
+          assert 'renderLatestExperience(language);\n  renderTimelineDetails(language);' in js
+          assert 'timeline.insertBefore(item, quandumItem);' in js
+          for path in Path('languages').glob('*.json'): json.loads(path.read_text())
+          for path, content in ((js_path, js), (css_path, css), (html_path, html)):
+              path.write_text('\n'.join(line.rstrip() for line in content.splitlines())+'\n')
+      - name: Validate and commit
+        run: |
+          node --check js/app.js
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add js/app.js css/style.css index.html
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'feat: bilingual education and experience details with compact previews'
+          git push origin HEAD:main
+      - name: Request Pages rebuild
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          build_type=$(gh api repos/${{ github.repository }}/pages --jq '.build_type')
+          if [ "$build_type" = "legacy" ]; then
+            gh api --method POST repos/${{ github.repository }}/pages/builds
+          fi
