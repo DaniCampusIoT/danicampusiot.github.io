@@ -1,0 +1,177 @@
+name: Refresh portfolio presentation
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/refresh-portfolio-content.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: portfolio-content-refresh
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Update presentation and translations
+        shell: python
+        run: |
+          from pathlib import Path
+          import json, re
+          from html import escape
+          translations = {lang: json.loads(Path(f'languages/{lang}.json').read_text()) for lang in ('es', 'en')}
+          copy = {
+            'es': {
+              'role': 'Ingeniero de I+D en sistemas embebidos',
+              'intro': 'Linux embebido, robótica y ciberseguridad: del hardware a la validación.',
+              'view': 'Ver proyectos', 'contact': 'Contacto',
+              'featured-title': 'Proyectos destacados',
+              'featured-subtitle': 'Una selección de mi trabajo en IoT, electrónica y Linux embebido',
+              'problem': 'El reto', 'contribution': 'Mi contribución', 'evidence': 'Ver proyecto',
+              'skills-title': 'Competencias técnicas',
+              'skills-subtitle': 'Tecnologías aplicadas, con proyectos y experiencia como evidencia',
+              'skills': [
+                ['Linux embebido y robótica', 'Integración de plataformas Linux, aplicaciones de diagnóstico y validación de sistemas robóticos.', 'Jetson Orin NX · PREEMPT_RT · ROS 2 · MuJoCo · i.MX8 · Torizon OS', 'Ver experiencia en FUNDITEC'],
+                ['Firmware, electrónica y sensórica', 'Desarrollo de firmware, integración de sensores y diseño electrónico para plataformas conectadas.', 'C/C++ · ESP32 · FreeRTOS · ESP-NOW · MQTT · I2C · SPI · PCB', 'Ver diseño electrónico'],
+                ['Seguridad y validación', 'Evaluación de dispositivos conectados, mecanismos de seguridad embebida y documentación de evidencias.', 'SESIP · RED · Secure boot · Secure storage · PSA API', 'Ver experiencia en DEKRA'],
+                ['Automatización y herramientas', 'Herramientas reproducibles para compilación, despliegue, pruebas y diagnóstico.', 'Python · Bash · Docker · Git · CMake · Qt6/QML', 'Ver proyecto de diagnóstico']
+              ],
+              'projects': [
+                ['Gateway IoT con ESP-NOW', 'Conectar nodos ESP32 a una pasarela IoT mediante una conexión automática.', 'Desarrollo de una pasarela sobre ESP32 basada en ESP-NOW, presentada como trabajo de fin de máster.', 'ESP32 · ESP-NOW · IoT', 'Ver código'],
+                ['Controlador de motor MSP430', 'Integrar control y gestión de potencia en una PCB de cuatro capas.', 'Diseño con Eagle para Diseño Electrónico Avanzado del Máster en Mecatrónica, con separación de señal y potencia y protecciones de sobrecorriente.', 'MSP430 · Eagle · PCB de 4 capas', 'Ver esquemático'],
+                ['Diagnóstico Qt6 sobre i.MX8', 'Visualizar el estado de las interfaces de hardware desde una aplicación en Linux embebido.', 'Dashboard C++/QML sobre Apalis i.MX8 con Torizon OS y Docker para mostrar el loopback SPI y la temperatura del sensor TMP75C por I2C.', 'C++ · Qt6/QML · Torizon · Docker', 'Ver código']
+              ]
+            },
+            'en': {
+              'role': 'R&D Engineer in Embedded Systems',
+              'intro': 'Embedded Linux, robotics and cybersecurity: from hardware to validation.',
+              'view': 'Explore projects', 'contact': 'Contact',
+              'featured-title': 'Featured projects',
+              'featured-subtitle': 'Selected work in IoT, electronics and embedded Linux',
+              'problem': 'The challenge', 'contribution': 'My contribution', 'evidence': 'View project',
+              'skills-title': 'Technical expertise',
+              'skills-subtitle': 'Applied technologies, backed by projects and experience',
+              'skills': [
+                ['Embedded Linux and robotics', 'Linux platform integration, diagnostic applications and robotic system validation.', 'Jetson Orin NX · PREEMPT_RT · ROS 2 · MuJoCo · i.MX8 · Torizon OS', 'View FUNDITEC experience'],
+                ['Firmware, electronics and sensing', 'Firmware development, sensor integration and electronic design for connected platforms.', 'C/C++ · ESP32 · FreeRTOS · ESP-NOW · MQTT · I2C · SPI · PCB', 'Explore electronic design'],
+                ['Security and validation', 'Connected device assessment, embedded security mechanisms and evidence documentation.', 'SESIP · RED · Secure boot · Secure storage · PSA API', 'View DEKRA experience'],
+                ['Automation and tooling', 'Reproducible tools for building, deployment, testing and diagnostics.', 'Python · Bash · Docker · Git · CMake · Qt6/QML', 'View diagnostics project']
+              ],
+              'projects': [
+                ['ESP-NOW IoT Gateway', 'Connect ESP32 nodes to an IoT gateway through automatic connection.', 'Developed an ESP32 gateway based on ESP-NOW, presented as a master’s final project.', 'ESP32 · ESP-NOW · IoT', 'View code'],
+                ['MSP430 Motor Controller', 'Integrate control and power management on a four-layer PCB.', 'Designed with Eagle for the Advanced Electronic Design course of the Mechatronics master’s degree, separating signal and power layers and including overcurrent protection.', 'MSP430 · Eagle · 4-layer PCB', 'View schematic'],
+                ['Qt6 Diagnostics on i.MX8', 'Visualise hardware interface status through an embedded Linux application.', 'C++/QML dashboard on Apalis i.MX8 with Torizon OS and Docker, displaying SPI loopback status and TMP75C sensor temperature over I2C.', 'C++ · Qt6/QML · Torizon · Docker', 'View code']
+              ]
+            }
+          }
+          for lang, data in translations.items():
+              c = copy[lang]
+              data['header']['rol'] = c['role']
+              data['header']['intro'] = c['intro']
+              data['header']['view-projects'] = c['view']
+              data['header']['contact-cta'] = c['contact']
+              data['presentation'] = {k: c[k] for k in ('featured-title', 'featured-subtitle', 'problem', 'contribution', 'skills-title', 'skills-subtitle')}
+              for i, project in enumerate(c['projects']):
+                  for key, value in zip(('title', 'problem', 'contribution', 'tech', 'link'), project):
+                      data['presentation'][f'project{i}-{key}'] = value
+              for i, skill in enumerate(c['skills']):
+                  for key, value in zip(('title', 'description', 'tech', 'link'), skill):
+                      data['presentation'][f'skill{i}-{key}'] = value
+          def text(key):
+              return f'data-section="presentation" data-value="{key}"'
+          def element(tag, key, cls=''):
+              value = escape(translations['es']['presentation'][key])
+              return f'<{tag} class="{cls}" {text(key)}>{value}</{tag}>'
+          project_links = [
+              'https://github.com/DaniCampusIoT/espnow_gateway',
+              'hardware/dea/dea_circuit_sheets.pdf',
+              'https://github.com/DaniCampusIoT/torizon-qt6-diagnostics'
+          ]
+          cards = []
+          for i, href in enumerate(project_links):
+              key = f'project{i}'
+              cards.append('<article class="featured-project">' +
+                  f'<span class="featured-number" aria-hidden="true">0{i+1}</span>' +
+                  element('h3', key+'-title', 'featured-project-title') +
+                  element('p', key+'-tech', 'featured-tech') +
+                  '<dl><dt '+text('problem')+'>El reto</dt><dd '+text(key+'-problem')+'>'+escape(copy['es']['projects'][i][1])+'</dd>' +
+                  '<dt '+text('contribution')+'>Mi contribución</dt><dd '+text(key+'-contribution')+'>'+escape(copy['es']['projects'][i][2])+'</dd></dl>' +
+                  f'<a class="btn small" href="{href}" target="_blank" rel="noopener noreferrer" '+text(key+'-link')+'>'+escape(copy['es']['projects'][i][4])+'</a></article>')
+          featured = '<!-- FEATURED PROJECTS -->\n<section class="section section-alt" id="destacados"><div class="container">' + element('h2', 'featured-title', 'section-title') + element('p', 'featured-subtitle', 'section-subtitle') + '<div class="featured-grid">'+''.join(cards)+'</div></div></section>\n'
+          skill_links = ['#experience-funditec', '#hardware', '#resumen', 'https://github.com/DaniCampusIoT/torizon-qt6-diagnostics']
+          skills = []
+          for i, href in enumerate(skill_links):
+              key = f'skill{i}'
+              skills.append('<article class="expertise-card">'+element('h3', key+'-title')+element('p', key+'-description', 'muted')+element('p', key+'-tech', 'featured-tech')+f'<a class="link" href="{href}" '+text(key+'-link')+'>'+escape(copy['es']['skills'][i][3])+'</a></article>')
+          skill_section = '<!-- SKILLS -->\n<section class="section" id="habilidades"><div class="container">'+element('h2', 'skills-title', 'section-title')+element('p', 'skills-subtitle', 'section-subtitle')+'<div class="expertise-grid">'+''.join(skills)+'</div></div></section>\n\n    '
+          path = Path('index.html')
+          html = path.read_text()
+          assert '<!-- ABOUT -->' in html and '<!-- SKILLS -->' in html and '<!-- RESUME -->' in html
+          if 'id="destacados"' not in html:
+              html = html.replace('<!-- ABOUT -->', featured+'<!-- ABOUT -->', 1)
+          html, count = re.subn(r'<!-- SKILLS -->[\s\S]*?(?=<!-- RESUME -->)', lambda _: skill_section, html, count=1)
+          assert count == 1
+          html = html.replace('DANIEL CARRION</h1>', 'Daniel Rodríguez Carrión</h1>')
+          pattern = r'(<p class="hero-subtitle"[^>]*>)[^<]*(</p>)'
+          html, count = re.subn(pattern, lambda m: m[1]+escape(copy['es']['role'])+m[2], html, count=1)
+          assert count == 1
+          if 'class="hero-intro"' not in html:
+              html = html.replace('<div class="cta-row">', '<p class="hero-intro" data-section="header" data-value="intro">'+escape(copy['es']['intro'])+'</p><div class="cta-row"><a class="btn primary" href="#destacados" data-section="header" data-value="view-projects">Ver proyectos</a>', 1)
+          html = html.replace('href="drc_cv_es.pdf" class="btn primary"', 'href="drc_cv_es.pdf" class="btn"')
+          html = html.replace('css/style.css?v=nav-domain-20261026', 'css/style.css?v=presentation-20261026')
+          assert 'skill-pct' not in html and 'skill-fill' not in html
+          assert html.count('class="featured-project"') == 3
+          assert html.count('class="expertise-card"') == 4
+          css_path = Path('css/style.css')
+          css = css_path.read_text()
+          if '/* Portfolio presentation refresh */' not in css:
+              css += '''
+          /* Portfolio presentation refresh */
+          .hero-title { font-size: clamp(32px, 4.4vw, 54px); line-height: 1.12; }
+          .hero-subtitle { font-family: var(--font-body); font-size: clamp(19px,2.3vw,25px); font-weight: 600; letter-spacing: -.02em; margin-top: 18px; }
+          .hero-intro { max-width: 48ch; font-size: 17px; line-height: 1.7; color: var(--page-muted); }
+          .featured-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
+          .featured-project, .expertise-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius); padding: 24px; min-width: 0; }
+          .featured-project { display: flex; flex-direction: column; }
+          .featured-number { font-family: var(--font-mono); color: var(--accent2); font-size: 12px; letter-spacing: .14em; }
+          .featured-project-title, .expertise-card h3 { font-family: var(--font-display); font-size: 21px; line-height: 1.3; margin: 14px 0 12px; }
+          .featured-tech { font-family: var(--font-mono); font-size: 12px; line-height: 1.8; color: var(--page-muted); overflow-wrap: anywhere; }
+          .featured-project dl { margin: 8px 0 24px; flex: 1; }
+          .featured-project dt { font-weight: 700; font-size: 13px; margin-top: 16px; }
+          .featured-project dd { margin: 6px 0 0; color: var(--page-muted); font-size: 14px; line-height: 1.7; }
+          .featured-project .btn { align-self: flex-start; }
+          .expertise-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+          .expertise-card .link { display: inline-flex; min-height: 44px; align-items: center; }
+          #experience-funditec { scroll-margin-top: 80px; }
+          @media (max-width: 920px) { .featured-grid { grid-template-columns: 1fr; } }
+          @media (max-width: 768px) { .hero-intro { margin-inline: auto; } }
+          @media (max-width: 600px) { .expertise-grid { grid-template-columns: 1fr; } .featured-project, .expertise-card { padding: 20px; } }
+          '''
+          for lang, data in translations.items():
+              output = json.dumps(data, ensure_ascii=False, indent=4)+'\n'
+              json.loads(output)
+              Path(f'languages/{lang}.json').write_text(output)
+          path.write_text(html)
+          css_path.write_text(css)
+      - name: Validate and commit
+        run: |
+          node --check js/app.js
+          git diff --check
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html css/style.css languages/es.json languages/en.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'feat: focused hero, three featured projects and evidence-based skills'
+          git push origin HEAD:main
+      - name: Request Pages rebuild
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          build_type=$(gh api repos/${{ github.repository }}/pages --jq '.build_type')
+          if [ "$build_type" = "legacy" ]; then
+            gh api --method POST repos/${{ github.repository }}/pages/builds
+          fi
