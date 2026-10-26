@@ -1,0 +1,188 @@
+name: Fix portfolio navigation and domain
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/fix-portfolio-navigation.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: portfolio-navigation-fix
+  cancel-in-progress: false
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Apply targeted fixes
+        shell: python
+        run: |
+          from pathlib import Path
+          import re, json
+          css_path = Path('css/style.css')
+          js_path = Path('js/app.js')
+          html_path = Path('index.html')
+          css = css_path.read_text()
+          js = js_path.read_text()
+          html = html_path.read_text()
+          marker = '/* Navigation repair: explicit disclosure states */'
+          if marker not in css:
+              css += '''
+          /* Navigation repair: explicit disclosure states */
+          .site-header .header-inner { padding-inline: 18px; }
+          section[id] { scroll-margin-top: 80px; }
+          .nav-dropdown.is-open > .nav-dropdown-menu {
+            visibility: visible; opacity: 1; pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+            transition-delay: 0s;
+          }
+          .nav-dropdown-menu a.is-active {
+            background: rgba(13,110,148,.10);
+            outline: 1px solid var(--chip-border);
+          }
+          @media (max-width: 820px) {
+            #primary-nav {
+              position: absolute; top: calc(100% + 8px);
+              left: 18px; right: 18px;
+              display: none; align-items: stretch;
+              max-height: calc(100vh - 100px);
+              max-height: calc(100dvh - 100px);
+              overflow-y: auto; overscroll-behavior: contain;
+              background: var(--page-bg-solid);
+            }
+            body.nav-open #primary-nav { display: flex; }
+            #primary-nav > a, #primary-nav .nav-dropdown-trigger,
+            #primary-nav .nav-dropdown-menu a {
+              min-height: 44px; display: flex; align-items: center;
+            }
+            #primary-nav .nav-dropdown { width: 100%; }
+            #primary-nav .nav-dropdown-menu {
+              display: none; visibility: hidden; opacity: 0;
+              pointer-events: none; transform: none;
+            }
+            #primary-nav .nav-dropdown.is-open > .nav-dropdown-menu {
+              display: block; visibility: visible; opacity: 1;
+              pointer-events: auto; transform: none;
+            }
+            #burger { min-width: 44px; min-height: 44px;
+              align-items: center; justify-content: center; }
+          }
+          '''
+          start = js.find('function toggleNav() {')
+          end = js.find('function initTheme() {', start)
+          assert start >= 0 and end > start, 'Navigation functions not found; no changes written'
+          js = js[:start] + '''function setProjectMenu(open) {
+            const dropdown = document.getElementById("navDropdown");
+            const button = document.getElementById("dropdownBtn");
+            const menu = document.getElementById("dropdownMenu");
+            dropdown?.classList.toggle("is-open", open);
+            menu?.classList.toggle("is-open", open);
+            button?.setAttribute("aria-expanded", String(open));
+          }
+          function setMobileMenu(open) {
+            document.body.classList.toggle("nav-open", open);
+            burger?.setAttribute("aria-expanded", String(open));
+            const english = document.documentElement.lang === "en";
+            burger?.setAttribute("aria-label", english
+              ? (open ? "Close menu" : "Open menu")
+              : (open ? "Cerrar menú" : "Abrir menú"));
+            const icon = burger?.querySelector("i");
+            icon?.classList.toggle("fa-bars", !open);
+            icon?.classList.toggle("fa-xmark", open);
+            if (!open) setProjectMenu(false);
+          }
+          function toggleNav() {
+            setMobileMenu(!document.body.classList.contains("nav-open"));
+          }
+          function closeNav() { setMobileMenu(false); }
+          function initNav() {
+            const nav = document.getElementById("primary-nav");
+            const projectButton = document.getElementById("dropdownBtn");
+            if (!burger || !nav) return;
+            closeNav();
+            burger.addEventListener("click", toggleNav);
+            projectButton?.addEventListener("click", (event) => {
+              event.stopPropagation();
+              setProjectMenu(projectButton.getAttribute("aria-expanded") !== "true");
+            });
+            nav.addEventListener("click", (event) => {
+              const link = event.target.closest('a[href^="#"]');
+              if (!link) return;
+              closeNav();
+              nav.querySelectorAll('a[href^="#"]').forEach((item) => {
+                const active = item === link;
+                item.classList.toggle("is-active", active);
+                if (active) item.setAttribute("aria-current", "page");
+                else item.removeAttribute("aria-current");
+              });
+            });
+            document.addEventListener("click", (event) => {
+              if (!nav.contains(event.target) && !burger.contains(event.target)) closeNav();
+            });
+            document.addEventListener("keydown", (event) => {
+              if (event.key !== "Escape") return;
+              const open = document.body.classList.contains("nav-open");
+              if (open) { closeNav(); burger.focus(); }
+              else if (projectButton?.getAttribute("aria-expanded") === "true") {
+                setProjectMenu(false); projectButton.focus();
+              }
+            });
+            document.addEventListener("focusin", (event) => {
+              if (!nav.contains(event.target) && !burger.contains(event.target)) closeNav();
+            });
+            window.matchMedia("(max-width: 820px)").addEventListener("change", closeNav);
+            window.addEventListener("pageshow", closeNav);
+            const projectMenu = document.getElementById("dropdownMenu");
+            projectButton?.removeAttribute("aria-haspopup");
+            projectMenu?.removeAttribute("role");
+            projectMenu?.querySelectorAll("[role]").forEach((el) => el.removeAttribute("role"));
+          }
+          
+          ''' + js[end:]
+          # Remove the old inline controller to avoid two handlers toggling the same state.
+          if '// Dropdown nav' in html:
+              html, count = re.subn(r'    // Dropdown nav[\s\S]*?(?=  </script>)', '', html, count=1)
+              assert count == 1, 'Inline dropdown controller could not be removed'
+          assert 'function toggleDropdown' not in html, 'Unexpected inline dropdown controller'
+          js = js.replace('setActiveFlag(language);', 'setActiveFlag(language);\n  closeNav();')
+          # Replace only URLs for this site, preserving other github.io project paths.
+          old = 'https://danicampusiot.github.io'
+          new = 'https://portfolio.danicampus.dev'
+          html = re.sub(re.escape(old) + r'(?=/["\s<]|["\s<])', new, html)
+          html = html.replace('>danicampusiot.github.io<', '>portfolio.danicampus.dev<')
+          html = html.replace('css/style.css"', 'css/style.css?v=nav-domain-20261026"')
+          html = html.replace('js/app.js"', 'js/app.js?v=nav-domain-20261026"')
+          updates = {css_path: css, js_path: js, html_path: html}
+          for filename in ('robots.txt', 'sitemap.xml'):
+              path = Path(filename)
+              if path.exists(): updates[path] = path.read_text().replace(old, new)
+          assert 'portfolio.danicampus.dev' in html
+          assert 'renderLatestExperience(language)' in js, 'FUNDITEC renderer must be preserved'
+          for path in Path('languages').glob('*.json'): json.loads(path.read_text())
+          for path, content in updates.items(): path.write_text(content)
+      - name: Validate JavaScript and XML
+        run: |
+          node --check js/app.js
+          python3 -c "import xml.etree.ElementTree as E; E.parse('sitemap.xml')"
+          git diff --check
+      - name: Commit corrections
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add css/style.css js/app.js index.html robots.txt sitemap.xml
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'fix: mobile navigation states and portfolio custom domain'
+          git push origin HEAD:main
+      - name: Request GitHub Pages rebuild
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          build_type=$(gh api repos/${{ github.repository }}/pages --jq '.build_type')
+          if [ "$build_type" = "legacy" ]; then
+            gh api --method POST repos/${{ github.repository }}/pages/builds
+          else
+            echo 'Custom Pages deployment detected; no branch build requested.'
+          fi
